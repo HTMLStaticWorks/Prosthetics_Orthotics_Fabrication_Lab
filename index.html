@@ -1,1 +1,695 @@
-hello
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <!-- Favicons - ApexFlex Logo -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#3B0764">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexFlex - Custom Prosthetics & Orthotics Fabrication</title>
+  <meta name="description" content="State-of-the-art Prosthetics and Orthotics fabrication laboratory. Custom bionic limbs, orthotic braces, pediatric solutions, and clinical collaboration.">
+  
+  <!-- Tailwind CSS 3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#3B0764',
+              lavender: '#E9D5FF',
+              blue: '#0EA5E9',
+              charcoal: '#111827',
+              pink: '#FBCFE8',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+
+  <!-- SKELETON LOADING STATE -->
+  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-gray-50 dark:bg-gray-950 flex flex-col p-4 space-y-6">
+    <div class="h-16 w-full skeleton-bg rounded-xl"></div>
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-7xl w-full mx-auto">
+      <div class="space-y-6">
+        <div class="h-12 w-3/4 skeleton-bg rounded-xl"></div>
+        <div class="h-6 w-5/6 skeleton-bg rounded-lg"></div>
+        <div class="h-6 w-2/3 skeleton-bg rounded-lg"></div>
+        <div class="flex space-x-4">
+          <div class="h-12 w-36 skeleton-bg rounded-xl"></div>
+          <div class="h-12 w-36 skeleton-bg rounded-xl"></div>
+        </div>
+      </div>
+      <div class="h-[350px] w-full skeleton-bg rounded-2xl"></div>
+    </div>
+  </div>
+
+  <!-- ACTUAL SITE CONTENT -->
+  <div class="actual-content opacity-0 flex-1 flex flex-col">
+    
+    <!-- NAVIGATION BAR -->
+    <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo & Brand Redirect -->
+          <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-purple-900 dark:text-sky-400">
+                <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+                <circle cx="12" cy="10" r="3" />
+                <path d="M12 13v7M9 20h6" />
+              </svg>
+              <span class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-purple-900 via-purple-700 to-sky-500 bg-clip-text text-transparent dark:from-purple-300 dark:via-sky-300 dark:to-pink-200">
+                ApexFlex
+              </span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
+            <a href="index.html" class="text-purple-900 dark:text-sky-400 hover:text-sky-500 dark:hover:text-white transition-colors">Home 1</a>
+            <a href="pages/home2.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Home 2</a>
+            <a href="pages/about.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">About</a>
+            <a href="pages/services.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Services</a>
+            <a href="pages/case-studies.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Case Studies</a>
+            <a href="pages/blog.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Blog</a>
+            <a href="pages/contact.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Contact</a>
+          </div>
+
+          <!-- Action Switches & CTA -->
+          <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800 flex items-center justify-center" aria-label="Toggle RTL mode">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+
+            <!-- Primary CTA: Signup -->
+            <a href="pages/signup.html" class="px-5 py-2.5 bg-purple-950 dark:bg-sky-500 hover:bg-purple-900 dark:hover:bg-sky-400 text-white rounded-xl text-sm font-semibold transition-all shadow-md shadow-purple-950/20 dark:shadow-sky-500/20 hover:scale-[1.02]">
+              Sign Up
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+            
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center" aria-label="Toggle RTL mode">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+
+            <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" aria-expanded="false">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Menu drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+          <a href="index.html" class="block px-3 py-2.5 rounded-xl text-purple-900 dark:text-sky-400 bg-purple-50 dark:bg-gray-800/50 font-semibold">Home 1</a>
+          <a href="pages/home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
+          <a href="pages/about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
+          <a href="pages/services.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
+          <a href="pages/case-studies.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
+          <a href="pages/blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
+          <a href="pages/contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
+          <div class="border-t border-gray-200 dark:border-gray-800 my-2"></div>
+          <a href="pages/signup.html" class="block mt-4 text-center px-4 py-3 bg-purple-950 dark:bg-sky-500 text-white rounded-xl font-semibold">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <header class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-br from-white via-purple-50/20 to-sky-50/30 dark:from-gray-950 dark:via-purple-950/10 dark:to-gray-950">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-200/30 dark:bg-purple-900/10 rounded-full blur-3xl blob-animate"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-200/20 dark:bg-sky-900/10 rounded-full blur-3xl blob-animate-slow"></div>
+        <div class="absolute top-3/4 left-1/2 w-64 h-64 bg-pink-100/20 dark:bg-purple-900/5 rounded-full blur-2xl blob-animate-medium"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Left Text Content -->
+          <div class="space-y-8 reveal-element">
+            <div class="inline-flex items-center space-x-2 rtl:space-x-reverse px-3 py-1 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-900 dark:text-sky-300 font-semibold text-xs uppercase tracking-wider">
+              <span>Bio-Mechanical Engineering Excellence</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900 dark:text-white font-heading">
+              Restoring Life's Natural <span class="bg-gradient-to-r from-purple-800 to-sky-500 bg-clip-text text-transparent dark:from-purple-300 dark:to-sky-400">Motion & Mobility</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl font-normal leading-relaxed">
+              We engineer custom bionic prosthetic limbs and advanced orthopedic orthoses. Our digital CAD/CAM clinic works in partnership with physicians to restore human physical capacity.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+              <a href="pages/contact.html" class="px-8 py-4 bg-purple-950 dark:bg-sky-500 hover:bg-purple-900 dark:hover:bg-sky-400 text-white rounded-2xl text-center font-semibold transition-all shadow-lg shadow-purple-950/20 dark:shadow-sky-500/20 hover:scale-[1.02]">
+                Request Consultation
+              </a>
+              <a href="pages/services.html" class="px-8 py-4 glass-panel hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-900 dark:text-white rounded-2xl text-center font-semibold transition-all border border-gray-200 dark:border-gray-800">
+                Explore Solutions
+              </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="pt-6 border-t border-gray-200 dark:border-gray-800/50">
+              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest font-semibold mb-4">Accredited Clinical Integrity</p>
+              <div class="flex flex-wrap gap-6 items-center">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-sky-500"></i>
+                  <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">FDA Registered Facility</span>
+                </div>
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                  <i data-lucide="shield-check" class="w-5 h-5 text-purple-600 dark:text-sky-400"></i>
+                  <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">ABC Board Certified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Medical Illustration / Image -->
+          <div class="relative reveal-right">
+            <!-- Elegant background decoration -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-sky-500/10 rounded-3xl -rotate-2 transform scale-105"></div>
+            
+            <div class="glass-panel p-4 rounded-3xl relative overflow-hidden shadow-2xl border border-white/20 dark:border-gray-800/40">
+              <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80" alt="Advanced prosthetic design with myoelectric sensor integration" class="rounded-2xl w-full h-[320px] sm:h-[400px] object-cover transition-transform duration-700 hover:scale-105" onerror="handleImageError(this)">
+              
+              <!-- Floating UI overlay -->
+              <div class="absolute bottom-8 left-8 right-8 glass-panel p-4 rounded-2xl flex float-up-down items-center space-x-4 rtl:space-x-reverse shadow-lg">
+                <div class="w-12 h-12 rounded-xl bg-purple-950 dark:bg-sky-500 flex items-center justify-center text-white">
+                  <i data-lucide="cpu" class="w-6 h-6 animate-pulse"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Active Bio-Sensing Tech</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-300">Myoelectric carbon fiber socket adjustments</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 2: CUSTOM PROSTHETIC SOLUTIONS -->
+    <section class="py-24 bg-white dark:bg-gray-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Tailored Restoration</span>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white font-heading">Custom Prosthetic Solutions</h2>
+          <p class="text-gray-600 dark:text-gray-400">Our lab synthesizes bio-compatible polymers, composite carbon fabrics, and sensory controls to rebuild individual kinetic mobility.</p>
+        </div>
+
+        <!-- Solutions Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+          
+          <!-- Card 1: Upper Limb -->
+          <div class="glass-panel rounded-2xl overflow-hidden hover-lift flex flex-col h-full reveal-element">
+            <div class="relative h-56 w-full img-hover-zoom">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Robotic hand prostheses design check" class="w-full h-full object-cover" loading="lazy" onerror="handleImageError(this)">
+              <div class="absolute top-4 right-4 bg-purple-950/80 dark:bg-sky-500/80 text-white p-2 rounded-xl backdrop-blur-sm">
+                <i data-lucide="hand" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Upper Limb Prosthetics</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  From multi-articulating myoelectric hands to heavy-duty body-powered utility wrists. Custom molded sockets maximize control and comfort.
+                </p>
+              </div>
+              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800 pt-4">
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-500 mr-2 rtl:ml-2"></i>Myoelectric signal sensors</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-500 mr-2 rtl:ml-2"></i>Carbon-reinforced chassis</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 2: Lower Limb -->
+          <div class="glass-panel rounded-2xl overflow-hidden hover-lift flex flex-col h-full reveal-element">
+            <div class="relative h-56 w-full img-hover-zoom">
+              <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80" alt="Patient training with carbon fiber running blade prosthetic leg" class="w-full h-full object-cover" loading="lazy" onerror="handleImageError(this)">
+              <div class="absolute top-4 right-4 bg-purple-950/80 dark:bg-sky-500/80 text-white p-2 rounded-xl backdrop-blur-sm">
+                <i data-lucide="footprints" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Lower Limb Prosthetics</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  High-activity running blades, microprocessor controlled knees (MPKs), and multi-axial carbon fiber feet optimized for uneven terrain navigation.
+                </p>
+              </div>
+              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800 pt-4">
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-500 mr-2 rtl:ml-2"></i>Microprocessor gait adapters</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-500 mr-2 rtl:ml-2"></i>Vacuum suspension sockets</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 3: Pediatric Solutions -->
+          <div class="glass-panel rounded-2xl overflow-hidden hover-lift flex flex-col h-full reveal-element">
+            <div class="relative h-56 w-full img-hover-zoom">
+              <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=600&q=80" alt="Pediatric patient prosthetics checkup" class="w-full h-full object-cover" loading="lazy" onerror="handleImageError(this)">
+              <div class="absolute top-4 right-4 bg-purple-950/80 dark:bg-sky-500/80 text-white p-2 rounded-xl backdrop-blur-sm">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Pediatric Solutions</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Lightweight, impact-resistant structures designed to grow alongside the child. Vibrant patterns, robust hinges, and friendly clinical support.
+                </p>
+              </div>
+              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800 pt-4">
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-500 mr-2 rtl:ml-2"></i>Modular growth adapters</li>
+                <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-500 mr-2 rtl:ml-2"></i>Hypoallergenic materials</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PATIENT MOBILITY METRICS -->
+    <section class="py-20 bg-gradient-to-r from-purple-950 to-indigo-900 text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/50 via-transparent to-transparent opacity-50"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          
+          <div class="space-y-2 reveal-scale-in">
+            <div class="text-4xl sm:text-5xl font-bold font-heading text-sky-400">15,400+</div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-purple-200">Patients Restored</p>
+            <p class="text-xs text-purple-300/70">Custom devices fitted globally</p>
+          </div>
+
+          <div class="space-y-2 reveal-scale-in">
+            <div class="text-4xl sm:text-5xl font-bold font-heading text-sky-400">99.4%</div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-purple-200">Gait Success Rate</p>
+            <p class="text-xs text-purple-300/70">Clinical mobility goals met</p>
+          </div>
+
+          <div class="space-y-2 reveal-scale-in">
+            <div class="text-4xl sm:text-5xl font-bold font-heading text-sky-400">98.8%</div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-purple-200">Satisfaction Score</p>
+            <p class="text-xs text-purple-300/70">Comfort and fitting reviews</p>
+          </div>
+
+          <div class="space-y-2 reveal-scale-in">
+            <div class="text-4xl sm:text-5xl font-bold font-heading text-sky-400">2.1 Days</div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-purple-200">Avg Fabrication</p>
+            <p class="text-xs text-purple-300/70">Digital scans to fitting room</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FABRICATION PROCESS -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-900/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Precision Workflow</span>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white font-heading">Fabrication Process</h2>
+          <p class="text-gray-600 dark:text-gray-400">How we turn advanced biometric scans into robust, custom mobility solutions ready for patient integration.</p>
+        </div>
+
+        <!-- Process Timeline Steps (6 steps) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 relative stagger-children">
+          <!-- Connector line for desktop -->
+          <div class="hidden lg:block absolute top-10 left-12 right-12 h-0.5 bg-purple-200 dark:bg-gray-800 z-0 timeline-connector"></div>
+
+          <!-- Step 1 -->
+          <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-purple-900/20 dark:border-sky-500/20 flex items-center justify-center reveal-bounce text-purple-950 dark:text-sky-400 shadow-md">
+              <i data-lucide="message-square-plus" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sky-500 uppercase tracking-widest">Step 01</span>
+              <h4 class="text-base font-semibold text-gray-900 dark:text-white mt-1">Consultation</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Initial physical review and practitioner consultation.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 100ms;">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-purple-900/20 dark:border-sky-500/20 flex items-center justify-center reveal-bounce text-purple-950 dark:text-sky-400 shadow-md">
+              <i data-lucide="activity" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sky-500 uppercase tracking-widest">Step 02</span>
+              <h4 class="text-base font-semibold text-gray-900 dark:text-white mt-1">Assessment</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Comprehensive 3D laser scan and diagnostic checks.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 200ms;">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-purple-900/20 dark:border-sky-500/20 flex items-center justify-center reveal-bounce text-purple-950 dark:text-sky-400 shadow-md">
+              <i data-lucide="pen-tool" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sky-500 uppercase tracking-widest">Step 03</span>
+              <h4 class="text-base font-semibold text-gray-900 dark:text-white mt-1">Design</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">CAD/CAM rendering of custom socket and structure.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 300ms;">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-purple-900/20 dark:border-sky-500/20 flex items-center justify-center reveal-bounce text-purple-950 dark:text-sky-400 shadow-md">
+              <i data-lucide="layers" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sky-500 uppercase tracking-widest">Step 04</span>
+              <h4 class="text-base font-semibold text-gray-900 dark:text-white mt-1">Fabrication</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Milling, printing, and composite lamination.</p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 400ms;">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-purple-900/20 dark:border-sky-500/20 flex items-center justify-center reveal-bounce text-purple-950 dark:text-sky-400 shadow-md">
+              <i data-lucide="wrench" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sky-500 uppercase tracking-widest">Step 05</span>
+              <h4 class="text-base font-semibold text-gray-900 dark:text-white mt-1">Fitting</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">In-clinic trial, alignment tuning, static adjustments.</p>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 500ms;">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-purple-900/20 dark:border-sky-500/20 flex items-center justify-center reveal-bounce text-purple-950 dark:text-sky-400 shadow-md">
+              <i data-lucide="shield-check" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sky-500 uppercase tracking-widest">Step 06</span>
+              <h4 class="text-base font-semibold text-gray-900 dark:text-white mt-1">Follow-Up</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Regular wear checks and socket modifications.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PATIENT SUCCESS STORIES -->
+    <section class="py-24 bg-white dark:bg-gray-950 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Real Outcomes</span>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white font-heading">Patient Success Stories</h2>
+          <p class="text-gray-600 dark:text-gray-400">Discover the clinical journeys and walking restorations of our patients fitted with bespoke ApexFlex limbs.</p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="slider-container relative max-w-5xl mx-auto reveal-scale-in">
+          
+          <div class="overflow-hidden rounded-3xl border border-gray-100 dark:border-gray-800 shadow-xl bg-gray-50 dark:bg-gray-900">
+            <div class="slider-track flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+              
+              <!-- Slide 1 -->
+              <div class="slider-slide min-w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children p-6 sm:p-12 items-center">
+                <div class="space-y-6">
+                  <span class="inline-flex items-center px-3 py-1 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-950 dark:text-sky-300 font-semibold text-xs">
+                    Lower Limb Restoration Journey
+                  </span>
+                  <blockquote class="text-lg text-gray-700 dark:text-gray-200 italic font-medium leading-relaxed">
+                    "After my accident, I thought I'd never hike again. The custom vacuum suspension prosthesis from ApexFlex fits like a glove. I walked 5 miles on rugged trails last weekend."
+                  </blockquote>
+                  <div>
+                    <h4 class="text-base font-bold text-gray-900 dark:text-white">Marcus Vance</h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Fitted in 2025 • Traumatic Transtibial Amputee</p>
+                  </div>
+                </div>
+                <div class="relative">
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Therapist adjusting patient with knee replacement gait patterns" class="rounded-2xl w-full h-[280px] object-cover shadow-md" loading="lazy" onerror="handleImageError(this)">
+                  <div class="absolute bottom-4 right-4 bg-purple-950 text-white text-xs px-3 py-1.5 rounded-lg font-bold">
+                    95% Gait Efficiency Match
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="slider-slide min-w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children p-6 sm:p-12 items-center">
+                <div class="space-y-6">
+                  <span class="inline-flex items-center px-3 py-1 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-950 dark:text-sky-300 font-semibold text-xs">
+                    Pediatric Support Journey
+                  </span>
+                  <blockquote class="text-lg text-gray-700 dark:text-gray-200 italic font-medium leading-relaxed">
+                    "The pediatric orthotics program completely changed my daughter's spinal alignment. Her scoliosis brace is lightweight and she actually enjoys wearing it to school."
+                  </blockquote>
+                  <div>
+                    <h4 class="text-base font-bold text-gray-900 dark:text-white">Sarah Jenkins (Mother of Lily)</h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Fitted in 2026 • Cranial & Spinal Orthotics Patient</p>
+                  </div>
+                </div>
+                <div class="relative">
+                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Pediatric patient wearing scoliosis corrective brace back support" class="rounded-2xl w-full h-[280px] object-cover shadow-md" loading="lazy" onerror="handleImageError(this)">
+                  <div class="absolute bottom-4 right-4 bg-purple-950 text-white text-xs px-3 py-1.5 rounded-lg font-bold">
+                    Cobb Angle Reduced by 18°
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="flex justify-between items-center mt-6">
+            <div class="slider-dots flex space-x-2 rtl:space-x-reverse">
+              <!-- Dynamically populated -->
+            </div>
+            
+            <div class="flex space-x-3 rtl:space-x-reverse">
+              <button class="slider-prev p-3 bg-gray-50 hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-gray-800 dark:text-white rounded-xl border border-gray-200 dark:border-gray-800 transition-colors shadow-sm" aria-label="Previous slide">
+                <i data-lucide="chevron-left" class="w-5 h-5 rtl-flip"></i>
+              </button>
+              <button class="slider-next p-3 bg-gray-50 hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 text-gray-800 dark:text-white rounded-xl border border-gray-200 dark:border-gray-800 transition-colors shadow-sm" aria-label="Next slide">
+                <i data-lucide="chevron-right" class="w-5 h-5 rtl-flip"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PHYSICIAN REFERRAL PATHWAY -->
+    <section class="py-24 bg-gradient-to-br from-purple-50/50 via-white to-sky-50/50 dark:from-gray-950 dark:via-gray-950 dark:to-purple-950/20 border-t border-gray-100 dark:border-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-panel p-8 sm:p-16 rounded-3xl relative overflow-hidden shadow-xl border border-white/20 dark:border-gray-800/40">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Pathway text -->
+            <div class="space-y-6 reveal-left">
+              <span class="inline-flex items-center px-3 py-1 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-950 dark:text-sky-300 font-bold text-xs uppercase tracking-wider">
+                Clinical Referral
+              </span>
+              <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white font-heading">Physician Referral Pathway</h2>
+              <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                We work in direct partnership with orthopedic surgeons, physical therapists, and clinics. Our lab streamlines code billing and diagnostic data processing, providing your patients with rapid device turnarounds and precise fit alignments.
+              </p>
+              
+              <!-- Pathway Workflow checklist -->
+              <div class="space-y-4 pt-4">
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                  <div class="w-6 h-6 rounded-full bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-500 font-bold text-xs mt-0.5">1</div>
+                  <div>
+                    <h5 class="text-sm font-semibold text-gray-900 dark:text-white">Submit referral form with medical files</h5>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Upload patient scans and prescription details.</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                  <div class="w-6 h-6 rounded-full bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-500 font-bold text-xs mt-0.5">2</div>
+                  <div>
+                    <h5 class="text-sm font-semibold text-gray-900 dark:text-white">Collaborative diagnostic scan review</h5>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Our clinical prosthetists check fits via 3D CAD modeling.</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3 rtl:space-x-reverse">
+                  <div class="w-6 h-6 rounded-full bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-500 font-bold text-xs mt-0.5">3</div>
+                  <div>
+                    <h5 class="text-sm font-semibold text-gray-900 dark:text-white">Continuous alignment checkups</h5>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">We send regular gait tracking reports and adjustment logs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Board -->
+            <div class="bg-white/80 dark:bg-gray-900/80 p-8 rounded-2xl border border-gray-150 dark:border-gray-800 relative z-10 space-y-6 shadow-md reveal-right">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Are you a healthcare provider?</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Partner with ApexFlex to fast-track your patient’s recovery cycle. Access our digital prescriptions portal or book a consulting call with our bio-engineering leads.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                <a href="pages/contact.html#referral-form" class="flex-1 px-6 py-3 bg-purple-950 dark:bg-sky-500 hover:bg-purple-900 dark:hover:bg-sky-400 text-white rounded-xl text-center font-semibold text-sm transition-all shadow-md">
+                  Register Physician Referral
+                </a>
+                <a href="pages/contact.html" class="px-6 py-3 glass-panel hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-900 dark:text-white rounded-xl text-center font-semibold text-sm transition-all border border-gray-200 dark:border-gray-800">
+                  Contact Lab
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 dark:bg-gray-950 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          
+          <!-- Column 1: Branding -->
+          <div class="space-y-4">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-sky-400">
+                <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+                <circle cx="12" cy="10" r="3" />
+                <path d="M12 13v7M9 20h6" />
+              </svg>
+              <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
+            </a>
+            <p class="text-xs text-gray-400 leading-relaxed font-normal">
+              State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological walking capacity via advanced design.
+            </p>
+            <!-- Social Icons -->
+            <div class="flex space-x-4 rtl:space-x-reverse pt-2">
+              <a href="#" class="p-2 bg-gray-800 hover:bg-sky-500 rounded-lg text-gray-400 hover:text-white transition-all" aria-label="LinkedIn">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="#" class="p-2 bg-gray-800 hover:bg-sky-500 rounded-lg text-gray-400 hover:text-white transition-all" aria-label="Twitter">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="#" class="p-2 bg-gray-800 hover:bg-sky-500 rounded-lg text-gray-400 hover:text-white transition-all" aria-label="YouTube">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div>
+            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Solutions</h4>
+            <ul class="space-y-2 text-xs">
+              <li><a href="index.html" class="hover:text-sky-400 transition-colors">Home 1</a></li>
+              <li><a href="pages/home2.html" class="hover:text-sky-400 transition-colors">Home 2</a></li>
+              <li><a href="pages/about.html" class="hover:text-sky-400 transition-colors">About Journey</a></li>
+              <li><a href="pages/services.html" class="hover:text-sky-400 transition-colors">Lab Services</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Secondary Links -->
+          <div>
+            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Resources</h4>
+            <ul class="space-y-2 text-xs">
+              <li><a href="pages/case-studies.html" class="hover:text-sky-400 transition-colors">Case Analytics</a></li>
+              <li><a href="pages/blog.html" class="hover:text-sky-400 transition-colors">Clinical Blog</a></li>
+              <li><a href="pages/contact.html" class="hover:text-sky-400 transition-colors">Contact & Map</a></li>
+              <li><a href="pages/login.html" class="hover:text-sky-400 transition-colors">Portal Access</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Location Info -->
+          <div>
+            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
+            <address class="not-italic text-xs text-gray-400 space-y-2">
+              <p class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr, Suite D, Seattle, WA 98101</p>
+              <p class="flex items-center"><i data-lucide="phone" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 flex-shrink-0"></i> +1 (800) 555-0199</p>
+              <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 flex-shrink-0"></i> support@apexflexlab.com</p>
+              <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 flex-shrink-0"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+            </address>
+          </div>
+
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+          <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
+          <div class="flex items-center space-x-6 rtl:space-x-reverse">
+            <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+            <a href="#" class="hover:text-gray-300">Terms of Service</a>
+          </div>
+          <a href="#" class="p-2.5 bg-gray-800 hover:bg-sky-500 text-gray-400 hover:text-white rounded-xl transition-all border border-gray-850 hover:border-sky-500 flex items-center justify-center" aria-label="Back to top">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Global scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
