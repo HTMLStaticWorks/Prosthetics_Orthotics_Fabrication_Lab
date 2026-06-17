@@ -59,13 +59,13 @@ function initLimbPressureHeatmap() {
     const cy = pt.y * cellH + cellH/2;
     
     // Choose color gradient based on pressure percentage (val)
-    let color = 'rgba(56, 189, 248, 0.4)'; // soft blue low pressure
+    let color = 'rgba(103, 232, 249, 0.35)'; // soft cyan low pressure
     if (pt.val > 80) {
-      color = 'rgba(147, 51, 234, 0.9)'; // deep purple high pressure
+      color = 'rgba(15, 76, 129, 0.95)'; // deep blue high pressure
     } else if (pt.val > 50) {
-      color = 'rgba(139, 92, 246, 0.7)'; // mid lavender-purple
+      color = 'rgba(20, 184, 166, 0.8)'; // mid teal pressure
     } else if (pt.val > 30) {
-      color = 'rgba(56, 189, 248, 0.7)'; // solid blue
+      color = 'rgba(103, 232, 249, 0.7)'; // solid cyan
     }
     
     svg += `
@@ -143,10 +143,10 @@ function initGaitVelocityChart() {
   
   // Draw Lines
   svg += `
-    <path d="${pathBefore}" fill="none" stroke="#E9D5FF" stroke-width="3" stroke-dasharray="1000" stroke-dashoffset="1000">
+    <path d="${pathBefore}" fill="none" stroke="#BBDDF4" stroke-width="3" stroke-dasharray="1000" stroke-dashoffset="1000">
       <animate attributeName="stroke-dashoffset" to="0" dur="1.2s" fill="freeze" />
     </path>
-    <path d="${pathAfter}" fill="none" stroke="#38BDF8" stroke-width="3" stroke-dasharray="1000" stroke-dashoffset="1000">
+    <path d="${pathAfter}" fill="none" stroke="#14B8A6" stroke-width="3" stroke-dasharray="1000" stroke-dashoffset="1000">
       <animate attributeName="stroke-dashoffset" to="0" dur="1.2s" fill="freeze" />
     </path>
   `;
@@ -154,10 +154,10 @@ function initGaitVelocityChart() {
   // Draw Data dots and labels
   points.forEach((pt) => {
     svg += `
-      <circle cx="${pt.x}" cy="${pt.yBefore}" r="4" fill="#3B0764" stroke="#E9D5FF" stroke-width="2" class="cursor-pointer">
+      <circle cx="${pt.x}" cy="${pt.yBefore}" r="4" fill="#0F4C81" stroke="#BBDDF4" stroke-width="2" class="cursor-pointer">
         <title>Before: ${pt.before} m/s</title>
       </circle>
-      <circle cx="${pt.x}" cy="${pt.yAfter}" r="4" fill="#0284C7" stroke="#38BDF8" stroke-width="2" class="cursor-pointer">
+      <circle cx="${pt.x}" cy="${pt.yAfter}" r="4" fill="#115E59" stroke="#14B8A6" stroke-width="2" class="cursor-pointer">
         <title>After Fit: ${pt.after} m/s</title>
       </circle>
       <text x="${pt.x}" y="${height - padding + 18}" text-anchor="middle" class="text-[10px] fill-current font-medium">${pt.label}</text>
@@ -233,12 +233,12 @@ function initFabricationQueueChart() {
   svg += `
     <defs>
       <linearGradient id="gradPurple" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#7C3AED" />
-        <stop offset="100%" stop-color="#3B0764" />
+        <stop offset="0%" stop-color="#49A2DE" />
+        <stop offset="100%" stop-color="#0F4C81" />
       </linearGradient>
       <linearGradient id="gradBlue" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#38BDF8" />
-        <stop offset="100%" stop-color="#0284C7" />
+        <stop offset="0%" stop-color="#2DD4BF" />
+        <stop offset="100%" stop-color="#0D9488" />
       </linearGradient>
     </defs>
   `;

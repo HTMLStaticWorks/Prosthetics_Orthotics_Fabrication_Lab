@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
   <!-- Favicons - ApexFlex Logo -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -66,6 +68,7 @@
   <div class="actual-content opacity-0 flex-1 flex flex-col">
     
     <!-- NAVIGATION BAR -->
+    <div id="nav-container">
     <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -83,6 +86,7 @@
               </span>
             </a>
           </div>
+
 
           <!-- Desktop Navigation -->
           <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
@@ -135,7 +139,7 @@
               </svg>
             </button>
 
-            <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all" aria-expanded="false">
+            <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all" aria-expanded="false">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -160,6 +164,8 @@
         </div>
       </div>
     </nav>
+    </div>
+    <main class="flex-1 flex flex-col">
 
     <!-- SECTION 1: HERO SECTION -->
     <header class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-br from-white via-purple-50/20 to-sky-50/30 dark:from-gray-950 dark:via-purple-950/10 dark:to-gray-950">
@@ -186,7 +192,7 @@
               We engineer custom bionic prosthetic limbs and advanced orthopedic orthoses. Our digital CAD/CAM clinic works in partnership with physicians to restore human physical capacity.
             </p>
             
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
               <a href="pages/contact.html" class="px-8 py-4 bg-purple-950 dark:bg-sky-500 hover:bg-purple-900 dark:hover:bg-sky-400 text-white rounded-2xl text-center font-semibold transition-all shadow-lg shadow-purple-950/20 dark:shadow-sky-500/20 hover:scale-[1.02]">
                 Request Consultation
               </a>
@@ -561,7 +567,7 @@
             </div>
             <!-- Author -->
             <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-800 mt-6">
-              <img class="h-14 w-14 rounded-full object-cover border-2 border-purple-500/30 shadow-md" src="assets/images/avatar1.png" alt="James Thornton">
+              <img class="h-14 w-14 rounded-full object-cover border-2 border-purple-500/30 shadow-md" src="assets/images/avatar1.png" alt="James Thornton" loading="lazy">
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">James Thornton</h4>
                 <p class="text-xs text-gray-500 dark:text-gray-400">Transtibial Amputee • Runner</p>
@@ -587,7 +593,7 @@
             </div>
             <!-- Author -->
             <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-800 mt-6">
-              <img class="h-14 w-14 rounded-full object-cover border-2 border-sky-500/30 shadow-md" src="assets/images/avatar2.png" alt="Linda Park">
+              <img class="h-14 w-14 rounded-full object-cover border-2 border-sky-500/30 shadow-md" src="assets/images/avatar2.png" alt="Linda Park" loading="lazy">
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Linda Park</h4>
                 <p class="text-xs text-gray-500 dark:text-gray-400">Parent • Pediatric Orthotics Patient</p>
@@ -613,7 +619,7 @@
             </div>
             <!-- Author -->
             <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-800 mt-6">
-              <img class="h-14 w-14 rounded-full object-cover border-2 border-purple-500/30 shadow-md" src="assets/images/avatar3.png" alt="Robert Diaz">
+              <img class="h-14 w-14 rounded-full object-cover border-2 border-purple-500/30 shadow-md" src="assets/images/avatar3.png" alt="Robert Diaz" loading="lazy">
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Robert Diaz</h4>
                 <p class="text-xs text-gray-500 dark:text-gray-400">Transfemoral Amputee • MPK Patient</p>
@@ -781,6 +787,7 @@
 
       </div>
     </footer>
+    </main>
 
   </div>
 
@@ -788,5 +795,3 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-

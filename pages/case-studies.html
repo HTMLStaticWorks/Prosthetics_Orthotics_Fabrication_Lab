@@ -1,6 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
   <!-- Favicons - ApexFlex Logo -->
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
@@ -59,6 +61,7 @@
   <div class="actual-content opacity-0 flex-1 flex flex-col">
     
     <!-- NAVIGATION BAR (IDENTICAL) -->
+    <div id="nav-container">
     <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -77,6 +80,7 @@
             </a>
           </div>
 
+
           <!-- Desktop Navigation -->
           <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
             <a href="../index.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Home 1</a>
@@ -90,7 +94,7 @@
 
           <!-- Action Switches & CTA -->
           <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
-            <button class="theme-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
+            <button class="theme-toggle p-2.5 rounded-xl text-gray-650 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
               <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
               <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
             </button>
@@ -148,6 +152,8 @@
         </div>
       </div>
     </nav>
+    </div>
+    <main class="flex-1 flex flex-col">
 
     <!-- SECTION 1: HERO SECTION (Full-width bg image rule) -->
     <nav class="relative bg-cover bg-center py-24 sm:py-32" style="background-image: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');">
@@ -361,6 +367,9 @@
     </section>
 
     <!-- FOOTER (IDENTICAL) -->
+    
+    </main>
+<div id="footer-container">
     <footer class="bg-gray-900 text-gray-300 dark:bg-gray-950 border-t border-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
@@ -445,6 +454,7 @@
 
       </div>
     </footer>
+    </div>
 
   </div>
 

@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initPageTransition();
   applyHoverEnhancements();
+  
+  // Initialize modern premium features
+  initModernComponents();
+  initBeforeAfterSliders();
+  initFAQAccordions();
+  initLightboxGallery();
 });
 
 // ============================================================
@@ -440,5 +446,150 @@ function initTestimonialSliders() {
 
     // Auto-advance
     setInterval(() => { currentIndex = currentIndex < total - 1 ? currentIndex + 1 : 0; update(); }, 6000);
+  });
+}
+
+// ============================================================
+//  MODERN COMPONENTS (Progress, FABs, Sticky Nav)
+// ============================================================
+function initModernComponents() {
+  // 1. Scroll Progress Bar
+  if (!document.getElementById('scroll-progress')) {
+    const bar = document.createElement('div');
+    bar.id = 'scroll-progress';
+    document.body.appendChild(bar);
+    
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      bar.style.width = scrolled + '%';
+    });
+  }
+  
+  // 2. Sticky Nav Scroll Behavior
+  const nav = document.querySelector('nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('backdrop-blur-md', 'bg-white/80', 'dark:bg-gray-950/80', 'shadow-md');
+        nav.classList.remove('bg-white/65', 'dark:bg-gray-950/65');
+      } else {
+        nav.classList.remove('backdrop-blur-md', 'bg-white/80', 'dark:bg-gray-950/80', 'shadow-md');
+        nav.classList.add('bg-white/65', 'dark:bg-gray-950/65');
+      }
+    });
+  }
+}
+
+// ============================================================
+//  BEFORE/AFTER INTERACTIVE SLIDER
+// ============================================================
+function initBeforeAfterSliders() {
+  const sliders = document.querySelectorAll('.before-after-container');
+  
+  sliders.forEach(slider => {
+    const afterImg = slider.querySelector('.after-image');
+    const handle = slider.querySelector('.slider-handle');
+    if (!afterImg || !handle) return;
+    
+    let isResizing = false;
+    
+    function setSliderWidth(clientX) {
+      const rect = slider.getBoundingClientRect();
+      const x = clientX - rect.left;
+      let percentage = (x / rect.width) * 100;
+      
+      if (percentage < 0) percentage = 0;
+      if (percentage > 100) percentage = 100;
+      
+      afterImg.style.width = `${percentage}%`;
+      handle.style.left = `${percentage}%`;
+    }
+    
+    // Mouse events
+    handle.addEventListener('mousedown', () => { isResizing = true; });
+    window.addEventListener('mouseup', () => { isResizing = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (!isResizing) return;
+      setSliderWidth(e.clientX);
+    });
+    
+    // Touch events
+    handle.addEventListener('touchstart', () => { isResizing = true; });
+    window.addEventListener('touchend', () => { isResizing = false; });
+    window.addEventListener('touchmove', (e) => {
+      if (!isResizing) return;
+      if (e.touches[0]) {
+        setSliderWidth(e.touches[0].clientX);
+      }
+    });
+  });
+}
+
+// ============================================================
+//  FAQ ACCORDION
+// ============================================================
+function initFAQAccordions() {
+  const faqHeaders = document.querySelectorAll('.accordion-header');
+  
+  faqHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+      
+      // Close other accordions in the same group if desired, but toggle is fine
+      header.classList.toggle('active');
+      content.classList.toggle('active');
+      
+      if (content.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0px';
+      }
+    });
+  });
+}
+
+// ============================================================
+//  IMAGE LIGHTBOX GALLERY
+// ============================================================
+function initLightboxGallery() {
+  const images = document.querySelectorAll('[data-lightbox]');
+  if (!images.length) return;
+  
+  // Create modal markup dynamically if not exists
+  let modal = document.querySelector('.lightbox-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'lightbox-modal';
+    modal.innerHTML = `
+      <div class="lightbox-close">&times;</div>
+      <img class="lightbox-content" src="" alt="">
+    `;
+    document.body.appendChild(modal);
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target.className === 'lightbox-modal' || e.target.className === 'lightbox-close') {
+        modal.classList.remove('active');
+      }
+    });
+  }
+  
+  const modalImg = modal.querySelector('.lightbox-content');
+  
+  images.forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetSrc = img.getAttribute('href') || img.getAttribute('src') || img.querySelector('img')?.getAttribute('src');
+      const targetAlt = img.getAttribute('title') || img.getAttribute('alt') || img.querySelector('img')?.getAttribute('alt') || 'Prosthetic Care';
+      
+      if (targetSrc) {
+        modalImg.src = targetSrc;
+        modalImg.alt = targetAlt;
+        modal.classList.add('active');
+      }
+    });
   });
 }
