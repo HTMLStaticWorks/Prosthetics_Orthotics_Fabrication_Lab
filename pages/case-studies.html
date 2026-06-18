@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
+
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80">
+  <link rel="preload" as="image"
+    href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80">
   <meta charset="UTF-8">
   <!-- Favicons - ApexFlex Logo -->
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
@@ -14,8 +16,9 @@
   <meta name="theme-color" content="#3B0764">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ApexFlex - Premium Patient Case Studies & Mobility Outcomes</title>
-  <meta name="description" content="Explore real patient transformations, clinical outcomes, 3D printing workflows, before/after mobility comparisons, and doctor endorsements at ApexFlex.">
-  
+  <meta name="description"
+    content="Explore real patient transformations, clinical outcomes, 3D printing workflows, before/after mobility comparisons, and doctor endorsements at ApexFlex.">
+
   <!-- Tailwind CSS 3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -45,12 +48,12 @@
       }
     }
   </script>
-  
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <style>
     /* Premium Page-Specific Styling */
     .glass-card {
@@ -59,15 +62,18 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .dark .glass-card {
       background: rgba(15, 23, 42, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
+
     .glass-card:hover {
       background: rgba(255, 255, 255, 0.6);
       transform: translateY(-5px);
       box-shadow: 0 20px 40px -15px rgba(15, 76, 129, 0.15);
     }
+
     .dark .glass-card:hover {
       background: rgba(15, 23, 42, 0.6);
       box-shadow: 0 20px 40px -15px rgba(20, 184, 166, 0.15);
@@ -82,6 +88,7 @@
       border-radius: 1.5rem;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     }
+
     .ba-img {
       position: absolute;
       top: 0;
@@ -91,6 +98,7 @@
       object-fit: cover;
       user-select: none;
     }
+
     .ba-clip-wrapper {
       position: absolute;
       top: 0;
@@ -101,6 +109,7 @@
       z-index: 10;
       border-right: 3px solid #14B8A6;
     }
+
     .ba-handle {
       position: absolute;
       top: 0;
@@ -114,6 +123,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .ba-handle-btn {
       width: 40px;
       height: 40px;
@@ -127,6 +137,7 @@
       justify-content: center;
       cursor: pointer;
     }
+
     .dark .ba-handle-btn {
       background: #0B1F33;
       color: #67E8F9;
@@ -141,13 +152,16 @@
       scroll-snap-type: x mandatory;
       scrollbar-width: thin;
     }
+
     .horizontal-scroll-container::-webkit-scrollbar {
       height: 6px;
     }
+
     .horizontal-scroll-container::-webkit-scrollbar-thumb {
       background: rgba(20, 184, 166, 0.3);
       border-radius: 10px;
     }
+
     .timeline-step-card {
       min-width: 300px;
       flex: 1 0 300px;
@@ -160,12 +174,19 @@
       width: max-content;
       animation: scroll-marquee 40s linear infinite;
     }
+
     .marquee-track:hover {
       animation-play-state: paused;
     }
+
     @keyframes scroll-marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     /* Floating particles background container */
@@ -175,20 +196,34 @@
       overflow: hidden;
       pointer-events: none;
     }
+
     .particle {
       position: absolute;
       background: rgba(255, 255, 255, 0.15);
       border-radius: 50%;
       animation: float-particle 12s infinite linear;
     }
+
     @keyframes float-particle {
-      0% { transform: translateY(100%) scale(0.8); opacity: 0; }
-      50% { opacity: 0.6; }
-      100% { transform: translateY(-10%) scale(1.2); opacity: 0; }
+      0% {
+        transform: translateY(100%) scale(0.8);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-10%) scale(1.2);
+        opacity: 0;
+      }
     }
   </style>
 </head>
-<body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300 dark:bg-[#0A0A0A] dark:text-gray-100">
+
+<body
+  class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300 dark:bg-[#0A0A0A] dark:text-gray-100">
 
   <!-- SKELETON LOADING STATE -->
   <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-black flex flex-col p-4 space-y-6">
@@ -202,73 +237,99 @@
 
   <!-- ACTUAL SITE CONTENT -->
   <div class="actual-content opacity-0 flex-1 flex flex-col pt-[80px]">
-    
+
     <!-- NAVIGATION BAR -->
     <div id="nav-container" class="fixed top-0 left-0 right-0 z-[100] w-full">
-      <nav class="glass-panel transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
+      <nav
+        class="glass-panel transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-20">
-            
+
             <!-- Logo & Brand Redirect -->
             <div class="flex-shrink-0">
               <a href="../index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-brand-primary dark:text-brand-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  class="w-8 h-8 text-brand-primary dark:text-brand-secondary">
                   <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
                   <circle cx="12" cy="10" r="3" />
                   <path d="M12 13v7M9 20h6" />
                 </svg>
-                <span class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-brand-primary via-brand-primary to-brand-secondary bg-clip-text text-transparent dark:from-brand-accent dark:via-brand-accent dark:to-brand-accent">
+                <span
+                  class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-brand-primary via-brand-primary to-brand-secondary bg-clip-text text-transparent dark:from-brand-accent dark:via-brand-accent dark:to-brand-accent">
                   ApexFlex
                 </span>
               </a>
             </div>
 
             <!-- Desktop Navigation -->
-            <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
-              <a href="../index.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Home 1</a>
-              <a href="home2.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Home 2</a>
-              <a href="about.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">About</a>
-              <a href="services.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Services</a>
-              <a href="case-studies.html" class="text-brand-primary dark:text-brand-secondary hover:text-brand-secondary dark:hover:text-white transition-colors">Case Studies</a>
-              <a href="blog.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Blog</a>
-              <a href="contact.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Contact</a>
+            <div
+              class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
+              <a href="../index.html"
+                class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Home 1</a>
+              <a href="home2.html"
+                class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Home 2</a>
+              <a href="about.html"
+                class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">About</a>
+              <a href="services.html"
+                class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Services</a>
+              <a href="case-studies.html"
+                class="text-brand-primary dark:text-brand-secondary hover:text-brand-secondary dark:hover:text-white transition-colors">Case
+                Studies</a>
+              <a href="blog.html"
+                class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Blog</a>
+              <a href="contact.html"
+                class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Contact</a>
             </div>
 
             <!-- Action Switches & CTA -->
             <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
-              <button class="theme-toggle p-2.5 rounded-xl text-gray-650 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme">
+              <button
+                class="theme-toggle p-2.5 rounded-xl text-gray-650 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200"
+                aria-label="Toggle theme">
                 <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
                 <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
               </button>
               <!-- RTL Toggle -->
-              <button class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200 flex items-center justify-center" aria-label="Toggle RTL mode">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <button
+                class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200 flex items-center justify-center"
+                aria-label="Toggle RTL mode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
                 </svg>
               </button>
 
               <!-- Primary CTA: Signup -->
-              <a href="signup.html" class="px-5 py-2.5 bg-brand-primary dark:bg-brand-secondary hover:bg-brand-primary dark:hover:bg-brand-secondary text-white rounded-xl text-sm font-semibold transition-all shadow-md shadow-brand-primary/20 dark:shadow-brand-secondary/20 hover:scale-[1.02]">
+              <a href="signup.html"
+                class="px-5 py-2.5 bg-brand-primary dark:bg-brand-secondary hover:bg-brand-primary dark:hover:bg-brand-secondary text-white rounded-xl text-sm font-semibold transition-all shadow-md shadow-brand-primary/20 dark:shadow-brand-secondary/20 hover:scale-[1.02]">
                 Sign Up
               </a>
             </div>
 
             <!-- Mobile menu button -->
             <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
-              <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              <button
+                class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
                 <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
                 <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
               </button>
-              <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center" aria-label="Toggle RTL mode">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <button
+                class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center"
+                aria-label="Toggle RTL mode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
                 </svg>
               </button>
-              <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all">
+              <button id="mobile-menu-btn"
+                class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -279,17 +340,26 @@
         </div>
 
         <!-- Mobile Menu drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-200/30 transition-all">
+        <div id="mobile-menu"
+          class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-200/30 transition-all">
           <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-            <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 1</a>
-            <a href="home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
+            <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home
+              1</a>
+            <a href="home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home
+              2</a>
             <a href="about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
-            <a href="services.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
-            <a href="case-studies.html" class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-[#171717]/50 font-semibold">Case Studies</a>
+            <a href="services.html"
+              class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
+            <a href="case-studies.html"
+              class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-[#171717]/50 font-semibold">Case
+              Studies</a>
             <a href="blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
-            <a href="contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
+            <a href="contact.html"
+              class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
             <div class="border-t border-gray-200 dark:border-gray-850 my-2"></div>
-            <a href="signup.html" class="block mt-4 text-center px-4 py-3 bg-brand-primary dark:bg-brand-secondary text-white rounded-xl font-semibold">Sign Up</a>
+            <a href="signup.html"
+              class="block mt-4 text-center px-4 py-3 bg-brand-primary dark:bg-brand-secondary text-white rounded-xl font-semibold">Sign
+              Up</a>
           </div>
         </div>
       </nav>
@@ -299,36 +369,45 @@
     <main class="flex-1 flex flex-col overflow-hidden">
 
       <!-- HERO BANNER -->
-      <section class="relative bg-cover bg-center py-28 md:py-36 text-center overflow-hidden" style="background-image: linear-gradient(rgba(11, 31, 51, 0.82), rgba(11, 31, 51, 0.88)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');">
+      <section class="relative bg-cover bg-center py-28 md:py-36 text-center overflow-hidden"
+        style="background-image: linear-gradient(rgba(11, 31, 51, 0.82), rgba(11, 31, 51, 0.88)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');">
         <div class="absolute inset-0 bg-gradient-to-b from-brand-purple/20 via-transparent to-gray-950/20"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-          <div class="inline-flex items-center space-x-2 rtl:space-x-reverse px-4 py-1.5 rounded-full bg-brand-secondary/20 border border-brand-secondary/30 text-brand-secondary text-xs font-bold uppercase tracking-wider">
-            <span class="flex h-2 w-2 rounded-full bg-brand-secondary animate-pulse mr-2"></span>Clinical Case Chronicles
+          <div
+            class="inline-flex items-center space-x-2 rtl:space-x-reverse px-4 py-1.5 rounded-full bg-brand-secondary/20 border border-brand-secondary/30 text-brand-secondary text-xs font-bold uppercase tracking-wider">
+            <span class="flex h-2 w-2 rounded-full bg-brand-secondary animate-pulse mr-2"></span>Clinical Case
+            Chronicles
           </div>
           <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-tight leading-tight">
             Patient Transformation Stories
           </h1>
           <p class="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
-            Data-backed records of orthotic alignment improvements, myoelectric limb restoration processes, and patient velocity analytics.
+            Data-backed records of orthotic alignment improvements, myoelectric limb restoration processes, and patient
+            velocity analytics.
           </p>
         </div>
       </section>
 
       <!-- SECTION 1: FEATURED TRANSFORMATION STORY -->
-      <section class="py-24 bg-white dark:bg-black relative border-b border-gray-100 dark:border-[#171717] overflow-hidden">
+      <section
+        class="py-24 bg-white dark:bg-black relative border-b border-gray-100 dark:border-[#171717] overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             <!-- Left: Before/After Slider inside Section 1 -->
             <div class="lg:col-span-6 space-y-4 reveal-element">
-              <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-200/30 group">
+              <div
+                class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-200/30 group">
                 <!-- Slider Widget -->
                 <div class="ba-slider-container">
                   <!-- After Image (Background) -->
-                  <img src="../assets/images/lower_limb_prosthetic.png" class="ba-img" alt="Rehabilitation Session - Post Treatment Fit">
+                  <img src="../assets/images/lower_limb_prosthetic.png" class="ba-img"
+                    alt="Rehabilitation Session - Post Treatment Fit">
                   <!-- Before Image (Clipped) -->
                   <div class="ba-clip-wrapper">
-                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" class="ba-img w-[200%]" style="max-width: none;" alt="Clinical Assessment - Prior to Custom Fit">
+                    <img
+                      src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80"
+                      class="ba-img w-[200%]" style="max-width: none;" alt="Clinical Assessment - Prior to Custom Fit">
                   </div>
                   <!-- Slider Handle -->
                   <div class="ba-handle">
@@ -338,23 +417,31 @@
                   </div>
                 </div>
                 <!-- Glass Overlay Label on Hover -->
-                <div class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
-                  <div class="glass-panel px-6 py-2.5 rounded-full text-xs font-semibold text-white tracking-wide shadow-lg">
+                <div
+                  class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
+                  <div
+                    class="glass-panel px-6 py-2.5 rounded-full text-xs font-semibold text-white tracking-wide shadow-lg">
                     Drag Slider to Compare
                   </div>
                 </div>
               </div>
-              
+
               <!-- Extra thumbnails in left section -->
               <div class="grid grid-cols-2 gap-4">
                 <div class="relative rounded-2xl overflow-hidden h-28 group">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Rehabilitation therapy session">
+                  <img
+                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt="Rehabilitation therapy session">
                   <div class="absolute inset-0 bg-gray-900/10 dark:bg-black/40 flex items-end p-2.5">
                     <span class="text-[10px] font-bold text-white uppercase tracking-wider">Rehab Training</span>
                   </div>
                 </div>
                 <div class="relative rounded-2xl overflow-hidden h-28 group">
-                  <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Clinical gait assessment">
+                  <img
+                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt="Clinical gait assessment">
                   <div class="absolute inset-0 bg-gray-900/10 dark:bg-black/40 flex items-end p-2.5">
                     <span class="text-[10px] font-bold text-white uppercase tracking-wider">Clinical Assessment</span>
                   </div>
@@ -365,28 +452,35 @@
             <!-- Right: Detailed Case Study Info -->
             <div class="lg:col-span-6 space-y-6 feature-content reveal-element">
               <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Case Study Focus</span>
-              <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading tracking-tight leading-tight">
+              <h2
+                class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading tracking-tight leading-tight">
                 High-Performance Transtibial Prosthesis Integration
               </h2>
-              
+
               <!-- Content Tabs or Structure -->
               <div class="space-y-4">
                 <div>
-                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">Challenge</h4>
+                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">
+                    Challenge</h4>
                   <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Patient requested high-activity dynamic load alignment for running. Traditional socket designs caused residual limb abrasion and excessive energy loss during K3-K4 velocity transitions.
+                    Patient requested high-activity dynamic load alignment for running. Traditional socket designs
+                    caused residual limb abrasion and excessive energy loss during K3-K4 velocity transitions.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">Solution & Fabrication</h4>
+                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">
+                    Solution & Fabrication</h4>
                   <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Manufactured a custom carbon-fiber vacuum suspension socket integrated with dynamic shock-absorbing blades. Used 3D scan modeling for volume adaptation and localized skin stress mapping.
+                    Manufactured a custom carbon-fiber vacuum suspension socket integrated with dynamic shock-absorbing
+                    blades. Used 3D scan modeling for volume adaptation and localized skin stress mapping.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">Outcome & Timeline</h4>
+                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">
+                    Outcome & Timeline</h4>
                   <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Gait symmetry restored to 98% variation index. The patient achieved full independence in walking, running, and climbing tasks in under 6 weeks.
+                    Gait symmetry restored to 98% variation index. The patient achieved full independence in walking,
+                    running, and climbing tasks in under 6 weeks.
                   </p>
                 </div>
               </div>
@@ -394,19 +488,22 @@
               <!-- Metrics Row (Counters) -->
               <div class="grid grid-cols-3 gap-4 border-t border-gray-150 dark:border-gray-200 pt-6 text-center">
                 <div class="space-y-1">
-                  <div class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
+                  <div
+                    class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
                     <span class="counter" data-target="34">0</span>%
                   </div>
                   <p class="text-[10px] text-gray-500 uppercase font-semibold">Mobility Gained</p>
                 </div>
                 <div class="space-y-1">
-                  <div class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
+                  <div
+                    class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
                     <span class="counter" data-target="6">0</span>&nbsp;Wks
                   </div>
                   <p class="text-[10px] text-gray-500 uppercase font-semibold">Recovery Time</p>
                 </div>
                 <div class="space-y-1">
-                  <div class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
+                  <div
+                    class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
                     <span class="counter" data-target="99">0</span>%
                   </div>
                   <p class="text-[10px] text-gray-500 uppercase font-semibold">Satisfaction</p>
@@ -421,28 +518,36 @@
       <!-- SECTION 2: PATIENT SUCCESS STORIES GRID (MASONRY) -->
       <section class="py-24 bg-white dark:bg-[#0A0A0A] border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Outcome Gallery</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility Case Files</h2>
-            <p class="text-gray-600 dark:text-gray-400">Clinical documentation of different orthotic configurations and bionic prosthesis adaptations.</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility Case
+              Files</h2>
+            <p class="text-gray-600 dark:text-gray-400">Clinical documentation of different orthotic configurations and
+              bionic prosthesis adaptations.</p>
           </div>
 
           <!-- Masonry Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 masonry-grid">
-            
+
             <!-- Card 1: Sports Prosthetics -->
             <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-glow masonry-card">
               <div class="relative h-60 overflow-hidden group">
-                <img src="../assets/images/success_story_1.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sports Amputee Running Track">
-                <span class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Sports Prosthetics</span>
+                <img src="../assets/images/success_story_1.png"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Sports Amputee Running Track">
+                <span
+                  class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Sports
+                  Prosthetics</span>
               </div>
               <div class="p-6 space-y-4">
                 <h3 class="text-lg font-bold text-gray-950 dark:text-white">Active Composite Blade Tuning</h3>
                 <div class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
-                  <p><strong>Challenge:</strong> Restoring competitive running gait alignment to lower-extremity amputee.</p>
+                  <p><strong>Challenge:</strong> Restoring competitive running gait alignment to lower-extremity
+                    amputee.</p>
                   <p><strong>Treatment:</strong> Carbon fiber runner blade + multi-axial rotation anchor socket.</p>
-                  <p><strong>Result:</strong> Restored to active running status within 5 weeks; decreased energy loss index by 22%.</p>
+                  <p><strong>Result:</strong> Restored to active running status within 5 weeks; decreased energy loss
+                    index by 22%.</p>
                 </div>
               </div>
             </div>
@@ -450,15 +555,22 @@
             <!-- Card 2: Pediatric Prosthetic -->
             <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-glow masonry-card">
               <div class="relative h-60 overflow-hidden group">
-                <img src="../assets/images/pediatric_orthotics.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Child with ankle foot orthosis">
-                <span class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Pediatric Fitting</span>
+                <img src="../assets/images/pediatric_orthotics.png"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Child with ankle foot orthosis">
+                <span
+                  class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Pediatric
+                  Fitting</span>
               </div>
               <div class="p-6 space-y-4">
                 <h3 class="text-lg font-bold text-gray-950 dark:text-white">Micro-Linkage Pediatric Orthotic</h3>
                 <div class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
-                  <p><strong>Challenge:</strong> Joint stability support for growing pediatric patient with congenital motor difficulty.</p>
-                  <p><strong>Treatment:</strong> Adjust-to-grow lightweight polymer braces with hypoallergenic inner liners.</p>
-                  <p><strong>Result:</strong> 45% increase in daily steps count; significant joint alignment stabilization.</p>
+                  <p><strong>Challenge:</strong> Joint stability support for growing pediatric patient with congenital
+                    motor difficulty.</p>
+                  <p><strong>Treatment:</strong> Adjust-to-grow lightweight polymer braces with hypoallergenic inner
+                    liners.</p>
+                  <p><strong>Result:</strong> 45% increase in daily steps count; significant joint alignment
+                    stabilization.</p>
                 </div>
               </div>
             </div>
@@ -466,15 +578,22 @@
             <!-- Card 3: Upper Limb Bionics -->
             <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-glow masonry-card">
               <div class="relative h-60 overflow-hidden group">
-                <img src="../assets/images/upper_limb_prosthetic.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Robotic bionic arm grip check">
-                <span class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Bionic Restoration</span>
+                <img src="../assets/images/upper_limb_prosthetic.png"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Robotic bionic arm grip check">
+                <span
+                  class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Bionic
+                  Restoration</span>
               </div>
               <div class="p-6 space-y-4">
                 <h3 class="text-lg font-bold text-gray-950 dark:text-white">Myoelectric Articulated Wrist</h3>
                 <div class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
-                  <p><strong>Challenge:</strong> Restoring fine-motor control for high-fidelity tasks following a transradial amputation.</p>
-                  <p><strong>Treatment:</strong> Sensor-based myoelectric socket + custom firmware parameter calibration.</p>
-                  <p><strong>Result:</strong> Rebuilt 95% grip accuracy, restores capability to write and handle glassware.</p>
+                  <p><strong>Challenge:</strong> Restoring fine-motor control for high-fidelity tasks following a
+                    transradial amputation.</p>
+                  <p><strong>Treatment:</strong> Sensor-based myoelectric socket + custom firmware parameter
+                    calibration.</p>
+                  <p><strong>Result:</strong> Rebuilt 95% grip accuracy, restores capability to write and handle
+                    glassware.</p>
                 </div>
               </div>
             </div>
@@ -486,23 +605,28 @@
       <!-- SECTION 3: BEFORE & AFTER MOBILITY SHOWCASE -->
       <section class="py-24 bg-white dark:bg-black border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Interactive Demonstration</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility Comparison Metrics</h2>
-            <p class="text-gray-600 dark:text-gray-400">Drag the slider tool to compare prior device structures against final custom dynamic alignments.</p>
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Interactive
+              Demonstration</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility
+              Comparison Metrics</h2>
+            <p class="text-gray-600 dark:text-gray-400">Drag the slider tool to compare prior device structures against
+              final custom dynamic alignments.</p>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- Comparison Widget -->
             <div class="lg:col-span-7 reveal-element">
               <div class="ba-slider-container">
                 <!-- After Image (Background) -->
-                <img src="../assets/images/hero_prosthetics_lab.png" class="ba-img" alt="After treatment: Carbon composite socket fitting">
+                <img src="https://images.pexels.com/photos/20860612/pexels-photo-20860612.jpeg" class="ba-img"
+                  alt="After treatment: Carbon composite socket fitting">
                 <!-- Before Image (Clipped) -->
                 <div class="ba-clip-wrapper">
-                  <img src="../assets/images/success_story_2.png" class="ba-img w-[143%]" style="max-width: none;" alt="Before treatment: Standard plaster design socket">
+                  <img src="https://images.pexels.com/photos/8436961/pexels-photo-8436961.jpeg" class="ba-img w-[143%]"
+                    style="max-width: none;" alt="Before treatment: Standard plaster design socket">
                 </div>
                 <!-- Slider Handle -->
                 <div class="ba-handle">
@@ -517,7 +641,8 @@
             <div class="lg:col-span-5 space-y-8 reveal-element">
               <div>
                 <h3 class="text-2xl font-bold text-gray-950 dark:text-white font-heading">Clinical Advancements</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Replacing outdated plaster structures with custom 3D scanning and fabrication reduces wear stress and improves movement speed.</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Replacing outdated plaster structures with
+                  custom 3D scanning and fabrication reduces wear stress and improves movement speed.</p>
               </div>
 
               <!-- Progress Bars -->
@@ -586,60 +711,72 @@
       <!-- SECTION 5: OUTCOMES & IMPACT DASHBOARD -->
       <section class="py-24 bg-white dark:bg-black border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Clinical Analytics</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare Outcomes Dashboard</h2>
-            <p class="text-gray-600 dark:text-gray-400">Quantifiable biological restoration stats verified by referring orthopedic practitioners.</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare
+              Outcomes Dashboard</h2>
+            <p class="text-gray-600 dark:text-gray-400">Quantifiable biological restoration stats verified by referring
+              orthopedic practitioners.</p>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch dashboard-grid">
-            
+
             <!-- Left: Stats Counter Cards -->
             <div class="lg:col-span-4 flex flex-col gap-6 justify-between">
               <!-- Stat card 1 -->
               <div class="glass-card p-6 rounded-3xl flex items-center space-x-4 rtl:space-x-reverse dashboard-card">
-                <div class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
                   <i data-lucide="award" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter" data-target="1500">0</span>+</h4>
+                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter"
+                      data-target="1500">0</span>+</h4>
                   <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Successful Fittings</p>
                 </div>
               </div>
-              
+
               <!-- Stat card 2 -->
               <div class="glass-card p-6 rounded-3xl flex items-center space-x-4 rtl:space-x-reverse dashboard-card">
-                <div class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
                   <i data-lucide="smile" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter" data-target="98">0</span>.8%</h4>
+                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter"
+                      data-target="98">0</span>.8%</h4>
                   <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Patient Comfort Rating</p>
                 </div>
               </div>
 
               <!-- Stat card 3 -->
               <div class="glass-card p-6 rounded-3xl flex items-center space-x-4 rtl:space-x-reverse dashboard-card">
-                <div class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
                   <i data-lucide="activity" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter" data-target="34">0</span>%</h4>
+                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter"
+                      data-target="34">0</span>%</h4>
                   <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Gait Velocity Boost</p>
                 </div>
               </div>
             </div>
 
             <!-- Middle: Circle Progress Data Visualizer -->
-            <div class="lg:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-between items-center text-center dashboard-card">
+            <div
+              class="lg:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-between items-center text-center dashboard-card">
               <h4 class="text-base font-bold text-gray-950 dark:text-white">Follow-Up Success Rate</h4>
-              
+
               <!-- Circular Progress SVG -->
               <div class="relative w-44 h-44 my-4 flex items-center justify-center">
                 <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                  <path class="text-gray-200 dark:text-gray-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  <path class="text-brand-secondary custom-circle-progress transition-all duration-1000 ease-out" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="text-gray-200 dark:text-gray-800" stroke-width="3" stroke="currentColor" fill="none"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="text-brand-secondary custom-circle-progress transition-all duration-1000 ease-out"
+                    stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                 </svg>
                 <div class="absolute text-center">
                   <span class="text-3xl font-extrabold text-gray-950 dark:text-white font-heading">99.1%</span>
@@ -648,7 +785,8 @@
               </div>
 
               <p class="text-xs text-gray-500 dark:text-gray-400">
-                Percentage of patients achieving their physical goals within the first 60 days post-prosthetic alignment fitting.
+                Percentage of patients achieving their physical goals within the first 60 days post-prosthetic alignment
+                fitting.
               </p>
             </div>
 
@@ -663,22 +801,29 @@
               <div class="h-44 flex items-end justify-between gap-4 pt-4 graph-bars">
                 <!-- Bar 1 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
-                  <div class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary" data-height="35%" style="height: 0%"></div>
+                  <div
+                    class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary"
+                    data-height="35%" style="height: 0%"></div>
                   <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 1</span>
                 </div>
                 <!-- Bar 2 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
-                  <div class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary" data-height="55%" style="height: 0%"></div>
+                  <div
+                    class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary"
+                    data-height="55%" style="height: 0%"></div>
                   <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 2</span>
                 </div>
                 <!-- Bar 3 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
-                  <div class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary" data-height="80%" style="height: 0%"></div>
+                  <div
+                    class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary"
+                    data-height="80%" style="height: 0%"></div>
                   <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 4</span>
                 </div>
                 <!-- Bar 4 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
-                  <div class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-secondary" data-height="98%" style="height: 0%"></div>
+                  <div class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-secondary" data-height="98%"
+                    style="height: 0%"></div>
                   <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 6</span>
                 </div>
               </div>
@@ -693,25 +838,33 @@
       </section>
 
       <!-- PREMIUM TESTIMONIAL SECTION -->
-      <section class="py-24 bg-white dark:bg-[#0A0A0A] overflow-hidden relative border-b border-gray-100 dark:border-[#171717]">
+      <section
+        class="py-24 bg-white dark:bg-[#0A0A0A] overflow-hidden relative border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Endorsements</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare Reflections</h2>
-            <p class="text-gray-600 dark:text-gray-400">Read endorsements from referring orthopedists and actual patient journeys.</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare
+              Reflections</h2>
+            <p class="text-gray-600 dark:text-gray-400">Read endorsements from referring orthopedists and actual patient
+              journeys.</p>
           </div>
 
           <!-- Continuous Auto-Scrolling Testimonials Row -->
           <div class="relative w-full overflow-hidden py-4">
             <!-- Fade Overlay masks -->
-            <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 dark:from-gray-950 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 dark:from-gray-950 to-transparent z-10 pointer-events-none"></div>
+            <div
+              class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 dark:from-gray-950 to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+              class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 dark:from-gray-950 to-transparent z-10 pointer-events-none">
+            </div>
 
             <div class="marquee-track flex gap-8 items-stretch" id="testimonial-carousel">
-              
+
               <!-- Slide 1 -->
-              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+              <div
+                class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
                 <div class="space-y-4">
                   <div class="flex text-amber-500 space-x-1">
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -721,11 +874,15 @@
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                   </div>
                   <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-                    "The volume accuracy of ApexFlex's CAD/CAM system is unmatched. My patients return from fitting sessions with zero pressure nodes, accelerating physical therapy timelines."
+                    "The volume accuracy of ApexFlex's CAD/CAM system is unmatched. My patients return from fitting
+                    sessions with zero pressure nodes, accelerating physical therapy timelines."
                   </p>
                 </div>
-                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
-                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Dr. Elizabeth Vance">
+                <div
+                  class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary"
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                    alt="Dr. Elizabeth Vance">
                   <div>
                     <h4 class="text-sm font-bold text-gray-990 dark:text-white">Dr. Elizabeth Vance</h4>
                     <p class="text-[10px] text-gray-500 font-semibold">Chief of Orthopedic Surgery • Harborview</p>
@@ -734,7 +891,8 @@
               </div>
 
               <!-- Slide 2 -->
-              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+              <div
+                class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
                 <div class="space-y-4">
                   <div class="flex text-amber-500 space-x-1">
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -744,11 +902,15 @@
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                   </div>
                   <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-                    "We coordinate gait updates with ApexFlex. Their live socket sensor data lets us check pressure distributions, making orthotic calibrations very precise."
+                    "We coordinate gait updates with ApexFlex. Their live socket sensor data lets us check pressure
+                    distributions, making orthotic calibrations very precise."
                   </p>
                 </div>
-                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
-                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="James Sterling, DPT">
+                <div
+                  class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary"
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                    alt="James Sterling, DPT">
                   <div>
                     <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Sterling, DPT</h4>
                     <p class="text-[10px] text-gray-500 font-semibold">Director of Amputee Rehab • Northwest Physio</p>
@@ -757,7 +919,8 @@
               </div>
 
               <!-- Slide 3 -->
-              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+              <div
+                class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
                 <div class="space-y-4">
                   <div class="flex text-amber-500 space-x-1">
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -767,11 +930,14 @@
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                   </div>
                   <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-                    "After my below-knee amputation, I feared running was over. The custom socket fits like my own leg. I completed my first local 5K run last weekend!"
+                    "After my below-knee amputation, I feared running was over. The custom socket fits like my own leg.
+                    I completed my first local 5K run last weekend!"
                   </p>
                 </div>
-                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
-                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="../assets/images/avatar1.png" alt="James Thornton">
+                <div
+                  class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary"
+                    src="../assets/images/avatar1.png" alt="James Thornton">
                   <div>
                     <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Thornton</h4>
                     <p class="text-[10px] text-gray-500 font-semibold">Active Amputee Patient • Runner</p>
@@ -781,7 +947,8 @@
 
               <!-- DUPLICATED SLIDES FOR INFINITE SCROLLING -->
               <!-- Slide 1 Dup -->
-              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+              <div
+                class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
                 <div class="space-y-4">
                   <div class="flex text-amber-500 space-x-1">
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -791,11 +958,15 @@
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                   </div>
                   <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-                    "The volume accuracy of ApexFlex's CAD/CAM system is unmatched. My patients return from fitting sessions with zero pressure nodes, accelerating physical therapy timelines."
+                    "The volume accuracy of ApexFlex's CAD/CAM system is unmatched. My patients return from fitting
+                    sessions with zero pressure nodes, accelerating physical therapy timelines."
                   </p>
                 </div>
-                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
-                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Dr. Elizabeth Vance">
+                <div
+                  class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary"
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                    alt="Dr. Elizabeth Vance">
                   <div>
                     <h4 class="text-sm font-bold text-gray-990 dark:text-white">Dr. Elizabeth Vance</h4>
                     <p class="text-[10px] text-gray-500 font-semibold">Chief of Orthopedic Surgery • Harborview</p>
@@ -804,7 +975,8 @@
               </div>
 
               <!-- Slide 2 Dup -->
-              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+              <div
+                class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
                 <div class="space-y-4">
                   <div class="flex text-amber-500 space-x-1">
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -814,11 +986,15 @@
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                   </div>
                   <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-                    "We coordinate gait updates with ApexFlex. Their live socket sensor data lets us check pressure distributions, making orthotic calibrations very precise."
+                    "We coordinate gait updates with ApexFlex. Their live socket sensor data lets us check pressure
+                    distributions, making orthotic calibrations very precise."
                   </p>
                 </div>
-                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
-                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="James Sterling, DPT">
+                <div
+                  class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary"
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                    alt="James Sterling, DPT">
                   <div>
                     <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Sterling, DPT</h4>
                     <p class="text-[10px] text-gray-500 font-semibold">Director of Amputee Rehab • Northwest Physio</p>
@@ -827,7 +1003,8 @@
               </div>
 
               <!-- Slide 3 Dup -->
-              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+              <div
+                class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
                 <div class="space-y-4">
                   <div class="flex text-amber-500 space-x-1">
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -837,11 +1014,14 @@
                     <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                   </div>
                   <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-                    "After my below-knee amputation, I feared running was over. The custom socket fits like my own leg. I completed my first local 5K run last weekend!"
+                    "After my below-knee amputation, I feared running was over. The custom socket fits like my own leg.
+                    I completed my first local 5K run last weekend!"
                   </p>
                 </div>
-                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
-                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="../assets/images/avatar1.png" alt="James Thornton">
+                <div
+                  class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-200">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary"
+                    src="../assets/images/avatar1.png" alt="James Thornton">
                   <div>
                     <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Thornton</h4>
                     <p class="text-[10px] text-gray-500 font-semibold">Active Amputee Patient • Runner</p>
@@ -856,28 +1036,35 @@
       </section>
 
       <!-- PREMIUM CTA SECTION -->
-      <section class="relative py-28 overflow-hidden bg-gradient-to-br from-brand-light via-white to-brand-light/50 dark:from-black dark:via-[#0A0A0A] dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
+      <section
+        class="relative py-28 overflow-hidden bg-gradient-to-br from-brand-light via-white to-brand-light/50 dark:from-black dark:via-[#0A0A0A] dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
         <!-- Floating particles animation element -->
         <div class="particles-bg" id="cta-particles"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-accent/20 via-transparent to-transparent opacity-55 pointer-events-none"></div>
+        <div
+          class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-accent/20 via-transparent to-transparent opacity-55 pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- CTA Text Content -->
             <div class="lg:col-span-7 space-y-6 text-left">
-              <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-gray-950 dark:text-white tracking-tight leading-tight">
+              <h2
+                class="text-3xl sm:text-5xl font-extrabold font-heading text-gray-950 dark:text-white tracking-tight leading-tight">
                 Ready to Start Your Mobility Transformation?
               </h2>
               <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl font-normal leading-relaxed">
-                Coordinate directly with our physical fabrication specialists and board-certified orthotists. We accept direct physician referrals.
+                Coordinate directly with our physical fabrication specialists and board-certified orthotists. We accept
+                direct physician referrals.
               </p>
-              
+
               <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse pt-2">
-                <a href="contact.html" class="px-8 py-4 bg-brand-secondary hover:bg-brand-secondary/90 text-white rounded-2xl text-center font-bold transition-all shadow-xl shadow-brand-secondary/20 hover:scale-[1.02] active:scale-[0.98] magnetic-btn">
+                <a href="contact.html"
+                  class="px-8 py-4 bg-brand-secondary hover:bg-brand-secondary/90 text-white rounded-2xl text-center font-bold transition-all shadow-xl shadow-brand-secondary/20 hover:scale-[1.02] active:scale-[0.98] magnetic-btn">
                   Schedule Consultation
                 </a>
-                <a href="contact.html" class="px-8 py-4 glass-panel hover:bg-gray-100 dark:hover:bg-white/10 text-brand-primary dark:text-white rounded-2xl text-center font-bold transition-all border-gray-200 dark:border-white/20 magnetic-btn">
+                <a href="contact.html"
+                  class="px-8 py-4 glass-panel hover:bg-gray-100 dark:hover:bg-white/10 text-brand-primary dark:text-white rounded-2xl text-center font-bold transition-all border-gray-200 dark:border-white/20 magnetic-btn">
                   Refer a Patient
                 </a>
               </div>
@@ -885,9 +1072,13 @@
 
             <!-- CTA Right Image -->
             <div class="lg:col-span-5 relative">
-              <div class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-brand-accent/20 rounded-3xl -rotate-2 transform scale-105"></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-brand-accent/20 rounded-3xl -rotate-2 transform scale-105">
+              </div>
               <div class="glass-panel p-3 rounded-3xl relative overflow-hidden shadow-2xl border border-white/10">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Smiling prosthetic user walking in lab" class="rounded-2xl w-full h-[260px] object-cover transition-transform duration-700 hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+                  alt="Smiling prosthetic user walking in lab"
+                  class="rounded-2xl w-full h-[260px] object-cover transition-transform duration-700 hover:scale-105">
               </div>
             </div>
 
@@ -901,12 +1092,14 @@
     <div id="footer-container">
       <footer class="bg-white text-gray-600 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          
+
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-            
+
             <div class="space-y-4">
               <a href="../index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  class="w-6 h-6 text-brand-secondary">
                   <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
                   <circle cx="12" cy="10" r="3" />
                   <path d="M12 13v7M9 20h6" />
@@ -914,23 +1107,33 @@
                 <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
               </a>
               <p class="text-xs text-gray-400 leading-relaxed font-normal">
-                State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological walking capacity via advanced design.
+                State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological
+                walking capacity via advanced design.
               </p>
               <!-- Social Icons -->
               <div class="flex space-x-4 rtl:space-x-reverse pt-2">
-                <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all" aria-label="LinkedIn">
+                <a href="#"
+                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all"
+                  aria-label="LinkedIn">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                   </svg>
                 </a>
-                <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all" aria-label="Twitter">
+                <a href="#"
+                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all"
+                  aria-label="Twitter">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    <path
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
-                <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all" aria-label="YouTube">
+                <a href="#"
+                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all"
+                  aria-label="YouTube">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    <path
+                      d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                   </svg>
                 </a>
               </div>
@@ -949,7 +1152,8 @@
             <div>
               <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Resources</h4>
               <ul class="space-y-2 text-xs">
-                <li><a href="case-studies.html" class="hover:text-brand-secondary transition-colors">Case Analytics</a></li>
+                <li><a href="case-studies.html" class="hover:text-brand-secondary transition-colors">Case Analytics</a>
+                </li>
                 <li><a href="blog.html" class="hover:text-brand-secondary transition-colors">Clinical Blog</a></li>
                 <li><a href="contact.html" class="hover:text-brand-secondary transition-colors">Contact & Map</a></li>
                 <li><a href="login.html" class="hover:text-brand-secondary transition-colors">Portal Access</a></li>
@@ -959,18 +1163,26 @@
             <div>
               <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
               <address class="not-italic text-xs text-gray-400 space-y-2">
-                <p class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr, Suite D, Seattle, WA 98101</p>
-                <p class="flex items-center"><i data-lucide="phone" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> +1 (800) 555-0199</p>
-                <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> support@apexflexlab.com</p>
-                <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                <p class="flex items-start"><i data-lucide="map-pin"
+                    class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr,
+                  Suite D, Seattle, WA 98101</p>
+                <p class="flex items-center"><i data-lucide="phone"
+                    class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> +1 (800) 555-0199</p>
+                <p class="flex items-center"><i data-lucide="mail"
+                    class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> support@apexflexlab.com</p>
+                <p class="flex items-center"><i data-lucide="clock"
+                    class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
               </address>
             </div>
 
           </div>
 
-          <div class="mt-12 pt-8 border-t border-gray-200 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+          <div
+            class="mt-12 pt-8 border-t border-gray-200 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
-            <a href="#" class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-500 hover:text-brand-primary rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center" aria-label="Back to top">
+            <a href="#"
+              class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-500 hover:text-brand-primary rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center"
+              aria-label="Back to top">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
@@ -991,4 +1203,5 @@
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/case-studies-animations.js"></script>
 </body>
+
 </html>

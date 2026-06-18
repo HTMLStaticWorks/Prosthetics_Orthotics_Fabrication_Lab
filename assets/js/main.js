@@ -845,15 +845,25 @@ function initLightboxGallery() {
   // Hook up hover preloading and click interception
   function setupSpaListeners() {
     document.body.addEventListener('click', e => {
-      const link = e.target.closest('a');
-      if (!link) return;
-
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || link.getAttribute('target') === '_blank') return;
-
-      e.preventDefault();
-      navigateTo(link.href);
-    });
+        const link = e.target.closest('a');
+        if (!link) return;
+  
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || link.getAttribute('target') === '_blank') {
+          if (link.getAttribute('aria-label') === 'Back to top' || href === '#') {
+            e.preventDefault();
+            if (window.lenis) {
+              window.lenis.scrollTo(0, { duration: 1.2 });
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }
+          return;
+        }
+  
+        e.preventDefault();
+        navigateTo(link.href);
+      });
 
     document.body.addEventListener('mouseenter', e => {
       const link = e.target.closest('a');
