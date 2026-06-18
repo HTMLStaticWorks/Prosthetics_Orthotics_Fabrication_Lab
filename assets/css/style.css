@@ -11,6 +11,13 @@
   --color-light: #F8FAFC;
   --color-slate: #64748B;
   
+  --rgb-primary: 15 76 129;
+  --rgb-secondary: 20 184 166;
+  --rgb-accent: 103 232 249;
+  --rgb-dark: 11 31 51;
+  --rgb-light: 248 250 252;
+  --rgb-slate: 100 116 139;
+  
   --primary-glow: 0 0 20px rgba(15, 76, 129, 0.15);
   --secondary-glow: 0 0 20px rgba(20, 184, 166, 0.15);
   --accent-glow: 0 0 25px rgba(103, 232, 249, 0.3);
@@ -33,17 +40,19 @@ h1, h2, h3, h4, h5, h6 {
    GLASSMORPHISM SYSTEM
    ============================================================ */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
 .dark .glass-panel {
-  background: rgba(31, 41, 55, 0.65);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Glass Shimmer Effect */

@@ -53,11 +53,10 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body
-  class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300">
+<body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300 dark:bg-[#0A0A0A] dark:text-gray-100">
 
   <!-- SKELETON LOADING STATE -->
-  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-gray-950 flex flex-col p-4 space-y-6">
+  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-black flex flex-col p-4 space-y-6">
     <div class="h-16 w-full skeleton-bg rounded-xl"></div>
     <div class="flex-1 max-w-4xl w-full mx-auto flex flex-col space-y-6 justify-center">
       <div class="h-12 w-1/3 skeleton-bg rounded-xl mx-auto"></div>
@@ -67,12 +66,12 @@
   </div>
 
   <!-- ACTUAL SITE CONTENT -->
-  <div class="actual-content opacity-0 flex-1 flex flex-col">
+  <div class="actual-content opacity-0 flex-1 flex flex-col pt-[80px]">
 
     <!-- NAVIGATION BAR (IDENTICAL) -->
-    <div id="nav-container">
+    <div id="nav-container" class="fixed top-0 left-0 right-0 z-[100] w-full">
       <nav
-        class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
+        class="glass-panel transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-20">
 
@@ -181,7 +180,7 @@
               2</a>
             <a href="about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
             <a href="services.html"
-              class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-gray-800/50 font-semibold">Services</a>
+              class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-[#171717]/50 font-semibold">Services</a>
             <a href="case-studies.html"
               class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
             <a href="blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
@@ -216,7 +215,7 @@
       </nav>
 
       <!-- SECTION 2: SERVICE CATEGORIES -->
-      <section class="py-24 bg-white dark:bg-gray-950">
+      <section class="py-24 bg-white dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
@@ -335,28 +334,32 @@
       </section>
 
       <!-- SECTION 3: PATIENT JOURNEY — LUXURY WORKFLOW SHOWCASE -->
-      <section id="patient-journey" class="relative overflow-hidden" style="padding: 100px 0 120px;">
-        
+      <section id="patient-journey" class="relative overflow-hidden bg-white dark:bg-black"
+        style="padding: 100px 0 120px;">
+
 
         <!-- ═══ MAIN CONTENT ═══ -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <!-- ── PREMIUM HEADER ── -->
           <div class="text-center mb-20 pj-fade-up">
-            <div class="inline-flex items-center gap-3 px-5 py-2.5 mb-6 rounded-full" style="background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.25); backdrop-filter: blur(8px);">
+            <div class="inline-flex items-center gap-3 px-5 py-2.5 mb-6 rounded-full"
+              style="background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.25); backdrop-filter: blur(8px);">
               <span class="flex gap-1">
                 <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" style="animation-delay:0.3s"></span>
                 <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" style="animation-delay:0.6s"></span>
               </span>
-              <span class="text-xs font-bold uppercase tracking-[0.3em] text-teal-400">Patient Journey · Precision Fabrication</span>
+              <span class="text-xs font-bold uppercase tracking-[0.3em] text-teal-400">Patient Journey · Precision
+                Fabrication</span>
             </div>
             <h2 class="text-5xl sm:text-6xl font-black font-heading leading-none mb-5">
-              <span class="block text-gray-900">The Path to</span>
+              <span class="block text-gray-900 dark:text-white">The Path to</span>
               <span class="block pj-gradient-text">Restored Mobility</span>
             </h2>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              Six precision-engineered stages that transform a clinical assessment into a life-changing custom prosthetic — driven by technology, guided by compassion.
+            <p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              Six precision-engineered stages that transform a clinical assessment into a life-changing custom
+              prosthetic — driven by technology, guided by compassion.
             </p>
           </div>
 
@@ -364,55 +367,68 @@
           <div class="relative" id="pj-journey-wrap">
 
             <!-- CENTER VERTICAL SVG ANIMATED PATH (desktop) -->
-            <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-0 w-px" style="overflow: visible;">
-              <svg id="pj-path-svg" class="absolute top-0 left-1/2 -translate-x-1/2" width="120" height="100%" viewBox="0 0 120 3000" preserveAspectRatio="none" style="overflow: visible; min-height: 3000px;">
+            <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-0 w-px"
+              style="overflow: visible;">
+              <svg id="pj-path-svg" class="absolute top-0 left-1/2 -translate-x-1/2" width="120" height="100%"
+                viewBox="0 0 120 3000" preserveAspectRatio="none" style="overflow: visible; min-height: 3000px;">
                 <defs>
                   <linearGradient id="pathGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:0.1"/>
-                    <stop offset="30%" style="stop-color:#14B8A6;stop-opacity:0.8"/>
-                    <stop offset="60%" style="stop-color:#67E8F9;stop-opacity:0.9"/>
-                    <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0.2"/>
+                    <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:0.1" />
+                    <stop offset="30%" style="stop-color:#14B8A6;stop-opacity:0.8" />
+                    <stop offset="60%" style="stop-color:#67E8F9;stop-opacity:0.9" />
+                    <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0.2" />
                   </linearGradient>
                   <linearGradient id="pathGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#67E8F9;stop-opacity:0"/>
-                    <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1"/>
-                    <stop offset="100%" style="stop-color:#67E8F9;stop-opacity:0"/>
+                    <stop offset="0%" style="stop-color:#67E8F9;stop-opacity:0" />
+                    <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#67E8F9;stop-opacity:0" />
                   </linearGradient>
                   <filter id="pathBlur">
-                    <feGaussianBlur stdDeviation="4" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
                   </filter>
                 </defs>
                 <!-- Soft base track -->
-                <line x1="60" y1="0" x2="60" y2="3000" stroke="rgba(20,184,166,0.08)" stroke-width="2"/>
+                <line x1="60" y1="0" x2="60" y2="3000" stroke="rgba(20,184,166,0.08)" stroke-width="2" />
                 <!-- Animated draw line -->
-                <line id="pj-draw-line" x1="60" y1="0" x2="60" y2="3000" stroke="url(#pathGrad)" stroke-width="2" filter="url(#pathBlur)" stroke-dasharray="3000" stroke-dashoffset="3000"/>
+                <line id="pj-draw-line" x1="60" y1="0" x2="60" y2="3000" stroke="url(#pathGrad)" stroke-width="2"
+                  filter="url(#pathBlur)" stroke-dasharray="3000" stroke-dashoffset="3000" />
                 <!-- Traveling bead -->
-                <circle id="pj-bead" cx="60" cy="0" r="5" fill="#67E8F9" filter="url(#pathBlur)" opacity="0"/>
+                <circle id="pj-bead" cx="60" cy="0" r="5" fill="#67E8F9" filter="url(#pathBlur)" opacity="0" />
                 <!-- Outer glow bead -->
-                <circle id="pj-bead-outer" cx="60" cy="0" r="12" fill="none" stroke="#67E8F9" stroke-width="1.5" opacity="0"/>
+                <circle id="pj-bead-outer" cx="60" cy="0" r="12" fill="none" stroke="#67E8F9" stroke-width="1.5"
+                  opacity="0" />
               </svg>
             </div>
 
             <!-- ═══ STEP 1: CONSULTATION (LEFT) ═══ -->
-            <div class="pj-step pj-step-left relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
+            <div
+              class="pj-step pj-step-left relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
 
               <!-- Image panel -->
               <div class="pj-card-img order-1 lg:order-1">
-                <div class="relative rounded-3xl overflow-hidden group" style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
-                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                <div class="relative rounded-3xl overflow-hidden group"
+                  style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
+                  <img
+                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
                     alt="Doctor consulting with patient about prosthetic options"
                     class="w-full h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     onerror="handleImageError(this)">
-                  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(15,76,129,0.3) 0%, transparent 60%);"></div>
+                  <div class="absolute inset-0"
+                    style="background: linear-gradient(135deg, rgba(15,76,129,0.3) 0%, transparent 60%);"></div>
                   <!-- Step number watermark on image -->
-                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(20,184,166,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(20,184,166,0.3);">
+                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style="background: rgba(20,184,166,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(20,184,166,0.3);">
                     <span class="text-2xl font-black text-teal-400 font-heading">01</span>
                   </div>
                   <!-- Duration badge -->
-                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
+                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2"
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span class="text-xs text-gray-900 font-semibold">1–2 hrs</span>
+                    <span class="text-xs text-gray-900 dark:text-white font-semibold">1–2 hrs</span>
                   </div>
                 </div>
               </div>
@@ -420,194 +436,322 @@
               <!-- Content panel -->
               <div class="pj-card-content order-2 lg:order-2 lg:pl-12">
                 <div class="pj-content-inner">
-                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style="background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.25);">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4"
+                    style="background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.25);">
                     <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-400">Stage 01 · Consultation</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-400">Stage 01 ·
+                      Consultation</span>
                   </div>
-                  <h3 class="text-3xl font-bold font-heading text-gray-900 mb-4 leading-tight">Initial Clinical <span class="pj-gradient-text">Consultation</span></h3>
-                  <p class="text-gray-600 leading-relaxed mb-6">A comprehensive first meeting between the patient, orthopedic physician, and certified prosthetist. Medical history, lifestyle goals, and prescription requirements are reviewed to determine the ideal device pathway.</p>
+                  <h3 class="text-3xl font-bold font-heading text-gray-900 dark:text-white mb-4 leading-tight">Initial
+                    Clinical <span class="pj-gradient-text">Consultation</span></h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">A comprehensive first meeting between
+                    the patient,
+                    orthopedic physician, and certified prosthetist. Medical history, lifestyle goals, and prescription
+                    requirements are reviewed to determine the ideal device pathway.</p>
                   <div class="grid grid-cols-2 gap-3">
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Medical history review</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Prescription planning</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Insurance authorization</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Goal-setting session</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Medical history
+                        review</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Prescription planning</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Insurance
+                        authorization</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><span>Goal-setting session</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- Center node (desktop) -->
-              <div class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center" style="background: linear-gradient(135deg, #0F4C81, #14B8A6); box-shadow: 0 0 0 4px rgba(20,184,166,0.2), 0 0 24px rgba(20,184,166,0.4);">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+              <div
+                class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
+                style="background: linear-gradient(135deg, #0F4C81, #14B8A6); box-shadow: 0 0 0 4px rgba(20,184,166,0.2), 0 0 24px rgba(20,184,166,0.4);">
+                <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                </svg>
               </div>
             </div>
 
             <!-- ═══ STEP 2: ASSESSMENT (RIGHT) ═══ -->
-            <div class="pj-step pj-step-right relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
+            <div
+              class="pj-step pj-step-right relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
 
               <!-- Content panel (left on desktop) -->
               <div class="pj-card-content order-2 lg:order-1 lg:pr-12 lg:text-right">
                 <div class="pj-content-inner">
-                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style="background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25);">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4"
+                    style="background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25);">
                     <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">Stage 02 · Assessment</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">Stage 02 ·
+                      Assessment</span>
                   </div>
-                  <h3 class="text-3xl font-bold font-heading text-gray-900 mb-4 leading-tight">3D Biometric <span style="background: linear-gradient(90deg, #06B6D4, #67E8F9); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Scan & Analysis</span></h3>
-                  <p class="text-gray-600 leading-relaxed mb-6">Contactless structured-light laser scanners generate a sub-millimeter 3D volumetric map of the residual limb in under 45 seconds, eliminating the need for traditional plaster casting.</p>
+                  <h3 class="text-3xl font-bold font-heading text-gray-900 dark:text-white mb-4 leading-tight">3D
+                    Biometric <span
+                      style="background: linear-gradient(90deg, #06B6D4, #67E8F9); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Scan
+                      & Analysis</span></h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Contactless structured-light laser
+                    scanners generate a
+                    sub-millimeter 3D volumetric map of the residual limb in under 45 seconds, eliminating the need for
+                    traditional plaster casting.</p>
                   <div class="grid grid-cols-2 gap-3 lg:justify-end">
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Laser 3D scanning</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Pressure mapping</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Gait analysis</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Digital data model</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Laser 3D scanning</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Pressure mapping</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Gait analysis</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><span>Digital data model</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- Image panel (right on desktop) -->
               <div class="pj-card-img order-1 lg:order-2">
-                <div class="relative rounded-3xl overflow-hidden group" style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
-                  <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80"
+                <div class="relative rounded-3xl overflow-hidden group"
+                  style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
+                  <img src="https://images.pexels.com/photos/3913027/pexels-photo-3913027.jpeg"
                     alt="Advanced 3D laser scanning of limb for prosthetic assessment"
                     class="w-full h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     onerror="handleImageError(this)">
-                  <div class="absolute inset-0" style="background: linear-gradient(225deg, rgba(6,182,212,0.25) 0%, transparent 60%);"></div>
-                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(6,182,212,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(6,182,212,0.3);">
+                  <div class="absolute inset-0"
+                    style="background: linear-gradient(225deg, rgba(6,182,212,0.25) 0%, transparent 60%);"></div>
+                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style="background: rgba(6,182,212,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(6,182,212,0.3);">
                     <span class="text-2xl font-black text-cyan-400 font-heading">02</span>
                   </div>
-                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
+                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2"
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
                     <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                    <span class="text-xs text-gray-900 font-semibold">~45 sec scan</span>
+                    <span class="text-xs text-gray-900 dark:text-white font-semibold">~45 sec scan</span>
                   </div>
                 </div>
               </div>
 
-              <div class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center" style="background: linear-gradient(135deg, #0284C7, #06B6D4); box-shadow: 0 0 0 4px rgba(6,182,212,0.2), 0 0 24px rgba(6,182,212,0.4);">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="7" width="10" height="10" rx="1"/></svg>
+              <div
+                class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
+                style="background: linear-gradient(135deg, #0284C7, #06B6D4); box-shadow: 0 0 0 4px rgba(6,182,212,0.2), 0 0 24px rgba(6,182,212,0.4);">
+                <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
+                  <rect x="7" y="7" width="10" height="10" rx="1" />
+                </svg>
               </div>
             </div>
 
             <!-- ═══ STEP 3: DIGITAL DESIGN (LEFT) ═══ -->
-            <div class="pj-step pj-step-left relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
+            <div
+              class="pj-step pj-step-left relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
 
               <div class="pj-card-img order-1">
-                <div class="relative rounded-3xl overflow-hidden group" style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
-                  <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80"
+                <div class="relative rounded-3xl overflow-hidden group"
+                  style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
+                  <img src="https://images.pexels.com/photos/8436891/pexels-photo-8436891.jpeg"
                     alt="Engineer using CAD software to design custom prosthetic socket"
                     class="w-full h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     onerror="handleImageError(this)">
-                  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(139,92,246,0.25) 0%, transparent 60%);"></div>
-                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(139,92,246,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(139,92,246,0.3);">
+                  <div class="absolute inset-0"
+                    style="background: linear-gradient(135deg, rgba(139,92,246,0.25) 0%, transparent 60%);"></div>
+                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style="background: rgba(139,92,246,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(139,92,246,0.3);">
                     <span class="text-2xl font-black text-violet-400 font-heading">03</span>
                   </div>
-                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
+                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2"
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
                     <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
-                    <span class="text-xs text-gray-900 font-semibold">24–48 hrs</span>
+                    <span class="text-xs text-gray-900 dark:text-white font-semibold">24–48 hrs</span>
                   </div>
                 </div>
               </div>
 
               <div class="pj-card-content order-2 lg:pl-12">
                 <div class="pj-content-inner">
-                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25);">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4"
+                    style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25);">
                     <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400">Stage 03 · Digital Design</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400">Stage 03 · Digital
+                      Design</span>
                   </div>
-                  <h3 class="text-3xl font-bold font-heading text-gray-900 mb-4 leading-tight">CAD/CAM Socket <span style="background: linear-gradient(90deg, #8B5CF6, #A78BFA); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Engineering</span></h3>
-                  <p class="text-gray-600 leading-relaxed mb-6">Bio-mechanical engineers use advanced CAD/CAM software to model the custom socket geometry — analyzing pressure distribution, load vectors, and biomechanical alignment before a single material is cut.</p>
+                  <h3 class="text-3xl font-bold font-heading text-gray-900 dark:text-white mb-4 leading-tight">CAD/CAM
+                    Socket <span
+                      style="background: linear-gradient(90deg, #8B5CF6, #A78BFA); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Engineering</span>
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Bio-mechanical engineers use advanced
+                    CAD/CAM software
+                    to model the custom socket geometry — analyzing pressure distribution, load vectors, and
+                    biomechanical alignment before a single material is cut.</p>
                   <div class="grid grid-cols-2 gap-3">
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>CAD socket modeling</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>Load distribution maps</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>AI optimization</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>Digital twin review</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>CAD socket modeling</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>Load distribution
+                        maps</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>AI optimization</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><span>Digital twin review</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center" style="background: linear-gradient(135deg, #7C3AED, #8B5CF6); box-shadow: 0 0 0 4px rgba(139,92,246,0.2), 0 0 24px rgba(139,92,246,0.4);">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <div
+                class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
+                style="background: linear-gradient(135deg, #7C3AED, #8B5CF6); box-shadow: 0 0 0 4px rgba(139,92,246,0.2), 0 0 24px rgba(139,92,246,0.4);">
+                <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
               </div>
             </div>
 
             <!-- ═══ STEP 4: FABRICATION LAB (RIGHT) ═══ -->
-            <div class="pj-step pj-step-right relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
+            <div
+              class="pj-step pj-step-right relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
 
               <div class="pj-card-content order-2 lg:order-1 lg:pr-12 lg:text-right">
                 <div class="pj-content-inner">
-                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25);">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4"
+                    style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25);">
                     <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400">Stage 04 · Fabrication Lab</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400">Stage 04 · Fabrication
+                      Lab</span>
                   </div>
-                  <h3 class="text-3xl font-bold font-heading text-gray-900 mb-4 leading-tight">Precision <span style="background: linear-gradient(90deg, #F59E0B, #FCD34D); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Manufacturing</span></h3>
-                  <p class="text-gray-600 leading-relaxed mb-6">Our in-house lab uses industrial carbon-fiber 3D printers and CNC robotic milling to produce the device. Medical-grade laminates, hypoallergenic silicones, and titanium fasteners are assembled under sterile conditions.</p>
+                  <h3 class="text-3xl font-bold font-heading text-gray-900 dark:text-white mb-4 leading-tight">Precision
+                    <span
+                      style="background: linear-gradient(90deg, #F59E0B, #FCD34D); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Manufacturing</span>
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Our in-house lab uses industrial
+                    carbon-fiber 3D
+                    printers and CNC robotic milling to produce the device. Medical-grade laminates, hypoallergenic
+                    silicones, and titanium fasteners are assembled under sterile conditions.</p>
                   <div class="grid grid-cols-2 gap-3">
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>Carbon fiber printing</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>CNC milling</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>Silicone lamination</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>QC inspection</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>Carbon fiber
+                        printing</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>CNC milling</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>Silicone lamination</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><span>QC inspection</span></div>
                   </div>
                 </div>
               </div>
 
               <div class="pj-card-img order-1 lg:order-2">
-                <div class="relative rounded-3xl overflow-hidden group" style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
-                  <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80"
+                <div class="relative rounded-3xl overflow-hidden group"
+                  style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
+                  <img src="https://images.pexels.com/photos/3913006/pexels-photo-3913006.jpeg"
                     alt="Industrial 3D printing and fabrication of prosthetic components"
                     class="w-full h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     onerror="handleImageError(this)">
-                  <div class="absolute inset-0" style="background: linear-gradient(225deg, rgba(245,158,11,0.2) 0%, transparent 60%);"></div>
-                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(245,158,11,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(245,158,11,0.3);">
+                  <div class="absolute inset-0"
+                    style="background: linear-gradient(225deg, rgba(245,158,11,0.2) 0%, transparent 60%);"></div>
+                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style="background: rgba(245,158,11,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(245,158,11,0.3);">
                     <span class="text-2xl font-black text-amber-400 font-heading">04</span>
                   </div>
-                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
+                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2"
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
                     <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                    <span class="text-xs text-gray-900 font-semibold">48–72 hrs</span>
+                    <span class="text-xs text-gray-900 dark:text-white font-semibold">48–72 hrs</span>
                   </div>
                 </div>
               </div>
 
-              <div class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center" style="background: linear-gradient(135deg, #B45309, #F59E0B); box-shadow: 0 0 0 4px rgba(245,158,11,0.2), 0 0 24px rgba(245,158,11,0.4);">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <div
+                class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
+                style="background: linear-gradient(135deg, #B45309, #F59E0B); box-shadow: 0 0 0 4px rgba(245,158,11,0.2), 0 0 24px rgba(245,158,11,0.4);">
+                <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
               </div>
             </div>
 
             <!-- ═══ STEP 5: PRECISION FITTING (LEFT) ═══ -->
-            <div class="pj-step pj-step-left relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
+            <div
+              class="pj-step pj-step-left relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16 lg:mb-24">
 
               <div class="pj-card-img order-1">
-                <div class="relative rounded-3xl overflow-hidden group" style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
-                  <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80"
+                <div class="relative rounded-3xl overflow-hidden group"
+                  style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
+                  <img src="https://images.pexels.com/photos/6111592/pexels-photo-6111592.jpeg"
                     alt="Clinical prosthetist fitting and aligning prosthetic limb for patient"
                     class="w-full h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     onerror="handleImageError(this)">
-                  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(16,185,129,0.25) 0%, transparent 60%);"></div>
-                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(16,185,129,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(16,185,129,0.3);">
+                  <div class="absolute inset-0"
+                    style="background: linear-gradient(135deg, rgba(16,185,129,0.25) 0%, transparent 60%);"></div>
+                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style="background: rgba(16,185,129,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(16,185,129,0.3);">
                     <span class="text-2xl font-black text-emerald-400 font-heading">05</span>
                   </div>
-                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
+                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2"
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span class="text-xs text-gray-900 font-semibold">2–4 hrs</span>
+                    <span class="text-xs text-gray-900 dark:text-white font-semibold">2–4 hrs</span>
                   </div>
                 </div>
               </div>
 
               <div class="pj-card-content order-2 lg:pl-12">
                 <div class="pj-content-inner">
-                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4"
+                    style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400">Stage 05 · Precision Fitting</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400">Stage 05 · Precision
+                      Fitting</span>
                   </div>
-                  <h3 class="text-3xl font-bold font-heading text-gray-900 mb-4 leading-tight">Clinical <span style="background: linear-gradient(90deg, #10B981, #34D399); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Fitting & Alignment</span></h3>
-                  <p class="text-gray-600 leading-relaxed mb-6">The patient attends an in-clinic fitting where the completed device is trialed and micro-adjusted. Vacuum suspension levels, ankle angle, and joint alignment are calibrated using real-time gait feedback sensors.</p>
+                  <h3 class="text-3xl font-bold font-heading text-gray-900 dark:text-white mb-4 leading-tight">Clinical
+                    <span
+                      style="background: linear-gradient(90deg, #10B981, #34D399); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Fitting
+                      & Alignment</span></h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">The patient attends an in-clinic
+                    fitting where the
+                    completed device is trialed and micro-adjusted. Vacuum suspension levels, ankle angle, and joint
+                    alignment are calibrated using real-time gait feedback sensors.</p>
                   <div class="grid grid-cols-2 gap-3">
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Vacuum suspension tuning</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Joint angle calibration</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Gait sensor feedback</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Patient comfort check</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Vacuum suspension
+                        tuning</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Joint angle
+                        calibration</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Gait sensor
+                        feedback</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><span>Patient comfort
+                        check</span></div>
                   </div>
                 </div>
               </div>
 
-              <div class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center" style="background: linear-gradient(135deg, #065F46, #10B981); box-shadow: 0 0 0 4px rgba(16,185,129,0.2), 0 0 24px rgba(16,185,129,0.4);">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49"/></svg>
+              <div
+                class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
+                style="background: linear-gradient(135deg, #065F46, #10B981); box-shadow: 0 0 0 4px rgba(16,185,129,0.2), 0 0 24px rgba(16,185,129,0.4);">
+                <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49" />
+                </svg>
               </div>
             </div>
 
@@ -616,40 +760,65 @@
 
               <div class="pj-card-content order-2 lg:order-1 lg:pr-12 lg:text-right">
                 <div class="pj-content-inner">
-                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style="background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.25);">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4"
+                    style="background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.25);">
                     <span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-rose-400">Stage 06 · Follow-Up Care</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-rose-400">Stage 06 · Follow-Up
+                      Care</span>
                   </div>
-                  <h3 class="text-3xl font-bold font-heading text-gray-900 mb-4 leading-tight">Ongoing Patient <span style="background: linear-gradient(90deg, #F43F5E, #FB7185); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Recovery Care</span></h3>
-                  <p class="text-gray-600 leading-relaxed mb-6">A structured post-delivery program of regular wear-checks, socket volume assessments, and structural adjustments ensures the device continues to perform as the patient's residual limb adapts over time.</p>
+                  <h3 class="text-3xl font-bold font-heading text-gray-900 dark:text-white mb-4 leading-tight">Ongoing
+                    Patient <span
+                      style="background: linear-gradient(90deg, #F43F5E, #FB7185); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Recovery
+                      Care</span></h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">A structured post-delivery program of
+                    regular
+                    wear-checks, socket volume assessments, and structural adjustments ensures the device continues to
+                    perform as the patient's residual limb adapts over time.</p>
                   <div class="grid grid-cols-2 gap-3">
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Volume monitoring</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Socket adjustments</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Wear checks</span></div>
-                    <div class="pj-feature-pill"><span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Rehab coordination</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Volume monitoring</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Socket adjustments</span>
+                    </div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Wear checks</span></div>
+                    <div class="pj-feature-pill"><span
+                        class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><span>Rehab coordination</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="pj-card-img order-1 lg:order-2">
-                <div class="relative rounded-3xl overflow-hidden group" style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
-                  <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80"
+                <div class="relative rounded-3xl overflow-hidden group"
+                  style="box-shadow: 0 32px 80px rgba(0,0,0,0.5);">
+                  <img src="https://images.pexels.com/photos/6111598/pexels-photo-6111598.jpeg"
                     alt="Patient care follow-up consultation and recovery support"
                     class="w-full h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     onerror="handleImageError(this)">
-                  <div class="absolute inset-0" style="background: linear-gradient(225deg, rgba(244,63,94,0.2) 0%, transparent 60%);"></div>
-                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(244,63,94,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(244,63,94,0.3);">
+                  <div class="absolute inset-0"
+                    style="background: linear-gradient(225deg, rgba(244,63,94,0.2) 0%, transparent 60%);"></div>
+                  <div class="absolute top-4 left-4 w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style="background: rgba(244,63,94,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(244,63,94,0.3);">
                     <span class="text-2xl font-black text-rose-400 font-heading">06</span>
                   </div>
-                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
+                  <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-xl flex items-center gap-2"
+                    style="background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.1);">
                     <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
-                    <span class="text-xs text-gray-900 font-semibold">Ongoing</span>
+                    <span class="text-xs text-gray-900 dark:text-white font-semibold">Ongoing</span>
                   </div>
                 </div>
               </div>
 
-              <div class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center" style="background: linear-gradient(135deg, #9F1239, #F43F5E); box-shadow: 0 0 0 4px rgba(244,63,94,0.2), 0 0 24px rgba(244,63,94,0.4);">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <div
+                class="pj-center-node hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center"
+                style="background: linear-gradient(135deg, #9F1239, #F43F5E); box-shadow: 0 0 0 4px rgba(244,63,94,0.2), 0 0 24px rgba(244,63,94,0.4);">
+                <svg class="w-5 h-5 text-gray-900 dark:text-white" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </div>
             </div>
 
@@ -662,31 +831,47 @@
               <div class="absolute w-40 h-40 rounded-full pj-ring-pulse-1"></div>
               <div class="absolute w-52 h-52 rounded-full pj-ring-pulse-2"></div>
               <!-- Main medallion -->
-              <div class="relative w-32 h-32 rounded-full flex flex-col items-center justify-center z-10" style="background: linear-gradient(135deg, rgba(15,76,129,0.8), rgba(20,184,166,0.6)); backdrop-filter: blur(20px); border: 2px solid rgba(20,184,166,0.4); box-shadow: 0 0 60px rgba(20,184,166,0.3), inset 0 1px 0 rgba(255,255,255,0.15);">
-                <svg class="w-8 h-8 text-teal-400 mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span class="text-gray-900 text-[10px] font-bold uppercase tracking-widest text-center leading-tight">Patient<br>Journey</span>
+              <div class="relative w-32 h-32 rounded-full flex flex-col items-center justify-center z-10"
+                style="background: linear-gradient(135deg, rgba(15,76,129,0.8), rgba(20,184,166,0.6)); backdrop-filter: blur(20px); border: 2px solid rgba(20,184,166,0.4); box-shadow: 0 0 60px rgba(20,184,166,0.3), inset 0 1px 0 rgba(255,255,255,0.15);">
+                <svg class="w-8 h-8 text-teal-400 mb-1" fill="none" stroke="currentColor" stroke-width="1.5"
+                  viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span
+                  class="text-gray-900 dark:text-white text-[10px] font-bold uppercase tracking-widest text-center leading-tight">Patient<br>Journey</span>
               </div>
             </div>
-            <p class="mt-6 text-slate-500 text-sm text-center max-w-md">Every step engineered for precision. Every decision centered on the patient.</p>
+            <p class="mt-6 text-slate-500 dark:text-gray-400 text-sm text-center max-w-md">Every step engineered for
+              precision. Every
+              decision centered on the patient.</p>
           </div>
 
           <!-- ── ANIMATED STATS STRIP ── -->
-          <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 rounded-3xl overflow-hidden pj-fade-up" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); backdrop-filter: blur(16px);">
-            <div class="px-8 py-8 text-center border-r border-white/5">
-              <div class="text-4xl font-black text-gray-900 font-heading mb-1"><span class="pj-counter" data-target="6">0</span></div>
-              <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Journey Stages</div>
+          <div
+            class="mt-16 grid grid-cols-2 lg:grid-cols-4 rounded-3xl overflow-hidden pj-fade-up bg-gray-50/80 dark:bg-white/5 border border-gray-200/80 dark:border-white/10 backdrop-blur-md">
+            <div class="px-8 py-8 text-center border-r border-gray-200 dark:border-white/5">
+              <div class="text-4xl font-black text-gray-900 dark:text-white font-heading mb-1"><span class="pj-counter"
+                  data-target="6">0</span></div>
+              <div class="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-widest font-semibold">Journey
+                Stages</div>
             </div>
-            <div class="px-8 py-8 text-center border-r border-white/5">
-              <div class="text-4xl font-black text-gray-900 font-heading mb-1"><span class="pj-counter" data-target="45">0</span><span class="text-teal-400 text-2xl">s</span></div>
-              <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Scan Speed</div>
+            <div class="px-8 py-8 text-center border-r border-gray-200 dark:border-white/5">
+              <div class="text-4xl font-black text-gray-900 dark:text-white font-heading mb-1"><span class="pj-counter"
+                  data-target="45">0</span><span class="text-teal-400 text-2xl">s</span></div>
+              <div class="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-widest font-semibold">Scan Speed
+              </div>
             </div>
-            <div class="px-8 py-8 text-center border-r border-white/5">
-              <div class="text-4xl font-black text-gray-900 font-heading mb-1"><span class="pj-counter" data-target="72">0</span><span class="text-teal-400 text-2xl">h</span></div>
-              <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Avg. Turnaround</div>
+            <div class="px-8 py-8 text-center border-r border-gray-200 dark:border-white/5">
+              <div class="text-4xl font-black text-gray-900 dark:text-white font-heading mb-1"><span class="pj-counter"
+                  data-target="72">0</span><span class="text-teal-400 text-2xl">h</span></div>
+              <div class="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-widest font-semibold">Avg.
+                Turnaround</div>
             </div>
             <div class="px-8 py-8 text-center">
-              <div class="text-4xl font-black text-gray-900 font-heading mb-1"><span class="pj-counter" data-target="98">0</span><span class="text-teal-400 text-2xl">%</span></div>
-              <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Fit Success Rate</div>
+              <div class="text-4xl font-black text-gray-900 dark:text-white font-heading mb-1"><span class="pj-counter"
+                  data-target="98">0</span><span class="text-teal-400 text-2xl">%</span></div>
+              <div class="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-widest font-semibold">Fit Success
+                Rate</div>
             </div>
           </div>
 
@@ -701,36 +886,59 @@
             pointer-events: none;
             filter: blur(80px);
           }
+
           .pj-orb-1 {
-            width: 700px; height: 700px;
-            top: -200px; left: -200px;
-            background: radial-gradient(circle, rgba(15,76,129,0.45) 0%, transparent 70%);
+            width: 700px;
+            height: 700px;
+            top: -200px;
+            left: -200px;
+            background: radial-gradient(circle, rgba(15, 76, 129, 0.45) 0%, transparent 70%);
             animation: pjOrb 12s ease-in-out infinite;
           }
+
           .pj-orb-2 {
-            width: 600px; height: 600px;
-            top: 30%; right: -150px;
-            background: radial-gradient(circle, rgba(20,184,166,0.3) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            top: 30%;
+            right: -150px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.3) 0%, transparent 70%);
             animation: pjOrb 15s ease-in-out infinite reverse;
           }
+
           .pj-orb-3 {
-            width: 500px; height: 500px;
-            bottom: 10%; left: 25%;
-            background: radial-gradient(circle, rgba(103,232,249,0.2) 0%, transparent 70%);
+            width: 500px;
+            height: 500px;
+            bottom: 10%;
+            left: 25%;
+            background: radial-gradient(circle, rgba(103, 232, 249, 0.2) 0%, transparent 70%);
             animation: pjOrb 10s ease-in-out infinite;
             animation-delay: -4s;
           }
+
           .pj-orb-4 {
-            width: 400px; height: 400px;
-            bottom: -100px; right: 20%;
-            background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: 20%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
             animation: pjOrb 14s ease-in-out infinite reverse;
             animation-delay: -7s;
           }
+
           @keyframes pjOrb {
-            0%, 100% { transform: translate(0,0) scale(1); }
-            33% { transform: translate(40px,-30px) scale(1.06); }
-            66% { transform: translate(-30px,40px) scale(0.96); }
+
+            0%,
+            100% {
+              transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+              transform: translate(40px, -30px) scale(1.06);
+            }
+
+            66% {
+              transform: translate(-30px, 40px) scale(0.96);
+            }
           }
 
           /* ── Gradient text ── */
@@ -743,9 +951,15 @@
             color: transparent;
             animation: pjGradMove 4s linear infinite;
           }
+
           @keyframes pjGradMove {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            0% {
+              background-position: 0% center;
+            }
+
+            100% {
+              background-position: 200% center;
+            }
           }
 
           /* ── Feature pills ── */
@@ -758,48 +972,69 @@
             font-size: 11px;
             font-weight: 600;
             color: #94a3b8;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             transition: all 0.25s ease;
           }
+
           .pj-feature-pill:hover {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             color: #e2e8f0;
-            border-color: rgba(255,255,255,0.12);
+            border-color: rgba(255, 255, 255, 0.12);
           }
 
           /* ── Center node pulse ── */
           .pj-center-node {
             animation: pjNodePulse 3s ease-in-out infinite;
           }
+
           @keyframes pjNodePulse {
-            0%, 100% { box-shadow: 0 0 0 4px rgba(20,184,166,0.2), 0 0 24px rgba(20,184,166,0.4); }
-            50% { box-shadow: 0 0 0 8px rgba(20,184,166,0.1), 0 0 40px rgba(20,184,166,0.6); }
+
+            0%,
+            100% {
+              box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2), 0 0 24px rgba(20, 184, 166, 0.4);
+            }
+
+            50% {
+              box-shadow: 0 0 0 8px rgba(20, 184, 166, 0.1), 0 0 40px rgba(20, 184, 166, 0.6);
+            }
           }
 
           /* ── Patient journey medallion rings ── */
           .pj-ring-pulse-1 {
-            background: rgba(20,184,166,0.08);
-            border: 1px solid rgba(20,184,166,0.2);
+            background: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
             animation: pjRingPulse 2.5s ease-in-out infinite;
           }
+
           .pj-ring-pulse-2 {
-            background: rgba(20,184,166,0.04);
-            border: 1px solid rgba(20,184,166,0.1);
+            background: rgba(20, 184, 166, 0.04);
+            border: 1px solid rgba(20, 184, 166, 0.1);
             animation: pjRingPulse 2.5s ease-in-out infinite;
             animation-delay: 0.5s;
           }
+
           @keyframes pjRingPulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.08); opacity: 0.4; }
+
+            0%,
+            100% {
+              transform: scale(1);
+              opacity: 0.8;
+            }
+
+            50% {
+              transform: scale(1.08);
+              opacity: 0.4;
+            }
           }
 
           /* ── Scroll entry animation ── */
           .pj-step {
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
           }
+
           .pj-step.pj-in {
             opacity: 1;
             transform: translateY(0);
@@ -810,6 +1045,7 @@
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
           }
+
           .pj-fade-up.pj-in {
             opacity: 1;
             transform: translateY(0);
@@ -819,116 +1055,127 @@
           .pj-card-img .relative {
             transition: box-shadow 0.4s ease;
           }
+
           .pj-card-img .relative:hover {
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(20,184,166,0.15) !important;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 60px rgba(20, 184, 166, 0.15) !important;
           }
 
           /* ── SVG path draw ── */
           #pj-draw-line {
-            transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1);
+            transition: stroke-dashoffset 2.5s cubic-bezier(0.22, 1, 0.36, 1);
           }
+
           #pj-draw-line.pj-drawn {
             stroke-dashoffset: 0;
           }
-          #pj-bead, #pj-bead-outer {
-            transition: cy 2.5s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease;
+
+          #pj-bead,
+          #pj-bead-outer {
+            transition: cy 2.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
           }
 
           /* ── Particle dots ── */
           @keyframes pjParticleDrift {
-            0% { transform: translateY(0) translateX(0); opacity: 0.5; }
-            100% { transform: translateY(-100px) translateX(15px); opacity: 0; }
+            0% {
+              transform: translateY(0) translateX(0);
+              opacity: 0.5;
+            }
+
+            100% {
+              transform: translateY(-100px) translateX(15px);
+              opacity: 0;
+            }
           }
         </style>
 
         <!-- ══════ SCRIPT ══════ -->
         <script>
-        (function() {
-          const section = document.getElementById('patient-journey');
-          if (!section) return;
+            (function () {
+              const section = document.getElementById('patient-journey');
+              if (!section) return;
 
-          // ── Particle System ──
-          const canvas = document.getElementById('pj-canvas');
-          if (canvas) {
-            for (let i = 0; i < 30; i++) {
-              const dot = document.createElement('div');
-              const size = Math.random() * 3 + 1;
-              const colors = ['rgba(20,184,166,', 'rgba(103,232,249,', 'rgba(139,92,246,', 'rgba(255,255,255,'];
-              const color = colors[Math.floor(Math.random() * colors.length)];
-              dot.style.cssText = `
+              // ── Particle System ──
+              const canvas = document.getElementById('pj-canvas');
+              if (canvas) {
+                for (let i = 0; i < 30; i++) {
+                  const dot = document.createElement('div');
+                  const size = Math.random() * 3 + 1;
+                  const colors = ['rgba(20,184,166,', 'rgba(103,232,249,', 'rgba(139,92,246,', 'rgba(255,255,255,'];
+                  const color = colors[Math.floor(Math.random() * colors.length)];
+                  dot.style.cssText = `
                 position:absolute;width:${size}px;height:${size}px;border-radius:50%;
-                background:${color}${(Math.random()*0.35+0.05)});
-                left:${Math.random()*100}%;top:${Math.random()*100}%;
-                animation:pjParticleDrift ${(Math.random()*8+5).toFixed(1)}s ease-in infinite;
-                animation-delay:${(Math.random()*6).toFixed(1)}s;
+                background:${color}${(Math.random() * 0.35 + 0.05)});
+                left:${Math.random() * 100}%;top:${Math.random() * 100}%;
+                animation:pjParticleDrift ${(Math.random() * 8 + 5).toFixed(1)}s ease-in infinite;
+                animation-delay:${(Math.random() * 6).toFixed(1)}s;
               `;
-              canvas.appendChild(dot);
-            }
-          }
-
-          // ── Counter Animation ──
-          function runCounter(el) {
-            const target = +el.dataset.target;
-            const dur = 1800, start = performance.now();
-            const tick = now => {
-              const t = Math.min((now - start) / dur, 1);
-              el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target);
-              if (t < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
-          }
-
-          // ── IntersectionObserver ──
-          let triggered = false;
-          const io = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-              if (!e.isIntersecting) return;
-
-              // Animate fade-ups
-              section.querySelectorAll('.pj-fade-up').forEach((el, i) => {
-                setTimeout(() => el.classList.add('pj-in'), i * 150);
-              });
-
-              // Stagger step cards
-              section.querySelectorAll('.pj-step').forEach((el, i) => {
-                setTimeout(() => el.classList.add('pj-in'), 300 + i * 200);
-              });
-
-              // Draw SVG path
-              const line = document.getElementById('pj-draw-line');
-              if (line) setTimeout(() => line.classList.add('pj-drawn'), 500);
-
-              // Animate bead along path
-              const bead = document.getElementById('pj-bead');
-              const beadOuter = document.getElementById('pj-bead-outer');
-              if (bead && beadOuter) {
-                setTimeout(() => {
-                  bead.setAttribute('opacity', '0.9');
-                  beadOuter.setAttribute('opacity', '0.5');
-                  bead.setAttribute('cy', '2900');
-                  beadOuter.setAttribute('cy', '2900');
-                }, 600);
+                  canvas.appendChild(dot);
+                }
               }
 
-              // Counters
-              if (!triggered) {
-                triggered = true;
-                setTimeout(() => {
-                  section.querySelectorAll('.pj-counter').forEach(runCounter);
-                }, 1500);
+              // ── Counter Animation ──
+              function runCounter(el) {
+                const target = +el.dataset.target;
+                const dur = 1800, start = performance.now();
+                const tick = now => {
+                  const t = Math.min((now - start) / dur, 1);
+                  el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target);
+                  if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
               }
-            });
-          }, { threshold: 0.06 });
 
-          io.observe(section);
-        })();
+              // ── IntersectionObserver ──
+              let triggered = false;
+              const io = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                  if (!e.isIntersecting) return;
+
+                  // Animate fade-ups
+                  section.querySelectorAll('.pj-fade-up').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('pj-in'), i * 150);
+                  });
+
+                  // Stagger step cards
+                  section.querySelectorAll('.pj-step').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('pj-in'), 300 + i * 200);
+                  });
+
+                  // Draw SVG path
+                  const line = document.getElementById('pj-draw-line');
+                  if (line) setTimeout(() => line.classList.add('pj-drawn'), 500);
+
+                  // Animate bead along path
+                  const bead = document.getElementById('pj-bead');
+                  const beadOuter = document.getElementById('pj-bead-outer');
+                  if (bead && beadOuter) {
+                    setTimeout(() => {
+                      bead.setAttribute('opacity', '0.9');
+                      beadOuter.setAttribute('opacity', '0.5');
+                      bead.setAttribute('cy', '2900');
+                      beadOuter.setAttribute('cy', '2900');
+                    }, 600);
+                  }
+
+                  // Counters
+                  if (!triggered) {
+                    triggered = true;
+                    setTimeout(() => {
+                      section.querySelectorAll('.pj-counter').forEach(runCounter);
+                    }, 1500);
+                  }
+                });
+              }, { threshold: 0.06 });
+
+              io.observe(section);
+            })();
         </script>
 
       </section>
 
 
       <!-- SECTION 4: CONSULTATION PACKAGES -->
-      <section class="py-24 bg-white dark:bg-gray-950">
+      <section class="py-24 bg-white dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
@@ -1021,7 +1268,7 @@
       </section>
 
       <!-- SECTION 5: WHY CHOOSE OUR LAB -->
-      <section class="py-24 bg-white dark:bg-gray-900/40 border-t border-gray-100 dark:border-gray-900">
+      <section class="py-24 bg-white dark:bg-[#0A0A0A] border-t border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -1064,7 +1311,7 @@
 
             <div class="relative reveal-element">
               <div class="glass-panel p-4 rounded-3xl shadow-xl">
-                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+                <img src="https://images.pexels.com/photos/20860582/pexels-photo-20860582.jpeg"
                   alt="Physical therapist analyzing joint mobility during custom scan session"
                   class="rounded-2xl w-full h-[320px] object-cover" loading="lazy" onerror="handleImageError(this)">
               </div>

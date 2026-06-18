@@ -26,11 +26,11 @@
         extend: {
           colors: {
             brand: {
-              primary: 'var(--color-primary)',
-              secondary: 'var(--color-secondary)',
-              accent: 'var(--color-accent)',
-              dark: 'var(--color-dark)',
-              light: 'var(--color-light)',
+              primary: 'rgb(var(--rgb-primary) / <alpha-value>)',
+              secondary: 'rgb(var(--rgb-secondary) / <alpha-value>)',
+              accent: 'rgb(var(--rgb-accent) / <alpha-value>)',
+              dark: 'rgb(var(--rgb-dark) / <alpha-value>)',
+              light: 'rgb(var(--rgb-light) / <alpha-value>)',
               purple: '#3B0764',
               lavender: '#E9D5FF',
               blue: '#0EA5E9',
@@ -53,11 +53,10 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body
-  class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300">
+<body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300 dark:bg-[#0A0A0A] dark:text-gray-100">
 
   <!-- SKELETON LOADING STATE -->
-  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-gray-950 flex flex-col p-4 space-y-6">
+  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-black flex flex-col p-4 space-y-6">
     <div class="h-16 w-full skeleton-bg rounded-xl"></div>
     <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-7xl w-full mx-auto">
       <div class="space-y-6">
@@ -74,12 +73,12 @@
   </div>
 
   <!-- ACTUAL SITE CONTENT -->
-  <div class="actual-content opacity-0 flex-1 flex flex-col">
+  <div class="actual-content opacity-0 flex-1 flex flex-col pt-[80px]">
 
     <!-- NAVIGATION BAR (IDENTICAL) -->
-    <div id="nav-container">
+    <div id="nav-container" class="fixed top-0 left-0 right-0 z-[100] w-full">
       <nav
-        class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
+        class="glass-panel transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-20">
 
@@ -184,11 +183,11 @@
         <!-- Mobile Menu drawer -->
         <div id="mobile-menu"
           class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-200/30 transition-all">
-          <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+          <div class="px-4 pt-2 pb-6 space-y-2">
             <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home
               1</a>
             <a href="home2.html"
-              class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-gray-800/50 font-semibold">Home
+              class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-[#171717]/50 font-semibold">Home
               2</a>
             <a href="about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
             <a href="services.html"
@@ -210,7 +209,7 @@
 
       <!-- SECTION 1: HERO SECTION (Alternative Layout) -->
       <header
-        class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-br from-brand-primary via-brand-primary to-indigo-950 text-white">
+        class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-br from-brand-light via-white to-brand-light/50 dark:from-black dark:via-[#0A0A0A] dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
         <div class="absolute inset-0">
           <!-- SVG lines overlay to create a high-tech engineering grid -->
           <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
@@ -235,7 +234,7 @@
               <h1 class="text-4xl sm:text-5xl font-semibold leading-tight font-heading">
                 Engineering Custom Devices for <span class="text-brand-accent">Biomechanical Performance</span>
               </h1>
-              <p class="text-sm sm:text-base text-brand-light/90 leading-relaxed max-w-xl">
+              <p class="text-sm sm:text-base text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-brand-light/90 leading-relaxed max-w-xl">
                 ApexFlex utilizes high-fidelity 3D structural scanning, cloud-computed CAD algorithms, and industrial
                 precision milling to engineer responsive braces and sockets.
               </p>
@@ -255,14 +254,14 @@
               <div
                 class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-brand-primary/20 rounded-3xl blur-2xl">
               </div>
-              <div class="glass-panel p-2.5 rounded-3xl relative border border-white/10 bg-gray-900/50 shadow-2xl">
+              <div class="glass-panel p-2.5 rounded-3xl relative border border-white/10 bg-gray-100/50 dark:bg-[#0A0A0A] shadow-2xl">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
                   alt="Clinical bioengineer working on 3D computer CAD modeling of socket joints"
                   class="rounded-2xl w-full h-[320px] sm:h-[380px] object-cover" onerror="handleImageError(this)">
 
                 <!-- Floating HUD Info overlay -->
                 <div
-                  class="absolute top-6 right-6 px-4 py-2 bg-gray-950/80 rounded-xl backdrop-blur-md border border-white/10 text-xs flex items-center space-x-2">
+                  class="absolute top-6 right-6 px-4 py-2 bg-white/80 dark:bg-black/80 rounded-xl backdrop-blur-md border border-white/10 text-xs flex items-center space-x-2">
                   <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></span>
                   <span class="font-semibold text-gray-200">CAD Queue Online</span>
                 </div>
@@ -274,7 +273,7 @@
       </header>
 
       <!-- SECTION 2: ADVANCED LAB TECHNOLOGY -->
-      <section class="py-24 bg-white dark:bg-gray-950">
+      <section class="py-24 bg-white dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -354,7 +353,7 @@
       </section>
 
       <!-- SECTION 3: CLINICAL ANALYTICS DASHBOARD PREVIEW -->
-      <section class="py-24 bg-white dark:bg-gray-900/40 border-y border-gray-100 dark:border-gray-900">
+      <section class="py-24 bg-white dark:bg-[#0A0A0A] border-y border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
@@ -394,7 +393,7 @@
               </div>
 
               <!-- Target for charts.js SVG -->
-              <div id="fabrication-queue-chart" class="w-full h-60 flex items-center justify-center text-gray-400">
+              <div id="fabrication-queue-chart" class="w-full h-60 flex items-center justify-center text-gray-500 dark:text-gray-400">
                 <span class="text-xs animate-pulse">Initializing analytics metrics...</span>
               </div>
             </div>
@@ -404,7 +403,7 @@
       </section>
 
       <!-- SECTION 4: ORTHOTIC CARE PROGRAMS -->
-      <section class="py-24 bg-white dark:bg-gray-950">
+      <section class="py-24 bg-white dark:bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
@@ -415,7 +414,7 @@
               and assist physical rehabilitation paths.</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 stagger-children">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
 
             <!-- Card 1: Spinal -->
             <div
@@ -492,7 +491,7 @@
       </section>
 
       <!-- SECTION 5: OUTCOME REPORTS -->
-      <section class="py-24 bg-white dark:bg-gray-900/40 border-t border-gray-100 dark:border-gray-900">
+      <section class="py-24 bg-white dark:bg-[#0A0A0A] border-t border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
@@ -515,11 +514,11 @@
               </div>
               <!-- Heatmap Grid Target -->
               <div id="socket-pressure-heatmap"
-                class="w-full h-56 flex items-center justify-center bg-gray-100/50 dark:bg-gray-900/50 rounded-2xl p-4">
-                <span class="text-xs animate-pulse text-gray-400">Loading thermal sensors...</span>
+                class="w-full h-56 flex items-center justify-center bg-gray-100/50 dark:bg-[#0A0A0A] rounded-2xl p-4">
+                <span class="text-xs animate-pulse text-gray-500 dark:text-gray-400">Loading thermal sensors...</span>
               </div>
               <div
-                class="flex justify-between items-center text-[10px] text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-200 pt-3">
+                class="flex justify-between items-center text-[10px] text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-200 pt-3">
                 <span>Sensor Zone: Patellar bar</span>
                 <span>Peak: 98 kPa (Within bounds)</span>
               </div>
@@ -534,10 +533,10 @@
               </div>
               <!-- Progress Line Target -->
               <div id="gait-velocity-chart" class="w-full h-56 flex items-center justify-center">
-                <span class="text-xs animate-pulse text-gray-400">Compiling progress database...</span>
+                <span class="text-xs animate-pulse text-gray-500 dark:text-gray-400">Compiling progress database...</span>
               </div>
               <div
-                class="flex justify-between items-center text-[10px] text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-200 pt-3">
+                class="flex justify-between items-center text-[10px] text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-200 pt-3">
                 <span class="flex items-center"><span
                     class="w-2.5 h-2.5 rounded-full bg-brand-light mr-1.5 rtl:ml-1.5 flex-shrink-0"></span> Before
                   fitting</span>
@@ -557,7 +556,7 @@
 
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8 reveal-element">
           <h2 class="text-3xl sm:text-4xl font-semibold font-heading">Collaborate with our Bio-Mechanical Engineers</h2>
-          <p class="text-sm sm:text-base text-brand-light max-w-2xl mx-auto font-normal">
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-gray-600 dark:text-brand-light max-w-2xl mx-auto font-normal">
             We accept physician prescriptions, medical digital scans, and insurer pre-authorizations. Reach out today to
             schedule a diagnostic scan consultation for your patient.
           </p>
@@ -581,7 +580,7 @@
       <footer class="bg-white text-gray-600 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
             <div class="space-y-4">
               <a href="/index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -594,7 +593,7 @@
                 </svg>
                 <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
               </a>
-              <p class="text-xs text-gray-400 leading-relaxed font-normal">
+              <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
                 State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological
                 walking capacity via advanced design.
               </p>
@@ -650,7 +649,7 @@
 
             <div>
               <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
-              <address class="not-italic text-xs text-gray-400 space-y-2">
+              <address class="not-italic text-xs text-gray-500 dark:text-gray-400 space-y-2">
                 <p class="flex items-start"><i data-lucide="map-pin"
                     class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr,
                   Suite D, Seattle, WA 98101</p>

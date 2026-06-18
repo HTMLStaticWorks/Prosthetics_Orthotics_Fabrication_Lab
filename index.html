@@ -25,11 +25,11 @@
         extend: {
           colors: {
             brand: {
-              primary: 'var(--color-primary)',
-              secondary: 'var(--color-secondary)',
-              accent: 'var(--color-accent)',
-              dark: 'var(--color-dark)',
-              light: 'var(--color-light)',
+              primary: 'rgb(var(--rgb-primary) / <alpha-value>)',
+              secondary: 'rgb(var(--rgb-secondary) / <alpha-value>)',
+              accent: 'rgb(var(--rgb-accent) / <alpha-value>)',
+              dark: 'rgb(var(--rgb-dark) / <alpha-value>)',
+              light: 'rgb(var(--rgb-light) / <alpha-value>)',
               purple: '#3B0764',
               lavender: '#E9D5FF',
               blue: '#0EA5E9',
@@ -51,14 +51,14 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300">
+<body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300 dark:bg-[#0A0A0A] dark:text-gray-100">
 
   <!-- SCROLL PROGRESS -->
   <div id="scroll-progress"></div>
 
 
   <!-- SKELETON LOADING STATE -->
-  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-gray-950 flex flex-col p-4 space-y-6">
+  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-black flex flex-col p-4 space-y-6">
     <div class="h-16 w-full skeleton-bg rounded-xl"></div>
     <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-7xl w-full mx-auto">
       <div class="space-y-6">
@@ -75,11 +75,11 @@
   </div>
 
   <!-- ACTUAL SITE CONTENT -->
-  <div class="actual-content opacity-0 flex-1 flex flex-col">
+  <div class="actual-content opacity-0 flex-1 flex flex-col pt-[80px]">
     
     <!-- NAVIGATION BAR -->
-    <div id="nav-container">
-    <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
+    <div id="nav-container" class="fixed top-0 left-0 right-0 z-[100] w-full">
+    <nav class="glass-panel transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           
@@ -162,7 +162,7 @@
       <!-- Mobile Menu drawer -->
       <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-200/30 transition-all">
         <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-          <a href="index.html" class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-gray-800/50 font-semibold">Home 1</a>
+          <a href="index.html" class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-[#171717]/50 font-semibold">Home 1</a>
           <a href="pages/home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
           <a href="pages/about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
           <a href="pages/services.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
@@ -178,7 +178,7 @@
     <main class="flex-1 flex flex-col">
 
     <!-- SECTION 1: HERO SECTION -->
-    <header class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-br from-brand-primary via-brand-primary to-indigo-950 text-white">
+    <header class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-br from-brand-light via-white to-brand-light/50 dark:from-black dark:via-[#0A0A0A] dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
       <div class="absolute inset-0 z-0 overflow-hidden">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/30 dark:bg-brand-primary/10 rounded-full blur-3xl blob-animate"></div>
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-light/20 dark:bg-sky-900/10 rounded-full blur-3xl blob-animate-slow"></div>
@@ -194,11 +194,11 @@
               <span>Bio-Mechanical Engineering Excellence</span>
             </div>
             
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-white font-heading">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900 dark:text-white font-heading">
               Restoring Life's Natural <span class="bg-gradient-to-r from-brand-accent to-brand-secondary bg-clip-text text-transparent dark:from-brand-accent dark:to-brand-secondary">Motion & Mobility</span>
             </h1>
             
-            <p class="text-base sm:text-lg text-brand-light max-w-xl font-normal leading-relaxed">
+            <p class="text-base sm:text-lg text-gray-600 dark:text-brand-light max-w-xl font-normal leading-relaxed">
               We engineer custom bionic prosthetic limbs and advanced orthopedic orthoses. Our digital CAD/CAM clinic works in partnership with physicians to restore human physical capacity.
             </p>
             
@@ -211,20 +211,20 @@
               </a>
             </div>
 
-            <!-- Trust Badges -->
-            <div class="pt-6 border-t border-gray-200 dark:border-gray-200/50">
-              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest font-semibold mb-4">Accredited Clinical Integrity</p>
-              <div class="flex flex-wrap gap-6 items-center">
-                <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                  <i data-lucide="check-circle" class="w-5 h-5 text-brand-secondary"></i>
-                  <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">FDA Registered Facility</span>
-                </div>
-                <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                  <i data-lucide="shield-check" class="w-5 h-5 text-brand-primary dark:text-brand-secondary"></i>
-                  <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">ABC Board Certified</span>
+              <!-- Trust Badges -->
+              <div class="pt-6 border-t border-gray-200 dark:border-white/20">
+                <p class="text-xs text-gray-500 dark:text-brand-light/70 uppercase tracking-widest font-semibold mb-4">Accredited Clinical Integrity</p>
+                <div class="flex flex-wrap gap-6 items-center">
+                  <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-secondary"></i>
+                    <span class="text-sm font-semibold text-gray-800 dark:text-brand-light">FDA Registered Facility</span>
+                  </div>
+                  <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-brand-secondary"></i>
+                    <span class="text-sm font-semibold text-gray-800 dark:text-brand-light">ABC Board Certified</span>
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
 
           <!-- Right Medical Illustration / Image -->
@@ -232,7 +232,7 @@
             <!-- Elegant background decoration -->
             <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/10 to-brand-secondary/10 rounded-3xl -rotate-2 transform scale-105"></div>
             
-            <div class="glass-panel p-4 rounded-3xl relative overflow-hidden shadow-2xl border border-white/20 dark:border-gray-200/40 bg-gray-900/50">
+            <div class="glass-panel p-4 rounded-3xl relative overflow-hidden shadow-2xl border border-white/20 dark:border-gray-200/40 bg-gray-100/50 dark:bg-[#0A0A0A]">
               <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Advanced prosthetic design with myoelectric sensor integration" class="rounded-2xl w-full h-[320px] sm:h-[400px] object-cover transition-transform duration-700 hover:scale-105" onerror="handleImageError(this)">
               
               <!-- Floating UI overlay -->
@@ -253,7 +253,7 @@
     </header>
 
     <!-- SECTION 2: CUSTOM PROSTHETIC SOLUTIONS -->
-    <section id="prosthetics-section" class="py-24 bg-white dark:bg-gray-950">
+    <section id="prosthetics-section" class="py-24 bg-white dark:bg-black">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header Text -->
@@ -337,7 +337,7 @@
     </section>
 
     <!-- SECTION 3: PATIENT MOBILITY METRICS -->
-    <section class="py-20 bg-gradient-to-r from-brand-primary to-indigo-900 text-white relative overflow-hidden">
+    <section class="py-20 bg-gradient-to-r from-brand-light to-white dark:from-black dark:to-[#0A0A0A] text-gray-900 dark:text-white transition-colors duration-300 relative overflow-hidden">
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-primary/50 via-transparent to-transparent opacity-50"></div>
       
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -345,25 +345,25 @@
           
           <div class="space-y-2 reveal-scale-in">
             <div class="text-4xl sm:text-5xl font-bold font-heading text-brand-secondary" data-counter="15400" data-counter-suffix="+">0</div>
-            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-light">Patients Restored</p>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-brand-light">Patients Restored</p>
             <p class="text-xs text-brand-accent/70">Custom devices fitted globally</p>
           </div>
 
           <div class="space-y-2 reveal-scale-in">
             <div class="text-4xl sm:text-5xl font-bold font-heading text-brand-secondary" data-counter="99" data-counter-suffix=".4%">0</div>
-            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-light">Gait Success Rate</p>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-brand-light">Gait Success Rate</p>
             <p class="text-xs text-brand-accent/70">Clinical mobility goals met</p>
           </div>
 
           <div class="space-y-2 reveal-scale-in">
             <div class="text-4xl sm:text-5xl font-bold font-heading text-brand-secondary" data-counter="98" data-counter-suffix=".8%">0</div>
-            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-light">Satisfaction Score</p>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-brand-light">Satisfaction Score</p>
             <p class="text-xs text-brand-accent/70">Comfort and fitting reviews</p>
           </div>
 
           <div class="space-y-2 reveal-scale-in">
             <div class="text-4xl sm:text-5xl font-bold font-heading text-brand-secondary" data-counter="2" data-counter-suffix=".1 Days">0</div>
-            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-light">Avg Fabrication</p>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-brand-light">Avg Fabrication</p>
             <p class="text-xs text-brand-accent/70">Digital scans to fitting room</p>
           </div>
 
@@ -372,7 +372,7 @@
     </section>
 
     <!-- SECTION 4: FABRICATION PROCESS -->
-    <section id="fabrication-process-section" class="py-24 bg-white dark:bg-gray-900/40">
+    <section id="fabrication-process-section" class="py-24 bg-white dark:bg-[#0A0A0A]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
@@ -392,7 +392,7 @@
 
           <!-- Step 1 -->
           <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element">
-            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-[#171717] border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
               <i data-lucide="message-square-plus" class="w-8 h-8"></i>
             </div>
             <div>
@@ -404,7 +404,7 @@
 
           <!-- Step 2 -->
           <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 100ms;">
-            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-[#171717] border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
               <i data-lucide="activity" class="w-8 h-8"></i>
             </div>
             <div>
@@ -416,7 +416,7 @@
 
           <!-- Step 3 -->
           <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 200ms;">
-            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-[#171717] border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
               <i data-lucide="pen-tool" class="w-8 h-8"></i>
             </div>
             <div>
@@ -428,7 +428,7 @@
 
           <!-- Step 4 -->
           <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 300ms;">
-            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-[#171717] border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
               <i data-lucide="layers" class="w-8 h-8"></i>
             </div>
             <div>
@@ -440,7 +440,7 @@
 
           <!-- Step 5 -->
           <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 400ms;">
-            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-[#171717] border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
               <i data-lucide="wrench" class="w-8 h-8"></i>
             </div>
             <div>
@@ -452,7 +452,7 @@
 
           <!-- Step 6 -->
           <div class="relative z-10 flex flex-col items-center text-center space-y-4 reveal-element" style="transition-delay: 500ms;">
-            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
+            <div class="w-20 h-20 rounded-2xl bg-white dark:bg-[#171717] border-2 border-brand-primary/20 dark:border-brand-secondary/20 flex items-center justify-center reveal-bounce text-brand-primary dark:text-brand-secondary shadow-md">
               <i data-lucide="shield-check" class="w-8 h-8"></i>
             </div>
             <div>
@@ -467,7 +467,7 @@
     </section>
 
     <!-- SECTION 5: BEFORE/AFTER SHOWCASE -->
-    <section id="rehab-section" class="py-24 bg-white dark:bg-gray-950 overflow-hidden">
+    <section id="rehab-section" class="py-24 bg-white dark:bg-black overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
@@ -592,7 +592,7 @@
 
     <!-- SECTION 6: PHYSICIAN REFERRAL PATHWAY -->
 
-    <section class="py-24 bg-gradient-to-br from-brand-light/50 via-white to-brand-light/50 dark:from-gray-950 dark:via-gray-950 dark:to-brand-primary/20 border-t border-gray-100 dark:border-gray-900">
+    <section class="py-24 bg-gradient-to-br from-brand-light/50 via-white to-brand-light/50 dark:from-gray-950 dark:via-gray-950 dark:to-brand-primary/20 border-t border-gray-100 dark:border-[#171717]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="glass-panel p-8 sm:p-16 rounded-3xl relative overflow-hidden shadow-xl border border-white/20 dark:border-gray-200/40">
           
@@ -665,13 +665,15 @@
           
           <!-- Column 1: Branding -->
           <div class="space-y-4">
-            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-secondary">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse" style="display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#0F4C81] dark:text-[#67E8F9]" style="flex-shrink: 0 !important;">
                 <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
                 <circle cx="12" cy="10" r="3" />
                 <path d="M12 13v7M9 20h6" />
               </svg>
-              <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
+              <span class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-[#0F4C81] via-[#0F4C81] to-[#14B8A6] bg-clip-text text-transparent dark:from-[#67E8F9] dark:via-[#67E8F9] dark:to-[#67E8F9]">
+                ApexFlex
+              </span>
             </a>
             <p class="text-xs text-gray-400 leading-relaxed font-normal">
               State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological walking capacity via advanced design.
