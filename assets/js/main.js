@@ -10,6 +10,7 @@ window.handleImageError = function(img) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.initializeSharedLayout) window.initializeSharedLayout();
   initTheme();
   initRTL();
   initMobileMenu();
@@ -593,3 +594,549 @@ function initLightboxGallery() {
     });
   });
 }
+
+// ============================================================
+//  APEXFLEX CLIENT-SIDE SPA ROUTER & PRELOAD ENGINE
+// ============================================================
+(function() {
+  const pageCache = {};
+  let loaderTimer = null;
+  let preloadedUrls = new Set();
+
+  // 1. Create loader elements dynamically
+  const style = document.createElement('style');
+  style.textContent = `
+    .spa-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(11, 31, 51, 0.96);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .spa-loader.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .spa-progress-bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .spa-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #14B8A6, #67E8F9);
+      animation: progress-indeterminate 2s infinite ease-in-out;
+    }
+    @keyframes progress-indeterminate {
+      0% { width: 0%; margin-left: 0%; }
+      50% { width: 50%; margin-left: 25%; }
+      100% { width: 0%; margin-left: 100%; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  const loaderOverlay = document.createElement('div');
+  loaderOverlay.className = 'spa-loader';
+  loaderOverlay.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 animate-pulse">
+      <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+      <circle cx="12" cy="10" r="3" />
+      <path d="M12 13v7M9 20h6" />
+    </svg>
+    <div class="spa-progress-bar">
+      <div class="spa-progress-fill"></div>
+    </div>
+    <span class="text-xs text-teal-400 font-bold uppercase tracking-widest mt-4 animate-pulse">Calibrating Clinic...</span>
+  `;
+  document.body.appendChild(loaderOverlay);
+
+  function showLoader() {
+    clearTimeout(loaderTimer);
+    loaderTimer = setTimeout(() => {
+      loaderOverlay.classList.add('active');
+    }, 300);
+  }
+
+  function hideLoader() {
+    clearTimeout(loaderTimer);
+    loaderOverlay.classList.remove('active');
+  }
+
+  // 2. Preload assets
+  function preloadPageAssets(htmlText, targetUrl) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlText, 'text/html');
+    
+    // Find Hero image source
+    const header = doc.querySelector('header');
+    if (header) {
+      const bgStyle = header.getAttribute('style');
+      if (bgStyle && bgStyle.includes('url(')) {
+        const match = bgStyle.match(/url\(['"]?([^'"]+)['"]?\)/);
+        if (match && match[1]) {
+          const imgUrl = new URL(match[1], targetUrl).href;
+          const img = new Image();
+          img.src = imgUrl;
+        }
+      }
+    }
+    
+    // Preload critical images in main
+    const criticalImgs = doc.querySelectorAll('main img');
+    criticalImgs.forEach((img, idx) => {
+      if (idx < 3) {
+        const src = img.getAttribute('src');
+        if (src) {
+          const absoluteImgUrl = new URL(src, targetUrl).href;
+          const preloadedImg = new Image();
+          preloadedImg.src = absoluteImgUrl;
+        }
+      }
+    });
+  }
+
+  function fetchAndCache(urlStr) {
+    const cleanUrl = urlStr.split('#')[0];
+    if (pageCache[cleanUrl]) return Promise.resolve(pageCache[cleanUrl]);
+    
+    const promise = fetch(cleanUrl)
+      .then(res => res.text())
+      .then(html => {
+        pageCache[cleanUrl] = html;
+        preloadPageAssets(html, cleanUrl);
+        return html;
+      });
+    pageCache[cleanUrl] = promise;
+    return promise;
+  }
+
+  // 3. Relative depth mapping logic
+  function adjustPersistentLinks(inPages) {
+    const homePrefix = inPages ? '../' : '';
+
+    document.querySelectorAll('#nav-container a, #footer-container a').forEach(a => {
+      const href = a.getAttribute('data-orig-href') || a.getAttribute('href');
+      if (!href) return;
+      if (!a.getAttribute('data-orig-href')) {
+        a.setAttribute('data-orig-href', href);
+      }
+
+      if (href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel')) return;
+
+      const basename = href.split('/').pop();
+      if (basename === 'index.html') {
+        a.setAttribute('href', homePrefix + 'index.html');
+      } else {
+        a.setAttribute('href', (inPages ? '' : 'pages/') + basename);
+      }
+    });
+
+    const assetPrefix = inPages ? '../assets/' : 'assets/';
+    document.querySelectorAll('#nav-container img, #footer-container img, #nav-container svg, #footer-container svg').forEach(img => {
+      let src = img.getAttribute('data-orig-src') || img.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+        if (!img.getAttribute('data-orig-src')) {
+          img.setAttribute('data-orig-src', src);
+        }
+        const basename = src.split('assets/').pop();
+        img.setAttribute('src', assetPrefix + basename);
+      }
+    });
+  }
+
+  function adjustMainContentPaths(mainEl, inPages) {
+    const assetPrefix = inPages ? '../assets/' : 'assets/';
+    mainEl.querySelectorAll('img, source').forEach(el => {
+      let src = el.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+        const basename = src.split('assets/').pop();
+        el.setAttribute('src', assetPrefix + basename);
+      }
+    });
+
+    mainEl.querySelectorAll('a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel')) return;
+
+      const basename = href.split('/').pop();
+      if (basename === 'index.html') {
+        a.setAttribute('href', (inPages ? '../' : '') + 'index.html');
+      } else {
+        a.setAttribute('href', (inPages ? '' : 'pages/') + basename);
+      }
+    });
+  }
+
+  function updateActiveNavLink(targetPath) {
+    const targetBasename = targetPath.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-menu-link').forEach(a => {
+      const origHref = a.getAttribute('data-orig-href') || a.getAttribute('href');
+      if (!origHref) return;
+      const linkBasename = origHref.split('/').pop();
+      
+      if (linkBasename === targetBasename) {
+        a.className = 'nav-menu-link text-[#0F4C81] dark:text-[#67E8F9] font-bold';
+      } else {
+        a.className = 'nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300';
+      }
+    });
+  }
+
+  function executePageScripts(doc) {
+    // Re-execute any page specific scripts (like case-studies-animations.js)
+    const scripts = doc.querySelectorAll('script');
+    scripts.forEach(oldScript => {
+      if (oldScript.src && (oldScript.src.includes('main.js') || oldScript.src.includes('gsap') || oldScript.src.includes('ScrollTrigger') || oldScript.src.includes('lenis'))) {
+        return; // Skip main library and global script
+      }
+      const newScript = document.createElement('script');
+      Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      document.body.appendChild(newScript);
+      setTimeout(() => newScript.remove(), 1200);
+    });
+  }
+
+  // 4. Main transition sequence
+  function navigateTo(urlStr, addToHistory = true) {
+    const targetUrl = new URL(urlStr, window.location.href);
+    const inPages = targetUrl.pathname.toLowerCase().includes('/pages/');
+
+    showLoader();
+
+    fetchAndCache(targetUrl.href).then(htmlText => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, 'text/html');
+      const newMain = doc.querySelector('main');
+      const currentMain = document.querySelector('main');
+
+      if (!newMain || !currentMain) {
+        window.location.href = urlStr;
+        return;
+      }
+
+      // Exit Animation
+      gsap.to(currentMain, {
+        opacity: 0,
+        scale: 0.96,
+        duration: 0.35,
+        ease: "power2.inOut",
+        onComplete: () => {
+          // Replace Content
+          currentMain.innerHTML = newMain.innerHTML;
+          
+          // Adjust Paths
+          adjustPersistentLinks(inPages);
+          adjustMainContentPaths(currentMain, inPages);
+          updateActiveNavLink(targetUrl.pathname);
+
+          // Update Document Properties
+          document.title = doc.title;
+          if (addToHistory) {
+            history.pushState({ inPages }, doc.title, targetUrl.href);
+          }
+
+          // Trigger Page entrance and re-run initializers
+          executePageScripts(doc);
+          
+          // Re-init general page elements
+          initScrollAnimations();
+          initTestimonialSliders();
+          initHeroAnimations();
+          initCounterAnimations();
+          initProgressBars();
+          initParallax();
+          applyHoverEnhancements();
+          initModernComponents();
+          initBeforeAfterSliders();
+          initFAQAccordions();
+          initLightboxGallery();
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+
+          // Enter Animation
+          gsap.fromTo(currentMain, 
+            { opacity: 0, scale: 0.96 },
+            { opacity: 1, scale: 1, duration: 0.45, ease: "power2.out" }
+          );
+
+          hideLoader();
+
+          // Handle hash scrolling if present
+          if (targetUrl.hash) {
+            const hashTarget = document.querySelector(targetUrl.hash);
+            if (hashTarget) {
+              hashTarget.scrollIntoView({ behavior: 'smooth' });
+              return;
+            }
+          }
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+      });
+    }).catch(err => {
+      console.warn("SPA navigation failed, falling back to full load.", err);
+      window.location.href = urlStr;
+    });
+  }
+
+  // Hook up hover preloading and click interception
+  function setupSpaListeners() {
+    document.body.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || link.getAttribute('target') === '_blank') return;
+
+      e.preventDefault();
+      navigateTo(link.href);
+    });
+
+    document.body.addEventListener('mouseenter', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || link.getAttribute('target') === '_blank') return;
+
+      if (!preloadedUrls.has(link.href)) {
+        preloadedUrls.add(link.href);
+        fetchAndCache(link.href);
+      }
+    }, { capture: true, passive: true });
+  }
+
+  window.addEventListener('popstate', e => {
+    navigateTo(window.location.href, false);
+  });
+
+  setupSpaListeners();
+  
+  // Master Header & Footer Template Constants
+  const MASTER_HEADER = `
+    <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo & Brand Redirect -->
+          <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse" style="display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#0F4C81] dark:text-[#67E8F9]" style="flex-shrink: 0 !important;">
+                <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+                <circle cx="12" cy="10" r="3" />
+                <path d="M12 13v7M9 20h6" />
+              </svg>
+              <span class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-[#0F4C81] via-[#0F4C81] to-[#14B8A6] bg-clip-text text-transparent dark:from-[#67E8F9] dark:via-[#67E8F9] dark:to-[#67E8F9]">
+                ApexFlex
+              </span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
+            <a href="index.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Home 1</a>
+            <a href="pages/home2.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Home 2</a>
+            <a href="pages/about.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">About</a>
+            <a href="pages/services.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Services</a>
+            <a href="pages/case-studies.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Case Studies</a>
+            <a href="pages/blog.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Blog</a>
+            <a href="pages/contact.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Contact</a>
+          </div>
+
+          <!-- Action Switches & CTA -->
+          <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2.5 rounded-xl text-gray-655 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle p-2.5 rounded-xl text-gray-655 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800 flex items-center justify-center" aria-label="Toggle RTL mode">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+
+            <!-- Primary CTA: Signup -->
+            <a href="pages/signup.html" class="px-5 py-2.5 bg-[#14B8A6] hover:bg-[#109f8f] text-white dark:bg-[#67E8F9] dark:hover:bg-[#4fdbeb] dark:text-[#0B1F33] rounded-xl text-sm font-semibold transition-all shadow-md shadow-[#14B8A6]/20 hover:scale-[1.02] active:scale-[0.98] btn-pulse magnetic-btn">
+              Sign Up
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+            
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center" aria-label="Toggle RTL mode">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+
+            <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all" aria-expanded="false">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Menu drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+          <a href="index.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 1</a>
+          <a href="pages/home2.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
+          <a href="pages/about.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
+          <a href="pages/services.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
+          <a href="pages/case-studies.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
+          <a href="pages/blog.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
+          <a href="pages/contact.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
+          <div class="border-t border-gray-200 dark:border-gray-800 my-2"></div>
+          <a href="pages/signup.html" class="block mt-4 text-center px-4 py-3 bg-[#14B8A6] text-white rounded-xl font-semibold">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  `;
+
+  const MASTER_FOOTER = `
+    <footer class="bg-gray-900 text-gray-300 dark:bg-gray-955 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          
+          <!-- Column 1: Branding -->
+          <div class="space-y-4">
+            <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-secondary">
+                <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+                <circle cx="12" cy="10" r="3" />
+                <path d="M12 13v7M9 20h6" />
+              </svg>
+              <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
+            </a>
+            <p class="text-xs text-gray-400 leading-relaxed font-normal">
+              State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological walking capacity via advanced design.
+            </p>
+            <!-- Social Icons -->
+            <div class="flex space-x-4 rtl:space-x-reverse pt-2">
+              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="LinkedIn">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="Twitter">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="YouTube">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div>
+            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Solutions</h4>
+            <ul class="space-y-2 text-xs">
+              <li><a href="index.html" class="hover:text-brand-secondary transition-colors">Home 1</a></li>
+              <li><a href="pages/home2.html" class="hover:text-brand-secondary transition-colors">Home 2</a></li>
+              <li><a href="pages/about.html" class="hover:text-brand-secondary transition-colors">About Journey</a></li>
+              <li><a href="pages/services.html" class="hover:text-brand-secondary transition-colors">Lab Services</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Resources -->
+          <div>
+            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Resources</h4>
+            <ul class="space-y-2 text-xs">
+              <li><a href="pages/case-studies.html" class="hover:text-brand-secondary transition-colors">Case Analytics</a></li>
+              <li><a href="pages/blog.html" class="hover:text-brand-secondary transition-colors">Clinical Blog</a></li>
+              <li><a href="pages/contact.html" class="hover:text-brand-secondary transition-colors">Contact & Map</a></li>
+              <li><a href="pages/login.html" class="hover:text-brand-secondary transition-colors">Portal Access</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Info -->
+          <div>
+            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
+            <address class="not-italic text-xs text-gray-400 space-y-2">
+              <p class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr, Suite D, Seattle, WA 98101</p>
+              <p class="flex items-center"><i data-lucide="phone" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> +1 (800) 555-0199</p>
+              <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> support@apexflexlab.com</p>
+              <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+            </address>
+          </div>
+
+        </div>
+
+        <!-- Bottom Copyright Bar -->
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+          <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
+          <a href="#" class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-400 hover:text-white rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center" aria-label="Back to top">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </footer>
+  `;
+
+  function initializeSharedLayout() {
+    const path = window.location.pathname.toLowerCase();
+    const isAuth = path.includes('login.html') || path.includes('signup.html');
+    const navContainer = document.getElementById('nav-container');
+    const footerContainer = document.getElementById('footer-container');
+
+    if (isAuth) {
+      if (navContainer) navContainer.innerHTML = '';
+      if (footerContainer) footerContainer.innerHTML = '';
+      return;
+    }
+
+    const inPages = path.includes('/pages/');
+
+    if (navContainer) {
+      navContainer.innerHTML = MASTER_HEADER;
+    }
+    if (footerContainer) {
+      footerContainer.innerHTML = MASTER_FOOTER;
+    }
+
+    adjustPersistentLinks(inPages);
+    updateActiveNavLink(path);
+  }
+
+  // Expose globally
+  window.initializeSharedLayout = initializeSharedLayout;
+
+})();
+
+

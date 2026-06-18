@@ -3,6 +3,7 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80">
   <meta charset="UTF-8">
   <!-- Favicons - ApexFlex Logo -->
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
@@ -12,8 +13,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
   <meta name="theme-color" content="#3B0764">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApexFlex - Clinical Case Studies & Mobility Outcomes</title>
-  <meta name="description" content="Review patient gait progress, myoelectric socket adaptations, and physician testimonials at ApexFlex.">
+  <title>ApexFlex - Premium Patient Case Studies & Mobility Outcomes</title>
+  <meta name="description" content="Explore real patient transformations, clinical outcomes, 3D printing workflows, before/after mobility comparisons, and doctor endorsements at ApexFlex.">
   
   <!-- Tailwind CSS 3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +25,11 @@
         extend: {
           colors: {
             brand: {
+              primary: 'var(--color-primary)',
+              secondary: 'var(--color-secondary)',
+              accent: 'var(--color-accent)',
+              dark: 'var(--color-dark)',
+              light: 'var(--color-light)',
               purple: '#3B0764',
               lavender: '#E9D5FF',
               blue: '#0EA5E9',
@@ -44,6 +50,143 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    /* Premium Page-Specific Styling */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dark .glass-card {
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -15px rgba(15, 76, 129, 0.15);
+    }
+    .dark .glass-card:hover {
+      background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 20px 40px -15px rgba(20, 184, 166, 0.15);
+    }
+
+    /* Before After Container & Clip Sliders */
+    .ba-slider-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    .ba-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+    }
+    .ba-clip-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      z-index: 10;
+      border-right: 3px solid #14B8A6;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #14B8A6;
+      z-index: 20;
+      cursor: ew-resize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ba-handle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      color: #0F4C81;
+      border: 3px solid #14B8A6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .dark .ba-handle-btn {
+      background: #0B1F33;
+      color: #67E8F9;
+    }
+
+    /* Horizontal Timeline */
+    .horizontal-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar-thumb {
+      background: rgba(20, 184, 166, 0.3);
+      border-radius: 10px;
+    }
+    .timeline-step-card {
+      min-width: 300px;
+      flex: 1 0 300px;
+      scroll-snap-align: start;
+    }
+
+    /* Testimonial Continuous Marquee */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-marquee 40s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Floating particles background container */
+    .particles-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: float-particle 12s infinite linear;
+    }
+    @keyframes float-particle {
+      0% { transform: translateY(100%) scale(0.8); opacity: 0; }
+      50% { opacity: 0.6; }
+      100% { transform: translateY(-10%) scale(1.2); opacity: 0; }
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
 
@@ -60,409 +203,911 @@
   <!-- ACTUAL SITE CONTENT -->
   <div class="actual-content opacity-0 flex-1 flex flex-col">
     
-    <!-- NAVIGATION BAR (IDENTICAL) -->
+    <!-- NAVIGATION BAR -->
     <div id="nav-container">
-    <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-          
-          <!-- Logo & Brand Redirect -->
-          <div class="flex-shrink-0">
-            <a href="../index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-purple-900 dark:text-sky-400">
-                <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
-                <circle cx="12" cy="10" r="3" />
-                <path d="M12 13v7M9 20h6" />
-              </svg>
-              <span class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-purple-900 via-purple-700 to-sky-500 bg-clip-text text-transparent dark:from-purple-300 dark:via-sky-300 dark:to-pink-200">
-                ApexFlex
-              </span>
-            </a>
-          </div>
-
-
-          <!-- Desktop Navigation -->
-          <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
-            <a href="../index.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Home 1</a>
-            <a href="home2.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Home 2</a>
-            <a href="about.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">About</a>
-            <a href="services.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Services</a>
-            <a href="case-studies.html" class="text-purple-900 dark:text-sky-400 hover:text-sky-500 dark:hover:text-white transition-colors">Case Studies</a>
-            <a href="blog.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Blog</a>
-            <a href="contact.html" class="hover:text-purple-900 dark:hover:text-sky-400 transition-colors">Contact</a>
-          </div>
-
-          <!-- Action Switches & CTA -->
-          <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
-            <button class="theme-toggle p-2.5 rounded-xl text-gray-650 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
-              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
-              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
-            </button>
-            <!-- RTL Toggle -->
-            <button class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800 flex items-center justify-center" aria-label="Toggle RTL mode">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </button>
-
-            <!-- Primary CTA: Signup -->
-            <a href="signup.html" class="px-5 py-2.5 bg-purple-950 dark:bg-sky-500 hover:bg-purple-900 dark:hover:bg-sky-400 text-white rounded-xl text-sm font-semibold transition-all shadow-md shadow-purple-950/20 dark:shadow-sky-500/20 hover:scale-[1.02]">
-              Sign Up
-            </a>
-          </div>
-
-          <!-- Mobile menu button -->
-          <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
-            <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
-              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
-              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
-            </button>
-            <!-- RTL Toggle -->
-            <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center" aria-label="Toggle RTL mode">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </button>
-            <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Mobile Menu drawer -->
-      <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
-        <div class="px-4 pt-2 pb-6 space-y-2">
-          <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 1</a>
-          <a href="home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
-          <a href="about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
-          <a href="services.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
-          <a href="case-studies.html" class="block px-3 py-2.5 rounded-xl text-purple-900 dark:text-sky-400 bg-purple-50 dark:bg-gray-800/50 font-semibold">Case Studies</a>
-          <a href="blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
-          <a href="contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
-          <div class="border-t border-gray-200 dark:border-gray-850 my-2"></div>
-          <a href="signup.html" class="block mt-4 text-center px-4 py-3 bg-purple-950 dark:bg-sky-500 text-white rounded-xl font-semibold">Sign Up</a>
-        </div>
-      </div>
-    </nav>
-    </div>
-    <main class="flex-1 flex flex-col">
-
-    <!-- SECTION 1: HERO SECTION (Full-width bg image rule) -->
-    <nav class="relative bg-cover bg-center py-24 sm:py-32" style="background-image: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-        <div class="flex justify-center text-xs sm:text-sm text-gray-300 font-semibold space-x-2 rtl:space-x-reverse uppercase tracking-wider">
-          <a href="../index.html" class="hover:text-sky-400">Home</a>
-          <span>/</span>
-          <span class="text-sky-400">Case Analytics</span>
-        </div>
-        <h1 class="text-3xl sm:text-5xl font-semibold font-heading text-white">Patient Outcomes & Analytics</h1>
-        <p class="text-xs sm:text-base text-gray-200 max-w-2xl mx-auto font-normal">
-          Explore data-driven clinical case files detailing post-fit gait improvements and bionic device adaptations.
-        </p>
-      </div>
-    </nav>
-
-    <!-- SECTION 2: PATIENT SUCCESS CASES -->
-    <section class="py-24 bg-white dark:bg-gray-950">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Clinical Case Files</span>
-          <h2 class="text-3xl font-semibold text-gray-900 dark:text-white font-heading">Mobility Outcomes Studies</h2>
-          <p class="text-gray-600 dark:text-gray-400">Documented metrics comparing residual limb comfort and walk mechanics pre- and post-fitting.</p>
-        </div>
-
-        <div class="space-y-16">
-          
-          <!-- Case File 1 -->
-          <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-gray-150 shadow-md flex flex-col lg:flex-row gap-8 items-center reveal-element">
-            <div class="w-full lg:w-1/2 relative">
-              <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=800&q=80" alt="High-performance sports amputee running on training track" class="rounded-2xl w-full h-[280px] object-cover" loading="lazy" onerror="handleImageError(this)">
-            </div>
-            <div class="w-full lg:w-1/2 space-y-4">
-              <span class="px-2.5 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-950 dark:text-sky-300 rounded-lg text-xs font-bold uppercase tracking-wider">Case #2409</span>
-              <h3 class="text-xl font-bold text-gray-950 dark:text-white">Carbon Fiber Blade Tuning</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                Patient required custom dynamic load alignment for high-activity sprints. Our lab engineered a custom carbon composite blade socket using a variable suspension vacuum ring, decreasing lateral gait sway by 34%.
-              </p>
-              <div class="grid grid-cols-3 gap-4 border-t border-gray-100 dark:border-gray-800 pt-4 text-center">
-                <div>
-                  <h5 class="text-xs text-gray-400 font-semibold uppercase">Velocity</h5>
-                  <p class="text-sm font-bold text-sky-500 mt-1">+42% Improvement</p>
-                </div>
-                <div>
-                  <h5 class="text-xs text-gray-400 font-semibold uppercase">Energy Loss</h5>
-                  <p class="text-sm font-bold text-sky-500 mt-1">-18% Reduced</p>
-                </div>
-                <div>
-                  <h5 class="text-xs text-gray-400 font-semibold uppercase">K-Level</h5>
-                  <p class="text-sm font-bold text-sky-500 mt-1">Restored to K4</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Case File 2 -->
-          <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-gray-150 shadow-md flex flex-col lg:flex-row gap-8 items-center reveal-element">
-            <div class="w-full lg:w-1/2 order-1 lg:order-2">
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Biomechanical engineer configuring custom myoelectric arm controls" class="rounded-2xl w-full h-[280px] object-cover" loading="lazy" onerror="handleImageError(this)">
-            </div>
-            <div class="w-full lg:w-1/2 space-y-4 order-2 lg:order-1">
-              <span class="px-2.5 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-950 dark:text-sky-300 rounded-lg text-xs font-bold uppercase tracking-wider">Case #2411</span>
-              <h3 class="text-xl font-bold text-gray-950 dark:text-white">Multi-Articulating Myoelectric Control</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                Fitted a congenital transradial amputee patient with a high-fidelity sensor array socket linked to a bionic hand. The design utilizes bio-sensors with micro-processor firmware tuning.
-              </p>
-              <div class="grid grid-cols-3 gap-4 border-t border-gray-100 dark:border-gray-800 pt-4 text-center">
-                <div>
-                  <h5 class="text-xs text-gray-400 font-semibold uppercase">Fit Adaptation</h5>
-                  <p class="text-sm font-bold text-sky-500 mt-1">2.5 Weeks</p>
-                </div>
-                <div>
-                  <h5 class="text-xs text-gray-400 font-semibold uppercase">Sensor Accuracy</h5>
-                  <p class="text-sm font-bold text-sky-500 mt-1">99.1% Success</p>
-                </div>
-                <div>
-                  <h5 class="text-xs text-gray-400 font-semibold uppercase">Grip Strength</h5>
-                  <p class="text-sm font-bold text-sky-500 mt-1">32 lbs Restored</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: MOBILITY IMPROVEMENT ANALYTICS -->
-    <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-y border-gray-100 dark:border-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          
-          <div class="lg:col-span-1 space-y-6 reveal-element">
-            <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Biometric Stats</span>
-            <h2 class="text-3xl font-semibold text-gray-900 dark:text-white font-heading">Gait Metric Logs</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              Below represents the gait velocity index (m/s) comparing initial post-amputation walks to custom dynamic alignments calibrated in our laboratory.
-            </p>
-          </div>
-
-          <!-- Gait velocity SVG target -->
-          <div class="lg:col-span-2 glass-panel p-6 sm:p-8 rounded-3xl shadow-xl space-y-4 reveal-element">
-            <div class="flex items-center justify-between border-b border-gray-150 dark:border-gray-800 pb-3">
-              <h4 class="text-base font-bold text-gray-950 dark:text-white">Gait Velocity Analytics</h4>
-              <span class="text-xs text-gray-400">Patient Group C (Transtibial, n=45)</span>
-            </div>
+      <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-20">
             
-            <div id="gait-velocity-chart" class="w-full h-56 flex items-center justify-center">
-              <span class="text-xs animate-pulse text-gray-400">Loading progress curves...</span>
+            <!-- Logo & Brand Redirect -->
+            <div class="flex-shrink-0">
+              <a href="../index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-brand-primary dark:text-brand-secondary">
+                  <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+                  <circle cx="12" cy="10" r="3" />
+                  <path d="M12 13v7M9 20h6" />
+                </svg>
+                <span class="font-heading font-semibold text-2xl tracking-tight bg-gradient-to-r from-brand-primary via-brand-primary to-brand-secondary bg-clip-text text-transparent dark:from-brand-accent dark:via-brand-accent dark:to-brand-accent">
+                  ApexFlex
+                </span>
+              </a>
             </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
+              <a href="../index.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Home 1</a>
+              <a href="home2.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Home 2</a>
+              <a href="about.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">About</a>
+              <a href="services.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Services</a>
+              <a href="case-studies.html" class="text-brand-primary dark:text-brand-secondary hover:text-brand-secondary dark:hover:text-white transition-colors">Case Studies</a>
+              <a href="blog.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Blog</a>
+              <a href="contact.html" class="hover:text-brand-primary dark:hover:text-brand-secondary transition-colors">Contact</a>
+            </div>
+
+            <!-- Action Switches & CTA -->
+            <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+              <button class="theme-toggle p-2.5 rounded-xl text-gray-650 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
+                <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+                <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+              </button>
+              <!-- RTL Toggle -->
+              <button class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800 flex items-center justify-center" aria-label="Toggle RTL mode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </button>
+
+              <!-- Primary CTA: Signup -->
+              <a href="signup.html" class="px-5 py-2.5 bg-brand-primary dark:bg-brand-secondary hover:bg-brand-primary dark:hover:bg-brand-secondary text-white rounded-xl text-sm font-semibold transition-all shadow-md shadow-brand-primary/20 dark:shadow-brand-secondary/20 hover:scale-[1.02]">
+                Sign Up
+              </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
+              <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+                <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+                <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+              </button>
+              <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center" aria-label="Toggle RTL mode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </button>
+              <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
           </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: BEFORE VS AFTER RESULTS -->
-    <section class="py-24 bg-white dark:bg-gray-950">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-500 font-sans">Engineering Comparisons</span>
-          <h2 class="text-3xl font-semibold text-gray-900 dark:text-white font-heading">Biomechanical Improvements</h2>
-          <p class="text-gray-600 dark:text-gray-400">Detailed metric improvements achieved after replacing traditional plaster device structures with custom 3D composite structures.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children text-center">
+        <!-- Mobile Menu drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
+          <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 1</a>
+            <a href="home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
+            <a href="about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
+            <a href="services.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
+            <a href="case-studies.html" class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-gray-800/50 font-semibold">Case Studies</a>
+            <a href="blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
+            <a href="contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
+            <div class="border-t border-gray-200 dark:border-gray-850 my-2"></div>
+            <a href="signup.html" class="block mt-4 text-center px-4 py-3 bg-brand-primary dark:bg-brand-secondary text-white rounded-xl font-semibold">Sign Up</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- MAIN PAGE MAIN WRAPPER -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+
+      <!-- HERO BANNER -->
+      <section class="relative bg-cover bg-center py-28 md:py-36 text-center overflow-hidden" style="background-image: linear-gradient(rgba(11, 31, 51, 0.82), rgba(11, 31, 51, 0.88)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-purple/20 via-transparent to-gray-950/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+          <div class="inline-flex items-center space-x-2 rtl:space-x-reverse px-4 py-1.5 rounded-full bg-brand-secondary/20 border border-brand-secondary/30 text-brand-secondary text-xs font-bold uppercase tracking-wider">
+            <span class="flex h-2 w-2 rounded-full bg-brand-secondary animate-pulse mr-2"></span>Clinical Case Chronicles
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-tight leading-tight">
+            Patient Transformation Stories
+          </h1>
+          <p class="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
+            Data-backed records of orthotic alignment improvements, myoelectric limb restoration processes, and patient velocity analytics.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 1: FEATURED TRANSFORMATION STORY -->
+      <section class="py-24 bg-white dark:bg-gray-950 relative border-b border-gray-100 dark:border-gray-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left: Before/After Slider inside Section 1 -->
+            <div class="lg:col-span-6 space-y-4 reveal-element">
+              <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-800/30 group">
+                <!-- Slider Widget -->
+                <div class="ba-slider-container">
+                  <!-- After Image (Background) -->
+                  <img src="../assets/images/lower_limb_prosthetic.png" class="ba-img" alt="Rehabilitation Session - Post Treatment Fit">
+                  <!-- Before Image (Clipped) -->
+                  <div class="ba-clip-wrapper">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" class="ba-img w-[200%]" style="max-width: none;" alt="Clinical Assessment - Prior to Custom Fit">
+                  </div>
+                  <!-- Slider Handle -->
+                  <div class="ba-handle">
+                    <div class="ba-handle-btn">
+                      <i data-lucide="chevrons-left-right" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- Glass Overlay Label on Hover -->
+                <div class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
+                  <div class="glass-panel px-6 py-2.5 rounded-full text-xs font-semibold text-white tracking-wide shadow-lg">
+                    Drag Slider to Compare
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Extra thumbnails in left section -->
+              <div class="grid grid-cols-2 gap-4">
+                <div class="relative rounded-2xl overflow-hidden h-28 group">
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Rehabilitation therapy session">
+                  <div class="absolute inset-0 bg-gray-950/40 flex items-end p-2.5">
+                    <span class="text-[10px] font-bold text-white uppercase tracking-wider">Rehab Training</span>
+                  </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden h-28 group">
+                  <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Clinical gait assessment">
+                  <div class="absolute inset-0 bg-gray-950/40 flex items-end p-2.5">
+                    <span class="text-[10px] font-bold text-white uppercase tracking-wider">Clinical Assessment</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Detailed Case Study Info -->
+            <div class="lg:col-span-6 space-y-6 feature-content reveal-element">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Case Study Focus</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading tracking-tight leading-tight">
+                High-Performance Transtibial Prosthesis Integration
+              </h2>
+              
+              <!-- Content Tabs or Structure -->
+              <div class="space-y-4">
+                <div>
+                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">Challenge</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    Patient requested high-activity dynamic load alignment for running. Traditional socket designs caused residual limb abrasion and excessive energy loss during K3-K4 velocity transitions.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">Solution & Fabrication</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    Manufactured a custom carbon-fiber vacuum suspension socket integrated with dynamic shock-absorbing blades. Used 3D scan modeling for volume adaptation and localized skin stress mapping.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase text-brand-primary dark:text-brand-accent tracking-wider">Outcome & Timeline</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    Gait symmetry restored to 98% variation index. The patient achieved full independence in walking, running, and climbing tasks in under 6 weeks.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Metrics Row (Counters) -->
+              <div class="grid grid-cols-3 gap-4 border-t border-gray-150 dark:border-gray-800 pt-6 text-center">
+                <div class="space-y-1">
+                  <div class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
+                    <span class="counter" data-target="34">0</span>%
+                  </div>
+                  <p class="text-[10px] text-gray-500 uppercase font-semibold">Mobility Gained</p>
+                </div>
+                <div class="space-y-1">
+                  <div class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
+                    <span class="counter" data-target="6">0</span>&nbsp;Wks
+                  </div>
+                  <p class="text-[10px] text-gray-500 uppercase font-semibold">Recovery Time</p>
+                </div>
+                <div class="space-y-1">
+                  <div class="text-2xl sm:text-3xl font-extrabold text-brand-secondary font-heading flex justify-center items-center">
+                    <span class="counter" data-target="99">0</span>%
+                  </div>
+                  <p class="text-[10px] text-gray-500 uppercase font-semibold">Satisfaction</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: PATIENT SUCCESS STORIES GRID (MASONRY) -->
+      <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <!-- Comp 1 -->
-          <div class="glass-panel p-8 rounded-2xl border border-gray-150 hover-lift reveal-element">
-            <h4 class="text-base font-bold text-gray-950 dark:text-white">Socket Weight</h4>
-            <div class="text-3xl font-extrabold text-sky-500 my-4">-45% Weight</div>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-              Replacing heavy plaster molds and thermoplastic sleeves with customized carbon-fiber patterns reduces general wear strain on residual muscles.
-            </p>
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Outcome Gallery</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility Case Files</h2>
+            <p class="text-gray-600 dark:text-gray-400">Clinical documentation of different orthotic configurations and bionic prosthesis adaptations.</p>
           </div>
 
-          <!-- Comp 2 -->
-          <div class="glass-panel p-8 rounded-2xl border border-gray-150 hover-lift reveal-element" style="transition-delay: 100ms;">
-            <h4 class="text-base font-bold text-gray-950 dark:text-white">Peak Load Distribution</h4>
-            <div class="text-3xl font-extrabold text-sky-500 my-4">-30% Load Spikes</div>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-              Dynamic pressure sensors inside the socket identify load points, letting our clinicians shave local foam liners to prevent abrasions.
-            </p>
-          </div>
+          <!-- Masonry Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 masonry-grid">
+            
+            <!-- Card 1: Sports Prosthetics -->
+            <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-glow masonry-card">
+              <div class="relative h-60 overflow-hidden group">
+                <img src="../assets/images/success_story_1.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sports Amputee Running Track">
+                <span class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Sports Prosthetics</span>
+              </div>
+              <div class="p-6 space-y-4">
+                <h3 class="text-lg font-bold text-gray-950 dark:text-white">Active Composite Blade Tuning</h3>
+                <div class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                  <p><strong>Challenge:</strong> Restoring competitive running gait alignment to lower-extremity amputee.</p>
+                  <p><strong>Treatment:</strong> Carbon fiber runner blade + multi-axial rotation anchor socket.</p>
+                  <p><strong>Result:</strong> Restored to active running status within 5 weeks; decreased energy loss index by 22%.</p>
+                </div>
+              </div>
+            </div>
 
-          <!-- Comp 3 -->
-          <div class="glass-panel p-8 rounded-2xl border border-gray-150 hover-lift reveal-element" style="transition-delay: 200ms;">
-            <h4 class="text-base font-bold text-gray-950 dark:text-white">Device Adaptation Time</h4>
-            <div class="text-3xl font-extrabold text-sky-500 my-4">3x Faster Fit</div>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-              Contactless digital scanners allow fabrication of initial test sockets in 24 hours, returning patients to rehab exercises quickly.
-            </p>
-          </div>
+            <!-- Card 2: Pediatric Prosthetic -->
+            <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-glow masonry-card">
+              <div class="relative h-60 overflow-hidden group">
+                <img src="../assets/images/pediatric_orthotics.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Child with ankle foot orthosis">
+                <span class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Pediatric Fitting</span>
+              </div>
+              <div class="p-6 space-y-4">
+                <h3 class="text-lg font-bold text-gray-950 dark:text-white">Micro-Linkage Pediatric Orthotic</h3>
+                <div class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                  <p><strong>Challenge:</strong> Joint stability support for growing pediatric patient with congenital motor difficulty.</p>
+                  <p><strong>Treatment:</strong> Adjust-to-grow lightweight polymer braces with hypoallergenic inner liners.</p>
+                  <p><strong>Result:</strong> 45% increase in daily steps count; significant joint alignment stabilization.</p>
+                </div>
+              </div>
+            </div>
 
+            <!-- Card 3: Upper Limb Bionics -->
+            <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-glow masonry-card">
+              <div class="relative h-60 overflow-hidden group">
+                <img src="../assets/images/upper_limb_prosthetic.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Robotic bionic arm grip check">
+                <span class="absolute top-4 left-4 bg-brand-primary/80 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Bionic Restoration</span>
+              </div>
+              <div class="p-6 space-y-4">
+                <h3 class="text-lg font-bold text-gray-950 dark:text-white">Myoelectric Articulated Wrist</h3>
+                <div class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                  <p><strong>Challenge:</strong> Restoring fine-motor control for high-fidelity tasks following a transradial amputation.</p>
+                  <p><strong>Treatment:</strong> Sensor-based myoelectric socket + custom firmware parameter calibration.</p>
+                  <p><strong>Result:</strong> Rebuilt 95% grip accuracy, restores capability to write and handle glassware.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- SECTION 5: PHYSICIAN TESTIMONIALS -->
-    <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-t border-gray-100 dark:border-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-500 font-sans">Endorsed Integrity</span>
-          <h2 class="text-3xl font-semibold text-gray-900 dark:text-white font-heading">Physician Endorsements</h2>
-          <p class="text-gray-600 dark:text-gray-400">Read endorsements from referring orthopedic surgeons and physical therapists who trust ApexFlex.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children">
+      <!-- SECTION 3: BEFORE & AFTER MOBILITY SHOWCASE -->
+      <section class="py-24 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <!-- Testimonial 1 -->
-          <div class="glass-panel p-8 rounded-2xl border border-gray-150 space-y-4 reveal-element">
-            <div class="flex items-center space-x-1 text-amber-500">
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-            </div>
-            <blockquote class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-              "The speed and volumetric accuracy of ApexFlex’s CAD/CAM system is unmatched. My patients return from fitting sessions with zero skin issues, accelerating their physical therapy schedules."
-            </blockquote>
-            <div>
-              <h4 class="text-sm font-bold text-gray-950 dark:text-white">Dr. Elizabeth Vance</h4>
-              <p class="text-xs text-gray-500">Chief of Orthopedic Surgery • Harborview Medical Center</p>
-            </div>
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Interactive Demonstration</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility Comparison Metrics</h2>
+            <p class="text-gray-600 dark:text-gray-400">Drag the slider tool to compare prior device structures against final custom dynamic alignments.</p>
           </div>
 
-          <!-- Testimonial 2 -->
-          <div class="glass-panel p-8 rounded-2xl border border-gray-150 space-y-4 reveal-element" style="transition-delay: 100ms;">
-            <div class="flex items-center space-x-1 text-amber-500">
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Comparison Widget -->
+            <div class="lg:col-span-7 reveal-element">
+              <div class="ba-slider-container">
+                <!-- After Image (Background) -->
+                <img src="../assets/images/hero_prosthetics_lab.png" class="ba-img" alt="After treatment: Carbon composite socket fitting">
+                <!-- Before Image (Clipped) -->
+                <div class="ba-clip-wrapper">
+                  <img src="../assets/images/success_story_2.png" class="ba-img w-[143%]" style="max-width: none;" alt="Before treatment: Standard plaster design socket">
+                </div>
+                <!-- Slider Handle -->
+                <div class="ba-handle">
+                  <div class="ba-handle-btn">
+                    <i data-lucide="chevrons-left-right" class="w-4 h-4"></i>
+                  </div>
+                </div>
+              </div>
             </div>
-            <blockquote class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
-              "We coordinate dynamic gait checks with ApexFlex. Their sensor heatmaps allow us to track pressure changes in real time, making device adjustments extremely precise."
-            </blockquote>
-            <div>
-              <h4 class="text-sm font-bold text-gray-950 dark:text-white">James Sterling, DPT</h4>
-              <p class="text-xs text-gray-500">Director of Amputee Rehabilitation • Northwest Physio</p>
+
+            <!-- Milestones and Progress Bars -->
+            <div class="lg:col-span-5 space-y-8 reveal-element">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-950 dark:text-white font-heading">Clinical Advancements</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Replacing outdated plaster structures with custom 3D scanning and fabrication reduces wear stress and improves movement speed.</p>
+              </div>
+
+              <!-- Progress Bars -->
+              <div class="space-y-4">
+                <div class="progress-bar-item">
+                  <div class="flex justify-between text-xs font-bold uppercase text-gray-700 dark:text-gray-300 mb-1">
+                    <span>Gait Velocity Improvement</span>
+                    <span>+42%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 dark:bg-gray-800 h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-brand-secondary h-full custom-progress" data-width="85%" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-bar-item">
+                  <div class="flex justify-between text-xs font-bold uppercase text-gray-700 dark:text-gray-300 mb-1">
+                    <span>Energy Efficiency Boost</span>
+                    <span>+28%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 dark:bg-gray-800 h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-brand-primary h-full custom-progress" data-width="70%" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-bar-item">
+                  <div class="flex justify-between text-xs font-bold uppercase text-gray-700 dark:text-gray-300 mb-1">
+                    <span>Pressure Load Equalization</span>
+                    <span>-35% Peak load spikes</span>
+                  </div>
+                  <div class="w-full bg-gray-200 dark:bg-gray-800 h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-brand-secondary h-full custom-progress" data-width="90%" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Milestones -->
+              <div class="border-t border-gray-150 dark:border-gray-800 pt-6 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500">Recovery Milestones achieved</h4>
+                <div class="grid grid-cols-2 gap-4 text-xs">
+                  <div class="flex items-center space-x-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-secondary"></i>
+                    <span>Day 3: Initial Fit Check</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-secondary"></i>
+                    <span>Week 2: Walking without Cane</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-secondary"></i>
+                    <span>Week 4: Running Trial</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-secondary"></i>
+                    <span>Week 6: Bio-Goal Achieved</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: CLINICAL JOURNEY TIMELINE -->
+      <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Operational Flow</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Clinical Fitting Journey</h2>
+            <p class="text-gray-600 dark:text-gray-400">An overview of how we align patient consultations, digital scanning, engineering design, and final prosthetic fittings.</p>
+          </div>
+
+          <!-- Step cards container (horizontal scroll layout) -->
+          <div class="timeline-container relative">
+            
+            <!-- Horizontal Progress path line (decorational) -->
+            <div class="hidden lg:block absolute top-[52px] left-0 w-full h-1 bg-gray-200 dark:bg-gray-800 z-0">
+              <div class="h-full bg-brand-secondary timeline-progress transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <div class="horizontal-scroll-container mt-8 relative z-10">
+              
+              <!-- Step 1 -->
+              <div class="timeline-step-card glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800/80 flex flex-col justify-between space-y-6 select-none timeline-card">
+                <div class="flex justify-between items-center">
+                  <div class="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-brand-secondary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-xs font-extrabold text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-3 py-1 rounded-full">Step 01</span>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-base font-bold text-gray-900 dark:text-white">Initial Consultation</h4>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Practitioners evaluate the residual limb status, examine bone structure stability, and outline the patient's lifestyle and mobility goals.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="timeline-step-card glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800/80 flex flex-col justify-between space-y-6 select-none timeline-card">
+                <div class="flex justify-between items-center">
+                  <div class="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-brand-secondary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary">
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-xs font-extrabold text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-3 py-1 rounded-full">Step 02</span>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-base font-bold text-gray-900 dark:text-white">Clinical Evaluation</h4>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    In-depth gait analysis and muscle sensor testing to configure sensor array sites and optimize pressure maps.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="timeline-step-card glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800/80 flex flex-col justify-between space-y-6 select-none timeline-card">
+                <div class="flex justify-between items-center">
+                  <div class="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-brand-secondary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary">
+                    <i data-lucide="scan" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-xs font-extrabold text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-3 py-1 rounded-full">Step 03</span>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-base font-bold text-gray-900 dark:text-white">Digital 3D Scanning</h4>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Contactless digital scanning produces a sub-millimeter accurate virtual cast model of the limb, preventing plaster errors.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="timeline-step-card glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800/80 flex flex-col justify-between space-y-6 select-none timeline-card">
+                <div class="flex justify-between items-center">
+                  <div class="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-brand-secondary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-xs font-extrabold text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-3 py-1 rounded-full">Step 04</span>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-base font-bold text-gray-900 dark:text-white">CAD/CAM Design</h4>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Engineers customize inner socket contours to alleviate bone friction nodes and optimize myoelectric signal paths.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="timeline-step-card glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800/80 flex flex-col justify-between space-y-6 select-none timeline-card">
+                <div class="flex justify-between items-center">
+                  <div class="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-brand-secondary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary">
+                    <i data-lucide="layers" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-xs font-extrabold text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-3 py-1 rounded-full">Step 05</span>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-base font-bold text-gray-900 dark:text-white">Lab Fabrication</h4>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Custom composite fiber baking, SLA 3D printing of structural joints, and modular dynamic blade alignment.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 6 -->
+              <div class="timeline-step-card glass-panel p-6 rounded-3xl border border-gray-200 dark:border-gray-800/80 flex flex-col justify-between space-y-6 select-none timeline-card">
+                <div class="flex justify-between items-center">
+                  <div class="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-brand-secondary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary">
+                    <i data-lucide="check-square" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-xs font-extrabold text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-3 py-1 rounded-full">Step 06</span>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-base font-bold text-gray-900 dark:text-white">Fitting & Training</h4>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Clinicians guide the static fit trial and oversee gait training activities to ensure correct kinetic execution.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: OUTCOMES & IMPACT DASHBOARD -->
+      <section class="py-24 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Clinical Analytics</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare Outcomes Dashboard</h2>
+            <p class="text-gray-600 dark:text-gray-400">Quantifiable biological restoration stats verified by referring orthopedic practitioners.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch dashboard-grid">
+            
+            <!-- Left: Stats Counter Cards -->
+            <div class="lg:col-span-4 flex flex-col gap-6 justify-between">
+              <!-- Stat card 1 -->
+              <div class="glass-card p-6 rounded-3xl flex items-center space-x-4 rtl:space-x-reverse dashboard-card">
+                <div class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="award" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter" data-target="1500">0</span>+</h4>
+                  <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Successful Fittings</p>
+                </div>
+              </div>
+              
+              <!-- Stat card 2 -->
+              <div class="glass-card p-6 rounded-3xl flex items-center space-x-4 rtl:space-x-reverse dashboard-card">
+                <div class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="smile" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter" data-target="98">0</span>.8%</h4>
+                  <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Patient Comfort Rating</p>
+                </div>
+              </div>
+
+              <!-- Stat card 3 -->
+              <div class="glass-card p-6 rounded-3xl flex items-center space-x-4 rtl:space-x-reverse dashboard-card">
+                <div class="w-12 h-12 rounded-2xl bg-brand-secondary/10 text-brand-secondary flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold font-heading text-gray-900 dark:text-white"><span class="counter" data-target="34">0</span>%</h4>
+                  <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Gait Velocity Boost</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Middle: Circle Progress Data Visualizer -->
+            <div class="lg:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-between items-center text-center dashboard-card">
+              <h4 class="text-base font-bold text-gray-950 dark:text-white">Follow-Up Success Rate</h4>
+              
+              <!-- Circular Progress SVG -->
+              <div class="relative w-44 h-44 my-4 flex items-center justify-center">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                  <path class="text-gray-200 dark:text-gray-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="text-brand-secondary custom-circle-progress transition-all duration-1000 ease-out" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <div class="absolute text-center">
+                  <span class="text-3xl font-extrabold text-gray-950 dark:text-white font-heading">99.1%</span>
+                  <p class="text-[10px] text-gray-500 font-semibold uppercase">Restored</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+                Percentage of patients achieving their physical goals within the first 60 days post-prosthetic alignment fitting.
+              </p>
+            </div>
+
+            <!-- Right: Rising Graph Bars -->
+            <div class="lg:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-between dashboard-card">
+              <div class="border-b border-gray-150 dark:border-gray-800 pb-3 flex justify-between items-center">
+                <h4 class="text-base font-bold text-gray-950 dark:text-white">Gait Velocity Analytics</h4>
+                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Transtibial</span>
+              </div>
+
+              <!-- Bar graphs -->
+              <div class="h-44 flex items-end justify-between gap-4 pt-4 graph-bars">
+                <!-- Bar 1 -->
+                <div class="flex-1 flex flex-col items-center group">
+                  <div class="w-full bg-gray-200 dark:bg-gray-850 h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary" data-height="35%" style="height: 0%"></div>
+                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 1</span>
+                </div>
+                <!-- Bar 2 -->
+                <div class="flex-1 flex flex-col items-center group">
+                  <div class="w-full bg-gray-200 dark:bg-gray-850 h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary" data-height="55%" style="height: 0%"></div>
+                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 2</span>
+                </div>
+                <!-- Bar 3 -->
+                <div class="flex-1 flex flex-col items-center group">
+                  <div class="w-full bg-gray-200 dark:bg-gray-850 h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary" data-height="80%" style="height: 0%"></div>
+                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 4</span>
+                </div>
+                <!-- Bar 4 -->
+                <div class="flex-1 flex flex-col items-center group">
+                  <div class="w-full bg-gray-200 dark:bg-gray-850 h-0 rounded-t-lg transition-all duration-700 bg-brand-secondary" data-height="98%" style="height: 0%"></div>
+                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 6</span>
+                </div>
+              </div>
+
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-4">
+                Comparison of gait velocity meters/second post-fitting calibrating phase over a six-week timeline.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PREMIUM TESTIMONIAL SECTION -->
+      <section class="py-24 bg-gray-50 dark:bg-gray-900/40 overflow-hidden relative border-b border-gray-100 dark:border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Endorsements</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare Reflections</h2>
+            <p class="text-gray-600 dark:text-gray-400">Read endorsements from referring orthopedists and actual patient journeys.</p>
+          </div>
+
+          <!-- Continuous Auto-Scrolling Testimonials Row -->
+          <div class="relative w-full overflow-hidden py-4">
+            <!-- Fade Overlay masks -->
+            <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 dark:from-gray-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 dark:from-gray-950 to-transparent z-10 pointer-events-none"></div>
+
+            <div class="marquee-track flex gap-8 items-stretch" id="testimonial-carousel">
+              
+              <!-- Slide 1 -->
+              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+                <div class="space-y-4">
+                  <div class="flex text-amber-500 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
+                    "The volume accuracy of ApexFlex's CAD/CAM system is unmatched. My patients return from fitting sessions with zero pressure nodes, accelerating physical therapy timelines."
+                  </p>
+                </div>
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Dr. Elizabeth Vance">
+                  <div>
+                    <h4 class="text-sm font-bold text-gray-990 dark:text-white">Dr. Elizabeth Vance</h4>
+                    <p class="text-[10px] text-gray-500 font-semibold">Chief of Orthopedic Surgery • Harborview</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+                <div class="space-y-4">
+                  <div class="flex text-amber-500 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
+                    "We coordinate gait updates with ApexFlex. Their live socket sensor data lets us check pressure distributions, making orthotic calibrations very precise."
+                  </p>
+                </div>
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="James Sterling, DPT">
+                  <div>
+                    <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Sterling, DPT</h4>
+                    <p class="text-[10px] text-gray-500 font-semibold">Director of Amputee Rehab • Northwest Physio</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+                <div class="space-y-4">
+                  <div class="flex text-amber-500 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
+                    "After my below-knee amputation, I feared running was over. The custom socket fits like my own leg. I completed my first local 5K run last weekend!"
+                  </p>
+                </div>
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="../assets/images/avatar1.png" alt="James Thornton">
+                  <div>
+                    <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Thornton</h4>
+                    <p class="text-[10px] text-gray-500 font-semibold">Active Amputee Patient • Runner</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DUPLICATED SLIDES FOR INFINITE SCROLLING -->
+              <!-- Slide 1 Dup -->
+              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+                <div class="space-y-4">
+                  <div class="flex text-amber-500 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
+                    "The volume accuracy of ApexFlex's CAD/CAM system is unmatched. My patients return from fitting sessions with zero pressure nodes, accelerating physical therapy timelines."
+                  </p>
+                </div>
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Dr. Elizabeth Vance">
+                  <div>
+                    <h4 class="text-sm font-bold text-gray-990 dark:text-white">Dr. Elizabeth Vance</h4>
+                    <p class="text-[10px] text-gray-500 font-semibold">Chief of Orthopedic Surgery • Harborview</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 Dup -->
+              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+                <div class="space-y-4">
+                  <div class="flex text-amber-500 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
+                    "We coordinate gait updates with ApexFlex. Their live socket sensor data lets us check pressure distributions, making orthotic calibrations very precise."
+                  </p>
+                </div>
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="James Sterling, DPT">
+                  <div>
+                    <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Sterling, DPT</h4>
+                    <p class="text-[10px] text-gray-500 font-semibold">Director of Amputee Rehab • Northwest Physio</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 Dup -->
+              <div class="w-[360px] sm:w-[420px] flex-shrink-0 glass-panel p-8 rounded-3xl flex flex-col justify-between border border-gray-250 select-none">
+                <div class="space-y-4">
+                  <div class="flex text-amber-500 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 italic font-medium leading-relaxed">
+                    "After my below-knee amputation, I feared running was over. The custom socket fits like my own leg. I completed my first local 5K run last weekend!"
+                  </p>
+                </div>
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <img class="h-10 w-10 rounded-full object-cover border-2 border-brand-primary" src="../assets/images/avatar1.png" alt="James Thornton">
+                  <div>
+                    <h4 class="text-sm font-bold text-gray-990 dark:text-white">James Thornton</h4>
+                    <p class="text-[10px] text-gray-500 font-semibold">Active Amputee Patient • Runner</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FOOTER (IDENTICAL) -->
-    
+      <!-- PREMIUM CTA SECTION -->
+      <section class="relative py-28 overflow-hidden bg-gradient-to-br from-brand-primary via-indigo-900 to-brand-purple text-white">
+        <!-- Floating particles animation element -->
+        <div class="particles-bg" id="cta-particles"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-accent/20 via-transparent to-transparent opacity-55 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- CTA Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-left">
+              <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
+                Ready to Start Your Mobility Transformation?
+              </h2>
+              <p class="text-sm sm:text-base text-gray-300 max-w-xl font-normal leading-relaxed">
+                Coordinate directly with our physical fabrication specialists and board-certified orthotists. We accept direct physician referrals.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse pt-2">
+                <a href="contact.html" class="px-8 py-4 bg-brand-secondary hover:bg-brand-secondary/90 text-white rounded-2xl text-center font-bold transition-all shadow-xl shadow-brand-secondary/20 hover:scale-[1.02] active:scale-[0.98] magnetic-btn">
+                  Schedule Consultation
+                </a>
+                <a href="contact.html" class="px-8 py-4 glass-panel hover:bg-white/10 text-white rounded-2xl text-center font-bold transition-all border border-white/20 magnetic-btn">
+                  Refer a Patient
+                </a>
+              </div>
+            </div>
+
+            <!-- CTA Right Image -->
+            <div class="lg:col-span-5 relative">
+              <div class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-brand-accent/20 rounded-3xl -rotate-2 transform scale-105"></div>
+              <div class="glass-panel p-3 rounded-3xl relative overflow-hidden shadow-2xl border border-white/10">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Smiling prosthetic user walking in lab" class="rounded-2xl w-full h-[260px] object-cover transition-transform duration-700 hover:scale-105">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </main>
-<div id="footer-container">
-    <footer class="bg-gray-900 text-gray-300 dark:bg-gray-950 border-t border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+
+    <!-- FOOTER container (identical copyright references) -->
+    <div id="footer-container">
+      <footer class="bg-gray-900 text-gray-300 dark:bg-gray-950 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           
-          <div class="space-y-4">
-            <a href="../index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-sky-400">
-                <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
-                <circle cx="12" cy="10" r="3" />
-                <path d="M12 13v7M9 20h6" />
-              </svg>
-              <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
-            </a>
-            <p class="text-xs text-gray-400 leading-relaxed font-normal">
-              State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological walking capacity via advanced design.
-            </p>
-            <!-- Social Icons -->
-            <div class="flex space-x-4 rtl:space-x-reverse pt-2">
-              <a href="#" class="p-2 bg-gray-800 hover:bg-sky-500 rounded-lg text-gray-400 hover:text-white transition-all" aria-label="LinkedIn">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            
+            <div class="space-y-4">
+              <a href="../index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand-secondary">
+                  <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
+                  <circle cx="12" cy="10" r="3" />
+                  <path d="M12 13v7M9 20h6" />
                 </svg>
+                <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
               </a>
-              <a href="#" class="p-2 bg-gray-800 hover:bg-sky-500 rounded-lg text-gray-400 hover:text-white transition-all" aria-label="Twitter">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="#" class="p-2 bg-gray-800 hover:bg-sky-500 rounded-lg text-gray-400 hover:text-white transition-all" aria-label="YouTube">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
+              <p class="text-xs text-gray-400 leading-relaxed font-normal">
+                State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological walking capacity via advanced design.
+              </p>
+              <!-- Social Icons -->
+              <div class="flex space-x-4 rtl:space-x-reverse pt-2">
+                <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="LinkedIn">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+                <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="Twitter">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="YouTube">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Solutions</h4>
+              <ul class="space-y-2 text-xs">
+                <li><a href="../index.html" class="hover:text-brand-secondary transition-colors">Home 1</a></li>
+                <li><a href="home2.html" class="hover:text-brand-secondary transition-colors">Home 2</a></li>
+                <li><a href="about.html" class="hover:text-brand-secondary transition-colors">About Journey</a></li>
+                <li><a href="services.html" class="hover:text-brand-secondary transition-colors">Lab Services</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Resources</h4>
+              <ul class="space-y-2 text-xs">
+                <li><a href="case-studies.html" class="hover:text-brand-secondary transition-colors">Case Analytics</a></li>
+                <li><a href="blog.html" class="hover:text-brand-secondary transition-colors">Clinical Blog</a></li>
+                <li><a href="contact.html" class="hover:text-brand-secondary transition-colors">Contact & Map</a></li>
+                <li><a href="login.html" class="hover:text-brand-secondary transition-colors">Portal Access</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
+              <address class="not-italic text-xs text-gray-400 space-y-2">
+                <p class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr, Suite D, Seattle, WA 98101</p>
+                <p class="flex items-center"><i data-lucide="phone" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> +1 (800) 555-0199</p>
+                <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> support@apexflexlab.com</p>
+                <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 flex-shrink-0"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+              </address>
+            </div>
+
           </div>
 
-          <div>
-            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Solutions</h4>
-            <ul class="space-y-2 text-xs">
-              <li><a href="../index.html" class="hover:text-sky-400 transition-colors">Home 1</a></li>
-              <li><a href="home2.html" class="hover:text-sky-400 transition-colors">Home 2</a></li>
-              <li><a href="about.html" class="hover:text-sky-400 transition-colors">About Journey</a></li>
-              <li><a href="services.html" class="hover:text-sky-400 transition-colors">Lab Services</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Resources</h4>
-            <ul class="space-y-2 text-xs">
-              <li><a href="case-studies.html" class="hover:text-sky-400 transition-colors">Case Analytics</a></li>
-              <li><a href="blog.html" class="hover:text-sky-400 transition-colors">Clinical Blog</a></li>
-              <li><a href="contact.html" class="hover:text-sky-400 transition-colors">Contact & Map</a></li>
-              <li><a href="login.html" class="hover:text-sky-400 transition-colors">Portal Access</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
-            <address class="not-italic text-xs text-gray-400 space-y-2">
-              <p class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr, Suite D, Seattle, WA 98101</p>
-              <p class="flex items-center"><i data-lucide="phone" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 flex-shrink-0"></i> +1 (800) 555-0199</p>
-              <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 flex-shrink-0"></i> support@apexflexlab.com</p>
-              <p class="flex items-center"><i data-lucide="clock" class="w-4 h-4 text-sky-400 mr-2 rtl:ml-2 flex-shrink-0"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
-            </address>
+          <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
+            <a href="#" class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-400 hover:text-white rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center" aria-label="Back to top">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              </svg>
+            </a>
           </div>
 
         </div>
-
-        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
-          <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="#" class="hover:text-gray-300">Privacy Policy</a>
-            <a href="#" class="hover:text-gray-300">Terms of Service</a>
-          </div>
-          <a href="#" class="p-2.5 bg-gray-800 hover:bg-sky-500 text-gray-400 hover:text-white rounded-xl transition-all border border-gray-850 hover:border-sky-500 flex items-center justify-center" aria-label="Back to top">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </footer>
+      </footer>
     </div>
 
   </div>
 
-  <!-- Global scripts -->
+  <!-- Global scripts + GSAP animation loaders -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
   <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/case-studies-animations.js"></script>
 </body>
 </html>
-
-
-
