@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initCaseStudiesAnimations() {
   
   // 1. Initialize Lenis Smooth Scroll
   let lenis;
@@ -247,4 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 600);
   }
 
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCaseStudiesAnimations);
+} else {
+  initCaseStudiesAnimations();
+}

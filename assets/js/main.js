@@ -611,77 +611,10 @@ function initLightboxGallery() {
   let loaderTimer = null;
   let preloadedUrls = new Set();
 
-  // 1. Create loader elements dynamically
-  const style = document.createElement('style');
-  style.textContent = `
-    .spa-loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(11, 31, 51, 0.96);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    .spa-loader.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .spa-progress-bar {
-      width: 200px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 20px;
-    }
-    .spa-progress-fill {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, #14B8A6, #67E8F9);
-      animation: progress-indeterminate 2s infinite ease-in-out;
-    }
-    @keyframes progress-indeterminate {
-      0% { width: 0%; margin-left: 0%; }
-      50% { width: 50%; margin-left: 25%; }
-      100% { width: 0%; margin-left: 100%; }
-    }
-  `;
-  document.head.appendChild(style);
+  // 1. Loader functions (disabled)
+  function showLoader() {}
+  function hideLoader() {}
 
-  const loaderOverlay = document.createElement('div');
-  loaderOverlay.className = 'spa-loader';
-  loaderOverlay.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 animate-pulse">
-      <path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-8 6-8 8 2.5 8 6.5-1.5 5-4.5 6.5-4 1.5-7 1z" />
-      <circle cx="12" cy="10" r="3" />
-      <path d="M12 13v7M9 20h6" />
-    </svg>
-    <div class="spa-progress-bar">
-      <div class="spa-progress-fill"></div>
-    </div>
-    <span class="text-xs text-teal-400 font-bold uppercase tracking-widest mt-4 animate-pulse">Calibrating Clinic...</span>
-  `;
-  document.body.appendChild(loaderOverlay);
-
-  function showLoader() {
-    clearTimeout(loaderTimer);
-    loaderTimer = setTimeout(() => {
-      loaderOverlay.classList.add('active');
-    }, 300);
-  }
-
-  function hideLoader() {
-    clearTimeout(loaderTimer);
-    loaderOverlay.classList.remove('active');
-  }
 
   // 2. Preload assets
   function preloadPageAssets(htmlText, targetUrl) {
