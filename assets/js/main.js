@@ -35,31 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
 //  THEME MANAGEMENT
 // ============================================================
 function initTheme() {
+  // Enforce light theme
+  document.documentElement.classList.remove('dark');
+  localStorage.setItem('theme', 'light');
+
+  // Hide theme toggles to prevent switching to dark theme
   const themeToggles = document.querySelectorAll('.theme-toggle');
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-
   themeToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeToggleIcons();
-    });
+    toggle.style.display = 'none';
   });
-
-  updateThemeToggleIcons();
 }
 
 function updateThemeToggleIcons() {
-  const isDark = document.documentElement.classList.contains('dark');
-  document.querySelectorAll('.theme-toggle-moon').forEach(i => i.classList.toggle('hidden', isDark));
-  document.querySelectorAll('.theme-toggle-sun').forEach(i => i.classList.toggle('hidden', !isDark));
+  // Not needed since toggles are hidden
 }
 
 // ============================================================

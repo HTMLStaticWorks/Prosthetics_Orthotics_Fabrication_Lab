@@ -54,10 +54,10 @@
 </head>
 
 <body
-  class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+  class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300">
 
   <!-- SKELETON LOADING STATE -->
-  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-gray-50 dark:bg-gray-950 flex flex-col p-4 space-y-6">
+  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-gray-950 flex flex-col p-4 space-y-6">
     <div class="h-16 w-full skeleton-bg rounded-xl"></div>
     <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-7xl w-full mx-auto">
       <div class="space-y-6">
@@ -79,7 +79,7 @@
     <!-- NAVIGATION BAR (IDENTICAL) -->
     <div id="nav-container">
       <nav
-        class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
+        class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-20">
 
@@ -125,7 +125,7 @@
             <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
               <!-- Theme Toggle -->
               <button
-                class="theme-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800"
+                class="theme-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200"
                 aria-label="Toggle theme">
                 <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
                 <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
@@ -133,7 +133,7 @@
 
               <!-- RTL Toggle -->
               <button
-                class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800 flex items-center justify-center"
+                class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200 flex items-center justify-center"
                 aria-label="Toggle RTL mode">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" viewBox="0 0 24 24">
@@ -183,8 +183,8 @@
 
         <!-- Mobile Menu drawer -->
         <div id="mobile-menu"
-          class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
-          <div class="px-4 pt-2 pb-6 space-y-2">
+          class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-200/30 transition-all">
+          <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
             <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home
               1</a>
             <a href="home2.html"
@@ -198,7 +198,7 @@
             <a href="blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
             <a href="contact.html"
               class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
-            <div class="border-t border-gray-200 dark:border-gray-800 my-2"></div>
+            <div class="border-t border-gray-200 dark:border-gray-200 my-2"></div>
             <a href="signup.html"
               class="block mt-4 text-center px-4 py-3 bg-brand-primary dark:bg-brand-secondary text-white rounded-xl font-semibold">Sign
               Up</a>
@@ -244,8 +244,7 @@
                   class="px-8 py-4 bg-brand-secondary hover:bg-brand-secondary text-white rounded-2xl font-semibold transition-all shadow-lg shadow-brand-secondary/30 hover:scale-[1.02]">
                   Schedule Scan Session
                 </a>
-                <a href="services.html"
-                  class="px-8 py-4 bg-brand-primary/60 hover:bg-brand-primary text-white rounded-2xl font-semibold border border-brand-primary transition-all">
+                <a href="services.html" class="px-8 py-4 hover:bg-brand-primary text-white rounded-2xl font-semibold border transition-all bg-brand-secondary hover:bg-brand-secondary/90 text-white border-transparent shadow-md">
                   Clinical Service Guide
                 </a>
               </div>
@@ -355,7 +354,7 @@
       </section>
 
       <!-- SECTION 3: CLINICAL ANALYTICS DASHBOARD PREVIEW -->
-      <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-y border-gray-100 dark:border-gray-900">
+      <section class="py-24 bg-white dark:bg-gray-900/40 border-y border-gray-100 dark:border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
@@ -384,7 +383,7 @@
 
             <!-- Interactive SVG Queue Chart Widget -->
             <div class="lg:col-span-2 glass-panel p-6 sm:p-8 rounded-3xl shadow-xl space-y-6 reveal-element">
-              <div class="flex items-center justify-between border-b border-gray-150 dark:border-gray-800 pb-4">
+              <div class="flex items-center justify-between border-b border-gray-150 dark:border-gray-200 pb-4">
                 <div>
                   <h4 class="text-base font-bold text-gray-950 dark:text-white">Active Fabrication Queue</h4>
                   <p class="text-xs text-gray-500 dark:text-gray-400">Current batch fabrication units in progress</p>
@@ -420,7 +419,7 @@
 
             <!-- Card 1: Spinal -->
             <div
-              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-800/40 overflow-hidden hover-lift reveal-element">
+              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-200/40 overflow-hidden hover-lift reveal-element">
               <div class="h-44 w-full overflow-hidden img-hover-zoom">
                 <img src="https://images.pexels.com/photos/3913030/pexels-photo-3913030.jpeg" alt="Spinal Orthotics"
                   class="w-full h-full object-cover" loading="lazy" onerror="handleImageError(this)">
@@ -436,7 +435,7 @@
 
             <!-- Card 2: Lower extremity -->
             <div
-              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-800/40 overflow-hidden hover-lift reveal-element"
+              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-200/40 overflow-hidden hover-lift reveal-element"
               style="transition-delay: 100ms;">
               <div class="h-44 w-full overflow-hidden img-hover-zoom">
                 <img src="https://images.pexels.com/photos/6809461/pexels-photo-6809461.jpeg"
@@ -454,7 +453,7 @@
 
             <!-- Card 3: Upper extremity -->
             <div
-              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-800/40 overflow-hidden hover-lift reveal-element"
+              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-200/40 overflow-hidden hover-lift reveal-element"
               style="transition-delay: 200ms;">
               <div class="h-44 w-full overflow-hidden img-hover-zoom">
                 <img src="https://images.pexels.com/photos/4506075/pexels-photo-4506075.jpeg"
@@ -472,7 +471,7 @@
 
             <!-- Card 4: Cranial -->
             <div
-              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-800/40 overflow-hidden hover-lift reveal-element"
+              class="glass-panel rounded-2xl border border-gray-100 dark:border-gray-200/40 overflow-hidden hover-lift reveal-element"
               style="transition-delay: 300ms;">
               <div class="h-44 w-full overflow-hidden img-hover-zoom">
                 <img src="https://images.pexels.com/photos/7671282/pexels-photo-7671282.jpeg"
@@ -493,7 +492,7 @@
       </section>
 
       <!-- SECTION 5: OUTCOME REPORTS -->
-      <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-t border-gray-100 dark:border-gray-900">
+      <section class="py-24 bg-white dark:bg-gray-900/40 border-t border-gray-100 dark:border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
@@ -520,7 +519,7 @@
                 <span class="text-xs animate-pulse text-gray-400">Loading thermal sensors...</span>
               </div>
               <div
-                class="flex justify-between items-center text-[10px] text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-800 pt-3">
+                class="flex justify-between items-center text-[10px] text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-200 pt-3">
                 <span>Sensor Zone: Patellar bar</span>
                 <span>Peak: 98 kPa (Within bounds)</span>
               </div>
@@ -538,7 +537,7 @@
                 <span class="text-xs animate-pulse text-gray-400">Compiling progress database...</span>
               </div>
               <div
-                class="flex justify-between items-center text-[10px] text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-800 pt-3">
+                class="flex justify-between items-center text-[10px] text-gray-400 mt-4 border-t border-gray-100 dark:border-gray-200 pt-3">
                 <span class="flex items-center"><span
                     class="w-2.5 h-2.5 rounded-full bg-brand-light mr-1.5 rtl:ml-1.5 flex-shrink-0"></span> Before
                   fitting</span>
@@ -568,8 +567,7 @@
               class="px-8 py-4 bg-brand-secondary hover:bg-brand-secondary text-white rounded-2xl font-semibold transition-colors shadow-lg">
               Access Physician Portal
             </a>
-            <a href="contact.html"
-              class="px-8 py-4 bg-brand-primary/60 hover:bg-brand-primary rounded-2xl font-semibold border border-brand-primary transition-colors">
+            <a href="contact.html" class="px-8 py-4 hover:bg-brand-primary rounded-2xl font-semibold border transition-colors bg-brand-secondary hover:bg-brand-secondary/90 text-white border-transparent shadow-md">
               Request Lab Visit
             </a>
           </div>
@@ -580,7 +578,7 @@
 
     </main>
     <div id="footer-container">
-      <footer class="bg-gray-900 text-gray-300 dark:bg-gray-950 border-t border-gray-800">
+      <footer class="bg-white text-gray-600 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -603,7 +601,7 @@
               <!-- Social Icons -->
               <div class="flex space-x-4 rtl:space-x-reverse pt-2">
                 <a href="#"
-                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all"
+                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all"
                   aria-label="LinkedIn">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -611,7 +609,7 @@
                   </svg>
                 </a>
                 <a href="#"
-                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all"
+                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all"
                   aria-label="Twitter">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -619,7 +617,7 @@
                   </svg>
                 </a>
                 <a href="#"
-                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all"
+                  class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all"
                   aria-label="YouTube">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -668,10 +666,10 @@
           </div>
 
           <div
-            class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            class="mt-12 pt-8 border-t border-gray-200 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
             <a href="#"
-              class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-400 hover:text-white rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center"
+              class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-500 hover:text-brand-primary rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center"
               aria-label="Back to top">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />

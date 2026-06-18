@@ -51,14 +51,14 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+<body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-300">
 
   <!-- SCROLL PROGRESS -->
   <div id="scroll-progress"></div>
 
 
   <!-- SKELETON LOADING STATE -->
-  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-gray-50 dark:bg-gray-950 flex flex-col p-4 space-y-6">
+  <div class="skeleton-wrapper fixed inset-0 z-[99] bg-white dark:bg-gray-950 flex flex-col p-4 space-y-6">
     <div class="h-16 w-full skeleton-bg rounded-xl"></div>
     <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-7xl w-full mx-auto">
       <div class="space-y-6">
@@ -79,7 +79,7 @@
     
     <!-- NAVIGATION BAR -->
     <div id="nav-container">
-    <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-800/30">
+    <nav class="glass-panel sticky top-0 z-50 transition-colors duration-300 shadow-sm border-b border-gray-200/50 dark:border-gray-200/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           
@@ -112,13 +112,13 @@
           <!-- Action Switches & CTA -->
           <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
             <!-- Theme Toggle -->
-            <button class="theme-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800" aria-label="Toggle theme">
+            <button class="theme-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme">
               <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
               <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
             </button>
 
             <!-- RTL Toggle -->
-            <button class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-800 flex items-center justify-center" aria-label="Toggle RTL mode">
+            <button class="rtl-toggle p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200 flex items-center justify-center" aria-label="Toggle RTL mode">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -160,8 +160,8 @@
       </div>
 
       <!-- Mobile Menu drawer -->
-      <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
-        <div class="px-4 pt-2 pb-6 space-y-2">
+      <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-200/30 transition-all">
+        <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
           <a href="index.html" class="block px-3 py-2.5 rounded-xl text-brand-primary dark:text-brand-secondary bg-brand-light dark:bg-gray-800/50 font-semibold">Home 1</a>
           <a href="pages/home2.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
           <a href="pages/about.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
@@ -169,7 +169,7 @@
           <a href="pages/case-studies.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
           <a href="pages/blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
           <a href="pages/contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
-          <div class="border-t border-gray-200 dark:border-gray-800 my-2"></div>
+          <div class="border-t border-gray-200 dark:border-gray-200 my-2"></div>
           <a href="pages/signup.html" class="block mt-4 text-center px-4 py-3 bg-brand-primary dark:bg-brand-secondary text-white rounded-xl font-semibold">Sign Up</a>
         </div>
       </div>
@@ -178,7 +178,7 @@
     <main class="flex-1 flex flex-col">
 
     <!-- SECTION 1: HERO SECTION -->
-    <header class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-br from-white via-brand-light/20 to-brand-light/30 dark:from-gray-950 dark:via-brand-primary/10 dark:to-gray-950">
+    <header class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-br from-brand-primary via-brand-primary to-indigo-950 text-white">
       <div class="absolute inset-0 z-0 overflow-hidden">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/30 dark:bg-brand-primary/10 rounded-full blur-3xl blob-animate"></div>
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-light/20 dark:bg-sky-900/10 rounded-full blur-3xl blob-animate-slow"></div>
@@ -190,29 +190,29 @@
           
           <!-- Left Text Content -->
           <div class="space-y-8 reveal-element">
-            <div class="inline-flex items-center space-x-2 rtl:space-x-reverse px-3 py-1 bg-brand-light dark:bg-brand-primary/30 rounded-full text-brand-primary dark:text-brand-accent font-semibold text-xs uppercase tracking-wider">
+            <div class="inline-flex items-center space-x-2 rtl:space-x-reverse px-3 py-1 bg-brand-secondary/20 rounded-full text-brand-accent font-semibold text-xs uppercase tracking-wider">
               <span>Bio-Mechanical Engineering Excellence</span>
             </div>
             
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900 dark:text-white font-heading">
-              Restoring Life's Natural <span class="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent dark:from-brand-accent dark:to-brand-secondary">Motion & Mobility</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-white font-heading">
+              Restoring Life's Natural <span class="bg-gradient-to-r from-brand-accent to-brand-secondary bg-clip-text text-transparent dark:from-brand-accent dark:to-brand-secondary">Motion & Mobility</span>
             </h1>
             
-            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl font-normal leading-relaxed">
+            <p class="text-base sm:text-lg text-brand-light max-w-xl font-normal leading-relaxed">
               We engineer custom bionic prosthetic limbs and advanced orthopedic orthoses. Our digital CAD/CAM clinic works in partnership with physicians to restore human physical capacity.
             </p>
             
              <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-              <a href="pages/contact.html" class="px-8 py-4 bg-brand-primary dark:bg-brand-secondary hover:bg-brand-primary dark:hover:bg-brand-secondary text-white rounded-2xl text-center font-semibold transition-all shadow-lg shadow-brand-primary/20 dark:shadow-brand-secondary/20 hover:scale-[1.02]">
+              <a href="pages/contact.html" class="px-8 py-4 bg-brand-secondary hover:bg-brand-secondary text-white rounded-2xl text-center font-semibold transition-all shadow-lg shadow-brand-secondary/20 hover:scale-[1.02]">
                 Request Consultation
               </a>
-              <a href="pages/services.html" class="px-8 py-4 glass-panel hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-900 dark:text-white rounded-2xl text-center font-semibold transition-all border border-gray-200 dark:border-gray-800">
+              <a href="pages/services.html" class="px-8 py-4 hover:bg-brand-primary text-white rounded-2xl text-center font-semibold border transition-all bg-brand-secondary hover:bg-brand-secondary/90 text-white border-transparent shadow-md">
                 Explore Solutions
               </a>
             </div>
 
             <!-- Trust Badges -->
-            <div class="pt-6 border-t border-gray-200 dark:border-gray-800/50">
+            <div class="pt-6 border-t border-gray-200 dark:border-gray-200/50">
               <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest font-semibold mb-4">Accredited Clinical Integrity</p>
               <div class="flex flex-wrap gap-6 items-center">
                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -232,8 +232,8 @@
             <!-- Elegant background decoration -->
             <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/10 to-brand-secondary/10 rounded-3xl -rotate-2 transform scale-105"></div>
             
-            <div class="glass-panel p-4 rounded-3xl relative overflow-hidden shadow-2xl border border-white/20 dark:border-gray-800/40">
-              <img src="assets/images/hero_prosthetics_lab.png" alt="Advanced prosthetic design with myoelectric sensor integration" class="rounded-2xl w-full h-[320px] sm:h-[400px] object-cover transition-transform duration-700 hover:scale-105" onerror="handleImageError(this)">
+            <div class="glass-panel p-4 rounded-3xl relative overflow-hidden shadow-2xl border border-white/20 dark:border-gray-200/40 bg-gray-900/50">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Advanced prosthetic design with myoelectric sensor integration" class="rounded-2xl w-full h-[320px] sm:h-[400px] object-cover transition-transform duration-700 hover:scale-105" onerror="handleImageError(this)">
               
               <!-- Floating UI overlay -->
               <div class="absolute bottom-8 left-8 right-8 glass-panel p-4 rounded-2xl flex float-up-down items-center space-x-4 rtl:space-x-reverse shadow-lg">
@@ -264,7 +264,7 @@
         </div>
 
         <!-- Solutions Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
           
           <!-- Card 1: Upper Limb -->
           <div class="glass-panel tech-card rounded-2xl overflow-hidden flex flex-col h-full reveal-element">
@@ -281,7 +281,7 @@
                   From multi-articulating myoelectric hands to heavy-duty body-powered utility wrists. Custom molded sockets maximize control and comfort.
                 </p>
               </div>
-              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800 pt-4">
+              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-200 pt-4">
                 <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-secondary mr-2 rtl:ml-2"></i>Myoelectric signal sensors</li>
                 <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-secondary mr-2 rtl:ml-2"></i>Carbon-reinforced chassis</li>
               </ul>
@@ -303,7 +303,7 @@
                   High-activity running blades, microprocessor controlled knees (MPKs), and multi-axial carbon fiber feet optimized for uneven terrain navigation.
                 </p>
               </div>
-              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800 pt-4">
+              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-200 pt-4">
                 <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-secondary mr-2 rtl:ml-2"></i>Microprocessor gait adapters</li>
                 <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-secondary mr-2 rtl:ml-2"></i>Vacuum suspension sockets</li>
               </ul>
@@ -325,7 +325,7 @@
                   Lightweight, impact-resistant structures designed to grow alongside the child. Vibrant patterns, robust hinges, and friendly clinical support.
                 </p>
               </div>
-              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800 pt-4">
+              <ul class="text-xs space-y-2 text-gray-500 dark:text-gray-300 border-t border-gray-100 dark:border-gray-200 pt-4">
                 <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-secondary mr-2 rtl:ml-2"></i>Modular growth adapters</li>
                 <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-secondary mr-2 rtl:ml-2"></i>Hypoallergenic materials</li>
               </ul>
@@ -372,7 +372,7 @@
     </section>
 
     <!-- SECTION 4: FABRICATION PROCESS -->
-    <section id="fabrication-process-section" class="py-24 bg-gray-50 dark:bg-gray-900/40">
+    <section id="fabrication-process-section" class="py-24 bg-white dark:bg-gray-900/40">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
@@ -494,38 +494,7 @@
       </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section class="py-24 bg-gray-50 dark:bg-gray-900/40 border-t border-gray-100 dark:border-gray-900">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 reveal-element">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Common Questions</span>
-          <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white font-heading mt-2">Frequently Asked Questions</h2>
-        </div>
-        
-        <div class="space-y-4 stagger-children">
-          <!-- FAQ Item 1 -->
-          <div class="glass-panel rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden reveal-element">
-            <button class="accordion-header w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active'); if(this.nextElementSibling.style.maxHeight){this.nextElementSibling.style.maxHeight=null;}else{this.nextElementSibling.style.maxHeight=this.nextElementSibling.scrollHeight+'px';}">
-              <span class="font-semibold text-gray-900 dark:text-white">How long does the custom fabrication process take?</span>
-              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon"></i>
-            </button>
-            <div class="accordion-content px-6 pb-6 text-sm text-gray-600 dark:text-gray-400">
-              <p>On average, our digital fabrication workflow allows us to deliver initial test sockets within 2 to 3 days after the 3D scanning appointment. Final laminations usually take an additional week.</p>
-            </div>
-          </div>
-          <!-- FAQ Item 2 -->
-          <div class="glass-panel rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden reveal-element">
-            <button class="accordion-header w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('active'); if(this.nextElementSibling.style.maxHeight){this.nextElementSibling.style.maxHeight=null;}else{this.nextElementSibling.style.maxHeight=this.nextElementSibling.scrollHeight+'px';}">
-              <span class="font-semibold text-gray-900 dark:text-white">Do you work with my health insurance?</span>
-              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon"></i>
-            </button>
-            <div class="accordion-content px-6 pb-6 text-sm text-gray-600 dark:text-gray-400">
-              <p>Yes, we are in-network with most major insurance providers and Medicare. Our billing specialists will verify your benefits and handle authorization prior to casting.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <!-- SECTION 5b: PATIENT TESTIMONIALS (3 Cards Grid) -->
     <section class="py-24 bg-gradient-to-br from-brand-light/60 via-white to-brand-light/60 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -537,10 +506,10 @@
         </div>
 
         <!-- Testimonials Grid (3 Cards side-by-side) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
 
           <!-- Testimonial Card 1 -->
-          <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border border-brand-light/60 dark:border-gray-800/60 hover:shadow-xl hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 reveal-element">
+          <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border border-brand-light/60 dark:border-gray-200/60 hover:shadow-xl hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 reveal-element">
             <div class="space-y-5">
               <!-- Stars -->
               <div class="flex text-amber-400 space-x-1">
@@ -556,8 +525,8 @@
               </p>
             </div>
             <!-- Author -->
-            <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-800 mt-6">
-              <img class="h-14 w-14 rounded-full object-cover border-2 border-brand-primary/30 shadow-md" src="assets/images/avatar1.png" alt="James Thornton" loading="lazy">
+            <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-200 mt-6">
+              <img class="h-14 w-14 shrink-0 rounded-full object-cover border-2 border-brand-primary/30 shadow-md" src="assets/images/avatar1.png" alt="James Thornton" loading="lazy">
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">James Thornton</h4>
                 <p class="text-xs text-gray-500 dark:text-gray-400">Transtibial Amputee • Runner</p>
@@ -566,7 +535,7 @@
           </div>
 
           <!-- Testimonial Card 2 -->
-          <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border border-brand-light/60 dark:border-gray-800/60 hover:shadow-xl hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 reveal-element" style="transition-delay: 100ms;">
+          <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border border-brand-light/60 dark:border-gray-200/60 hover:shadow-xl hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 reveal-element" style="transition-delay: 100ms;">
             <div class="space-y-5">
               <!-- Stars -->
               <div class="flex text-amber-400 space-x-1">
@@ -582,8 +551,8 @@
               </p>
             </div>
             <!-- Author -->
-            <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-800 mt-6">
-              <img class="h-14 w-14 rounded-full object-cover border-2 border-brand-secondary/30 shadow-md" src="assets/images/avatar2.png" alt="Linda Park" loading="lazy">
+            <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-200 mt-6">
+              <img class="h-14 w-14 shrink-0 rounded-full object-cover border-2 border-brand-secondary/30 shadow-md" src="assets/images/avatar2.png" alt="Linda Park" loading="lazy">
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Linda Park</h4>
                 <p class="text-xs text-gray-500 dark:text-gray-400">Parent • Pediatric Orthotics Patient</p>
@@ -592,7 +561,7 @@
           </div>
 
           <!-- Testimonial Card 3 -->
-          <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border border-brand-light/60 dark:border-gray-800/60 hover:shadow-xl hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 reveal-element" style="transition-delay: 200ms;">
+          <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border border-brand-light/60 dark:border-gray-200/60 hover:shadow-xl hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 reveal-element" style="transition-delay: 200ms;">
             <div class="space-y-5">
               <!-- Stars -->
               <div class="flex text-amber-400 space-x-1">
@@ -608,8 +577,8 @@
               </p>
             </div>
             <!-- Author -->
-            <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-800 mt-6">
-              <img class="h-14 w-14 rounded-full object-cover border-2 border-brand-primary/30 shadow-md" src="assets/images/avatar3.png" alt="Robert Diaz" loading="lazy">
+            <div class="flex items-center space-x-3 rtl:space-x-reverse pt-5 border-t border-gray-100 dark:border-gray-200 mt-6">
+              <img class="h-14 w-14 shrink-0 rounded-full object-cover border-2 border-brand-primary/30 shadow-md" src="assets/images/avatar3.png" alt="Robert Diaz" loading="lazy">
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Robert Diaz</h4>
                 <p class="text-xs text-gray-500 dark:text-gray-400">Transfemoral Amputee • MPK Patient</p>
@@ -625,7 +594,7 @@
 
     <section class="py-24 bg-gradient-to-br from-brand-light/50 via-white to-brand-light/50 dark:from-gray-950 dark:via-gray-950 dark:to-brand-primary/20 border-t border-gray-100 dark:border-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass-panel p-8 sm:p-16 rounded-3xl relative overflow-hidden shadow-xl border border-white/20 dark:border-gray-800/40">
+        <div class="glass-panel p-8 sm:p-16 rounded-3xl relative overflow-hidden shadow-xl border border-white/20 dark:border-gray-200/40">
           
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
@@ -666,16 +635,17 @@
             </div>
 
             <!-- CTA Board -->
-            <div class="bg-white/80 dark:bg-gray-900/80 p-8 rounded-2xl border border-gray-150 dark:border-gray-800 relative z-10 space-y-6 shadow-md reveal-right">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Are you a healthcare provider?</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+            <div class="bg-white/80 p-8 rounded-2xl border border-gray-150 relative z-10 space-y-6 shadow-md reveal-right">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Healthcare providers collaborating" class="w-full h-48 object-cover rounded-xl shadow-sm mb-6">
+              <h3 class="text-xl font-bold text-gray-900">Are you a healthcare provider?</h3>
+              <p class="text-sm text-gray-600">
                 Partner with ApexFlex to fast-track your patient’s recovery cycle. Access our digital prescriptions portal or book a consulting call with our bio-engineering leads.
               </p>
               <div class="flex flex-col sm:flex-row gap-4 pt-2">
                 <a href="pages/contact.html#referral-form" class="flex-1 px-6 py-3 bg-brand-primary dark:bg-brand-secondary hover:bg-brand-primary dark:hover:bg-brand-secondary text-white rounded-xl text-center font-semibold text-sm transition-all shadow-md">
                   Register Physician Referral
                 </a>
-                <a href="pages/contact.html" class="px-6 py-3 glass-panel hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-900 dark:text-white rounded-xl text-center font-semibold text-sm transition-all border border-gray-200 dark:border-gray-800">
+                <a href="pages/contact.html" class="px-6 py-3 rounded-xl text-center font-semibold text-sm transition-all border bg-brand-secondary hover:bg-brand-secondary/90 text-white border-transparent shadow-md">
                   Contact Lab
                 </a>
               </div>
@@ -688,7 +658,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-300 dark:bg-gray-950 border-t border-gray-800">
+    <footer class="bg-white text-gray-600 border-t border-gray-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -708,17 +678,17 @@
             </p>
             <!-- Social Icons -->
             <div class="flex space-x-4 rtl:space-x-reverse pt-2">
-              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="LinkedIn">
+              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all" aria-label="LinkedIn">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
-              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="Twitter">
+              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all" aria-label="Twitter">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
-              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-400 hover:text-white transition-all" aria-label="YouTube">
+              <a href="#" class="p-2 bg-gray-800 hover:bg-brand-secondary rounded-lg text-gray-500 hover:text-brand-primary transition-all" aria-label="YouTube">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.017 0 12 0 12s0 3.983.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.507 9.388.507 9.388.507s7.53 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.983 24 12 24 12s0-3.983-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
@@ -762,9 +732,9 @@
         </div>
 
         <!-- Bottom Copyright -->
-        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+        <div class="mt-12 pt-8 border-t border-gray-200 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p>© 2026 ApexFlex, Inc. All rights reserved.</p>
-          <a href="#" class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-400 hover:text-white rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center" aria-label="Back to top">
+          <a href="#" class="p-2.5 bg-gray-800 hover:bg-brand-secondary text-gray-500 hover:text-brand-primary rounded-xl transition-all border border-gray-850 hover:border-brand-secondary flex items-center justify-center" aria-label="Back to top">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
             </svg>
