@@ -941,21 +941,6 @@ function initLightboxGallery() {
 
           <!-- Mobile menu button -->
           <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
-            <!-- Theme Toggle -->
-            <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
-              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
-              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
-            </button>
-            
-            <!-- RTL Toggle -->
-            <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center" aria-label="Toggle RTL mode">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-  <path d="M8 3 4 7l4 4"/>
-  <path d="M4 7h16"/>
-  <path d="m16 21 4-4-4-4"/>
-  <path d="M20 17H4"/>
-</svg>
-              </button>
 
             <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all" aria-expanded="false">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

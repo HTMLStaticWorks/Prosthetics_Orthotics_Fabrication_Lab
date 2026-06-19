@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 
 <head>
@@ -312,22 +312,6 @@
 
             <!-- Mobile menu button -->
             <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
-              <button
-                class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
-                <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
-                <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
-              </button>
-              <button
-                class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center"
-                aria-label="Toggle RTL mode">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                  stroke-linejoin="round" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                  </path>
-                </svg>
-              </button>
               <button id="mobile-menu-btn"
                 class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -356,7 +340,23 @@
             <a href="blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
             <a href="contact.html"
               class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
-            <div class="border-t border-gray-200 dark:border-gray-850 my-2"></div>
+                      <div class="flex items-center space-x-2 rtl:space-x-reverse px-3 py-2">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+            
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle RTL mode">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="border-t border-gray-200 dark:border-gray-850 my-2"></div>
             <a href="signup.html"
               class="block mt-4 text-center px-4 py-3 bg-brand-primary dark:bg-brand-secondary text-white rounded-xl font-semibold">Sign
               Up</a>
@@ -381,7 +381,7 @@
           <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-tight leading-tight">
             Patient Transformation Stories
           </h1>
-          <p class="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p class="text-sm sm:text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed">
             Data-backed records of orthotic alignment improvements, myoelectric limb restoration processes, and patient
             velocity analytics.
           </p>
@@ -519,7 +519,7 @@
       <section class="py-24 bg-white dark:bg-[#0A0A0A] border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+          <div class="text-center max-w-3xl mx-auto mb-8 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Outcome Gallery</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility Case
               Files</h2>
@@ -606,7 +606,7 @@
       <section class="py-24 bg-white dark:bg-black border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+          <div class="text-center max-w-3xl mx-auto mb-8 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Interactive
               Demonstration</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Mobility
@@ -712,7 +712,7 @@
       <section class="py-24 bg-white dark:bg-black border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+          <div class="text-center max-w-3xl mx-auto mb-8 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Clinical Analytics</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare
               Outcomes Dashboard</h2>
@@ -794,7 +794,7 @@
             <div class="lg:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-between dashboard-card">
               <div class="border-b border-gray-150 dark:border-gray-200 pb-3 flex justify-between items-center">
                 <h4 class="text-base font-bold text-gray-950 dark:text-white">Gait Velocity Analytics</h4>
-                <span class="text-[10px] text-gray-400 uppercase tracking-widest">Transtibial</span>
+                <span class="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest">Transtibial</span>
               </div>
 
               <!-- Bar graphs -->
@@ -804,27 +804,27 @@
                   <div
                     class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary"
                     data-height="35%" style="height: 0%"></div>
-                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 1</span>
+                  <span class="text-[9px] text-gray-500 dark:text-gray-400 mt-2 font-bold">Week 1</span>
                 </div>
                 <!-- Bar 2 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
                   <div
                     class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary"
                     data-height="55%" style="height: 0%"></div>
-                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 2</span>
+                  <span class="text-[9px] text-gray-500 dark:text-gray-400 mt-2 font-bold">Week 2</span>
                 </div>
                 <!-- Bar 3 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
                   <div
                     class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-primary group-hover:bg-brand-secondary"
                     data-height="80%" style="height: 0%"></div>
-                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 4</span>
+                  <span class="text-[9px] text-gray-500 dark:text-gray-400 mt-2 font-bold">Week 4</span>
                 </div>
                 <!-- Bar 4 -->
                 <div class="h-full flex-1 flex flex-col items-center justify-end group">
                   <div class="w-full h-0 rounded-t-lg transition-all duration-700 bg-brand-secondary" data-height="98%"
                     style="height: 0%"></div>
-                  <span class="text-[9px] text-gray-400 mt-2 font-bold">Week 6</span>
+                  <span class="text-[9px] text-gray-500 dark:text-gray-400 mt-2 font-bold">Week 6</span>
                 </div>
               </div>
 
@@ -842,7 +842,7 @@
         class="py-24 bg-white dark:bg-[#0A0A0A] overflow-hidden relative border-b border-gray-100 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-element">
+          <div class="text-center max-w-3xl mx-auto mb-8 space-y-4 reveal-element">
             <span class="text-xs font-bold uppercase tracking-widest text-brand-secondary">Endorsements</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white font-heading">Healthcare
               Reflections</h2>
@@ -1090,7 +1090,7 @@
 
     <!-- FOOTER container (identical copyright references) -->
     <div id="footer-container">
-      <footer class="bg-white text-gray-600 border-t border-gray-200">
+      <footer class="bg-white dark:bg-[#0A0A0A] text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-[#171717]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -1106,7 +1106,7 @@
                 </svg>
                 <span class="font-heading font-semibold text-xl text-white tracking-wide">ApexFlex</span>
               </a>
-              <p class="text-xs text-gray-400 leading-relaxed font-normal">
+              <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
                 State-of-the-art orthotics and prosthetics fabrication lab. Restoring patient confidence and biological
                 walking capacity via advanced design.
               </p>
@@ -1162,7 +1162,7 @@
 
             <div>
               <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-heading">Lab Contact</h4>
-              <address class="not-italic text-xs text-gray-400 space-y-2">
+              <address class="not-italic text-xs text-gray-500 dark:text-gray-400 space-y-2">
                 <p class="flex items-start"><i data-lucide="map-pin"
                     class="w-4 h-4 text-brand-secondary mr-2 rtl:ml-2 mt-0.5 flex-shrink-0"></i> 104 Bio-Medical Dr,
                   Suite D, Seattle, WA 98101</p>
