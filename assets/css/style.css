@@ -1324,3 +1324,17 @@ html:not(.dark) .date {
     outline: none !important;
     box-shadow: none !important;
 }
+
+body.light-theme p,
+body.light-theme span,
+body.light-theme small,
+body.light-theme label,
+body.light-theme li,
+body.light-theme a,
+body.light-theme .blog-meta,
+body.light-theme .author-name,
+body.light-theme .read-time,
+body.light-theme .date {
+    color: #4B5563 !important;
+    opacity: 1 !important;
+}
