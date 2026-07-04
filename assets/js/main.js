@@ -681,7 +681,7 @@ function initLightboxGallery() {
       if (basename === 'index.html') {
         a.setAttribute('href', homePrefix + 'index.html');
       } else {
-        a.setAttribute('href', (inPages ? '' : 'pages/') + basename);
+        a.setAttribute('href', basename);
       }
     });
 
@@ -714,9 +714,9 @@ function initLightboxGallery() {
 
       const basename = href.split('/').pop();
       if (basename === 'index.html') {
-        a.setAttribute('href', (inPages ? '../' : '') + 'index.html');
+        a.setAttribute('href', 'index.html');
       } else {
-        a.setAttribute('href', (inPages ? '' : 'pages/') + basename);
+        a.setAttribute('href', basename);
       }
     });
   }
@@ -907,12 +907,12 @@ function initLightboxGallery() {
           <!-- Desktop Navigation -->
           <div class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-medium text-sm text-gray-700 dark:text-gray-300">
             <a href="index.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Home 1</a>
-            <a href="pages/home2.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Home 2</a>
-            <a href="pages/about.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">About</a>
-            <a href="pages/services.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Services</a>
-            <a href="pages/case-studies.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Case Studies</a>
-            <a href="pages/blog.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Blog</a>
-            <a href="pages/contact.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Contact</a>
+            <a href="home2.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Home 2</a>
+            <a href="about.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">About</a>
+            <a href="services.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Services</a>
+            <a href="case-studies.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Case Studies</a>
+            <a href="blog.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Blog</a>
+            <a href="contact.html" class="nav-menu-link hover:text-[#0F4C81] dark:hover:text-[#67E8F9] transition-colors font-medium text-gray-700 dark:text-gray-300">Contact</a>
           </div>
 
           <!-- Action Switches & CTA -->
@@ -934,7 +934,7 @@ function initLightboxGallery() {
               </button>
 
             <!-- Primary CTA: Signup -->
-            <a href="pages/signup.html" class="px-5 py-2.5 bg-[#14B8A6] hover:bg-[#109f8f] text-white dark:bg-[#67E8F9] dark:hover:bg-[#4fdbeb] dark:text-[#0B1F33] rounded-xl text-sm font-semibold transition-all shadow-md shadow-[#14B8A6]/20 hover:scale-[1.02] active:scale-[0.98] btn-pulse magnetic-btn">
+            <a href="signup.html" class="px-5 py-2.5 bg-[#14B8A6] hover:bg-[#109f8f] text-white dark:bg-[#67E8F9] dark:hover:bg-[#4fdbeb] dark:text-[#0B1F33] rounded-xl text-sm font-semibold transition-all shadow-md shadow-[#14B8A6]/20 hover:scale-[1.02] active:scale-[0.98] btn-pulse magnetic-btn">
               Sign Up
             </a>
           </div>
@@ -956,14 +956,14 @@ function initLightboxGallery() {
       <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-200/50 dark:border-gray-800/30 transition-all">
         <div class="px-4 pt-4 pb-8 flex flex-col space-y-3">
           <a href="index.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 1</a>
-          <a href="pages/home2.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
-          <a href="pages/about.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
-          <a href="pages/services.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
-          <a href="pages/case-studies.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
-          <a href="pages/blog.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
-          <a href="pages/contact.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
+          <a href="home2.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Home 2</a>
+          <a href="about.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">About</a>
+          <a href="services.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Services</a>
+          <a href="case-studies.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
+          <a href="blog.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
+          <a href="contact.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
           <div class="border-t border-gray-200 dark:border-gray-800 my-2"></div>
-          <a href="pages/signup.html" class="block mt-4 text-center px-4 py-3 bg-[#14B8A6] text-white rounded-xl font-semibold">Sign Up</a>
+          <a href="signup.html" class="block mt-4 text-center px-4 py-3 bg-[#14B8A6] text-white rounded-xl font-semibold">Sign Up</a>
         </div>
       </div>
     </nav>
@@ -1015,9 +1015,9 @@ function initLightboxGallery() {
             <h4 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 font-heading">Solutions</h4>
             <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
               <li><a href="index.html" class="hover:text-brand-secondary transition-colors">Home 1</a></li>
-              <li><a href="pages/home2.html" class="hover:text-brand-secondary transition-colors">Home 2</a></li>
-              <li><a href="pages/about.html" class="hover:text-brand-secondary transition-colors">About Journey</a></li>
-              <li><a href="pages/services.html" class="hover:text-brand-secondary transition-colors">Lab Services</a></li>
+              <li><a href="home2.html" class="hover:text-brand-secondary transition-colors">Home 2</a></li>
+              <li><a href="about.html" class="hover:text-brand-secondary transition-colors">About Journey</a></li>
+              <li><a href="services.html" class="hover:text-brand-secondary transition-colors">Lab Services</a></li>
             </ul>
           </div>
 
@@ -1025,10 +1025,10 @@ function initLightboxGallery() {
           <div>
             <h4 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 font-heading">Resources</h4>
             <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
-              <li><a href="pages/case-studies.html" class="hover:text-brand-secondary transition-colors">Case Analytics</a></li>
-              <li><a href="pages/blog.html" class="hover:text-brand-secondary transition-colors">Clinical Blog</a></li>
-              <li><a href="pages/contact.html" class="hover:text-brand-secondary transition-colors">Contact & Map</a></li>
-              <li><a href="pages/login.html" class="hover:text-brand-secondary transition-colors">Portal Access</a></li>
+              <li><a href="case-studies.html" class="hover:text-brand-secondary transition-colors">Case Analytics</a></li>
+              <li><a href="blog.html" class="hover:text-brand-secondary transition-colors">Clinical Blog</a></li>
+              <li><a href="contact.html" class="hover:text-brand-secondary transition-colors">Contact & Map</a></li>
+              <li><a href="login.html" class="hover:text-brand-secondary transition-colors">Portal Access</a></li>
             </ul>
           </div>
 
