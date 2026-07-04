@@ -962,6 +962,24 @@ function initLightboxGallery() {
           <a href="pages/case-studies.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
           <a href="pages/blog.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
           <a href="pages/contact.html" class="nav-menu-link block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
+          
+          <div class="flex items-center space-x-2 rtl:space-x-reverse px-3 py-2">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme" style="display: flex !important;">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+            
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle RTL mode" style="display: flex !important;">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+          </div>
+
           <div class="border-t border-gray-200 dark:border-gray-800 my-2"></div>
           <a href="pages/signup.html" class="block mt-4 text-center px-4 py-3 bg-[#14B8A6] text-white rounded-xl font-semibold">Sign Up</a>
         </div>

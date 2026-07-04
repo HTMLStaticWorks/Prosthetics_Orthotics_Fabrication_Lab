@@ -134,8 +134,19 @@
 
           <!-- Mobile menu button -->
           <div class="flex lg:hidden items-center space-x-2 rtl:space-x-reverse">
-            
-
+            <!-- Mobile Theme Toggle -->
+            <button class="theme-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme" style="display: flex !important;">
+              <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
+              <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
+            </button>
+            <!-- Mobile RTL Toggle -->
+            <button class="rtl-toggle p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200 items-center justify-center" aria-label="Toggle RTL mode" style="display: flex !important;">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
             <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-850 transition-all" aria-expanded="false">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -156,15 +167,15 @@
           <a href="pages/case-studies.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Case Studies</a>
           <a href="pages/blog.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Blog</a>
           <a href="pages/contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850">Contact</a>
-                    <div class="flex items-center space-x-2 rtl:space-x-reverse px-3 py-2">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse px-3 py-2">
             <!-- Theme Toggle -->
-            <button class="theme-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme">
+            <button class="theme-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle theme" style="display: flex !important;">
               <i data-lucide="moon" class="w-5 h-5 theme-toggle-moon"></i>
               <i data-lucide="sun" class="w-5 h-5 theme-toggle-sun hidden"></i>
             </button>
             
             <!-- RTL Toggle -->
-            <button class="rtl-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle RTL mode">
+            <button class="rtl-toggle flex-1 flex items-center justify-center p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all border border-gray-200/50 dark:border-gray-200" aria-label="Toggle RTL mode" style="display: flex !important;">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -639,7 +650,7 @@
 
             <!-- CTA Board -->
             <div class="bg-white/80 p-8 rounded-2xl border border-gray-150 relative z-10 space-y-6 shadow-md reveal-right">
-              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Healthcare providers collaborating" class="w-full h-48 object-cover rounded-xl shadow-sm mb-6">
+              <img src="assets/images/dashboard.png" alt="Clinical digital portal and referral dashboard" class="w-full h-48 object-cover rounded-xl shadow-sm mb-6">
               <h3 class="text-xl font-bold text-gray-900">Are you a healthcare provider?</h3>
               <p class="text-sm text-gray-600">
                 Partner with ApexFlex to fast-track your patient’s recovery cycle. Access our digital prescriptions portal or book a consulting call with our bio-engineering leads.
