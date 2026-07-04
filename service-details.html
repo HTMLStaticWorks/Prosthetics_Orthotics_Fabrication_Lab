@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | Prosthetics & Orthotics Fabrication Lab</title>
+    <meta name="description" content="View detailed specifications, benefits, patient eligibility, fabrication workflows, and FAQs for our custom orthoses and prosthetic limb solutions.">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-heart-pulse-fill text-primary me-2 fs-3"></i>
+                <span class="fw-bold fs-5 text-uppercase tracking-wider">P&O Fabrication Lab</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-sm btn-outline-secondary" id="rtl-toggle" aria-label="Toggle RTL Mode">RTL (العربية)</button>
+                    <button class="btn btn-link text-body p-1" id="theme-toggle" aria-label="Toggle Dark Mode">
+                        <i id="theme-icon" class="bi bi-moon-fill fs-5"></i>
+                    </button>
+                    <a href="booking.html" class="btn btn-primary d-none d-sm-inline-block">Refer a Patient</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Subpage Hero Header -->
+    <section class="py-5 bg-body-tertiary border-bottom">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-extrabold mb-3" id="service-title">Prosthetic Limb Fabrication</h1>
+                    <p class="lead text-muted mb-0" id="service-subtitle">Custom high-performance limbs engineered for full mobility and activity restoration.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-lg-end mb-0">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                            <li class="breadcrumb-item"><a href="services.html" class="text-decoration-none">Services</a></li>
+                            <li class="breadcrumb-item active" id="service-breadcrumb" aria-current="page">Details</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Content Container -->
+    <section class="py-5">
+        <div class="container my-3">
+            <div class="row g-5">
+                <!-- Left Details Column -->
+                <div class="col-lg-8">
+                    <!-- Service Overview -->
+                    <div class="mb-5">
+                        <h3 class="fw-bold mb-3">Service Overview</h3>
+                        <p class="text-muted" id="service-overview">Our lab designs, shapes, and builds upper and lower extremity prosthetic devices tailored directly to the patient's remaining bone, muscle volume, and desired weight load. We utilize modern carbon-fiber socket techniques, microprocessor joints, and vacuum suspension sockets to offer lightweight structures that fit perfectly without rubbing or heat retention.</p>
+                    </div>
+
+                    <!-- Benefits Grid -->
+                    <div class="mb-5">
+                        <h3 class="fw-bold mb-4">Key Benefits</h3>
+                        <div class="row g-3" id="service-benefits">
+                            <!-- Populated dynamically via JS -->
+                            <div class="col-md-6">
+                                <div class="p-3 bg-body-tertiary rounded border h-100">
+                                    <h6 class="fw-bold mb-2"><i class="bi bi-heart-fill text-primary me-2"></i>Enhanced Comfort</h6>
+                                    <p class="small text-muted mb-0">Custom socket fitting prevents tissue pressure sores and skin chafing.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-body-tertiary rounded border h-100">
+                                    <h6 class="fw-bold mb-2"><i class="bi bi-rocket-takeoff-fill text-primary me-2"></i>Advanced Bio-Feedback</h6>
+                                    <p class="small text-muted mb-0">Microprocessor components provide stability and real-time step adaptation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patient Eligibility -->
+                    <div class="mb-5 p-4 bg-primary-subtle text-primary-emphasis rounded border border-primary-subtle">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-person-check-fill me-2"></i>Patient Eligibility & Referral Guideline</h4>
+                        <p class="small" id="service-eligibility">This service is recommended for individuals with congenital limb difference, surgical amputations due to trauma or vascular disease, or patients seeking upgrades from mechanical joints to high-stability bionic components. Referrals require a physician prescription and clearance for physical therapy gait training.</p>
+                    </div>
+
+                    <!-- Fabrication workflow steps -->
+                    <div class="mb-5">
+                        <h3 class="fw-bold mb-4">How it is Fabricated</h3>
+                        <div class="row g-4" id="service-steps">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- FAQs Accordion -->
+                    <div class="mb-5">
+                        <h3 class="fw-bold mb-4">Frequently Asked Questions</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar Column -->
+                <div class="col-lg-4">
+                    <div class="position-sticky" style="top: 110px;">
+                        <!-- Quick Contact Form/CTA -->
+                        <div class="p-4 bg-body-tertiary rounded border shadow-sm mb-4">
+                            <h4 class="fw-bold mb-3">Book Consultation</h4>
+                            <p class="small text-muted mb-4">Have questions about this device? Speak directly with one of our certified prosthetists and orthotists.</p>
+                            
+                            <form id="sidebarConsultForm">
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label small fw-bold">Selected Service</label>
+                                    <select class="form-select" id="sidebar-service-select">
+                                        <option value="prosthetics">Prosthetic Limb Fabrication</option>
+                                        <option value="bracing">Orthotic Brace Fabrication</option>
+                                        <option value="pediatric">Pediatric Orthotics</option>
+                                        <option value="sports">Sports Performance Bracing</option>
+                                        <option value="diabetic">Diabetic Foot Solutions</option>
+                                        <option value="repairs">Repairs & Adjustments</option>
+                                        <option value="followup">Follow-Up Support</option>
+                                    </select>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary w-100">Schedule Evaluation</a>
+                            </form>
+                        </div>
+
+                        <!-- Sidebar Certifications Widget -->
+                        <div class="p-4 bg-body-tertiary rounded border shadow-sm">
+                            <h5 class="fw-bold mb-3">Our Standards</h5>
+                            <ul class="list-unstyled d-flex flex-column gap-2 mb-0 small text-muted">
+                                <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle text-primary"></i> FDA Registered Facility</li>
+                                <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle text-primary"></i> ABC Certified Orthotists</li>
+                                <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle text-primary"></i> HIPAA Secure Patient Records</li>
+                                <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle text-primary"></i> Same-Day Diagnostic Socket Fitting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-4 border-top border-secondary">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-heart-pulse-fill text-primary me-2 fs-3"></i>
+                        <span class="fw-bold fs-5 text-uppercase text-white">P&O Fabrication Lab</span>
+                    </div>
+                    <p class="text-white-50">State-of-the-art custom prosthetic devices and orthopedic orthoses engineered for restorative human mobility and performance.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white-50 fs-5 hover-text-primary"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50 fs-5 hover-text-primary"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white-50 fs-5 hover-text-primary"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold text-white mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-text-primary">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none hover-text-primary">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none hover-text-primary">Clinical Services</a></li>
+                        <li class="mb-2"><a href="gallery.html" class="text-white-50 text-decoration-none hover-text-primary">Media Gallery</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-white-50 text-decoration-none hover-text-primary">Tech Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold text-white mb-3">Contact Support</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="d-flex align-items-start gap-2 mb-2">
+                            <i class="bi bi-geo-alt-fill text-primary mt-1"></i>
+                            <span>100 Medical Plaza, Suite 400, Clinical City, CC 90210</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-2">
+                            <i class="bi bi-telephone-fill text-primary"></i>
+                            <span>(555) 867-5309</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-2">
+                            <i class="bi bi-envelope-fill text-primary"></i>
+                            <span>info@pofabricationlab.com</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="bi bi-clock-fill text-primary"></i>
+                            <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold text-white mb-3">Trust & Quality</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-secondary text-uppercase py-2 px-3">ABC Certified</span>
+                        <span class="badge bg-secondary text-uppercase py-2 px-3">BOC Accredited</span>
+                        <span class="badge bg-secondary text-uppercase py-2 px-3">HIPAA Compliant</span>
+                        <span class="badge bg-secondary text-uppercase py-2 px-3">FDA Registered</span>
+                    </div>
+                    <div class="border-top border-secondary mt-3 pt-3">
+                        <span class="small text-white-50 d-block">Urgent Support Hotline:</span>
+                        <a href="tel:5558675309" class="fw-bold text-primary text-decoration-none fs-5">(555) 911-FITS</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-white-50 mb-0">&copy; 2026 Prosthetics & Orthotics Fabrication Lab. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item small"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li class="list-inline-item small"><a href="#" class="text-white-50 text-decoration-none ms-3">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Dynamic Service Data Loader Script -->
+    <script>
+        const servicesData = {
+            prosthetics: {
+                title: "Prosthetic Limb Fabrication",
+                subtitle: "Custom high-performance limbs engineered for full mobility and activity restoration.",
+                overview: "Our lab designs, shapes, and builds upper and lower extremity prosthetic devices tailored directly to the patient's remaining bone, muscle volume, and desired weight load. We utilize modern carbon-fiber socket techniques, microprocessor joints, and vacuum suspension sockets to offer lightweight structures that fit perfectly without rubbing or heat retention.",
+                eligibility: "This service is recommended for individuals with congenital limb difference, surgical amputations due to trauma or vascular disease, or patients seeking upgrades from mechanical joints to high-stability bionic components. Referrals require a physician prescription and clearance for physical therapy gait training.",
+                benefits: [
+                    { title: "Enhanced Comfort", desc: "Custom socket fitting prevents tissue pressure sores and skin chafing." },
+                    { title: "Advanced Bio-Feedback", desc: "Microprocessor components provide stability and real-time step adaptation." },
+                    { title: "High Strength", desc: "Aerospace carbon fiber handles high impact forces during dynamic activities." },
+                    { title: "Skin Health Assurance", desc: "High-grade medical silicones and urethane sleeves protect vascular layers." }
+                ],
+                steps: [
+                    { title: "Digital 3D Scan", desc: "We map the exact shapes of the residual limb using non-contact optical lasers." },
+                    { title: "CAD Modeling", desc: "Our specialist aligns load-bearing points using digital modeling platforms." },
+                    { title: "Check Socket Trial", desc: "A transparent temporary socket is molded to check skin contact visual diagnostics." },
+                    { title: "Carbon Lamination", desc: "The final socket is carbon fiber cast under heat-treated vacuum pressures." }
+                ],
+                faqs: [
+                    { q: "How long does fabrication take?", a: "The entire digital manufacturing process, including the preliminary fit check, takes about 2 to 3 weeks." },
+                    { q: "Do you offer microprocessor alignments?", a: "Yes. Our lab configures and calibrates microprocessor knee (MPK) systems like the C-Leg, Rheo Knee, and dynamic bionic feet." }
+                ]
+            },
+            bracing: {
+                title: "Orthotic Brace Fabrication",
+                subtitle: "Precision spinal, knee, and ankle orthoses designed for structural correction.",
+                overview: "We construct precision custom orthotic devices (braces) to help align joints, reduce painful load-bearing, or compensate for physical weakness. This includes spinal scoliosis jackets (TLSO), knee-ankle-foot orthoses (KAFO), and lightweight dynamic carbon-fiber ankle-foot orthoses (AFO).",
+                eligibility: "Recommended for patients diagnosed with spine scoliosis, joint hypermobility, ligament damage (ACL/MCL), drop-foot, or muscular palsy requiring rigid support.",
+                benefits: [
+                    { title: "Skeletal Alignment", desc: "Prevents deformities from progressing, particularly in pediatric scoliosis." },
+                    { title: "Reduced Joint Pain", desc: "Offloads structural pressures on arthritic knee or spine elements." },
+                    { title: "Featherlight Profiles", desc: "Carbon fiber composites allow braces to remain extremely thin under trousers." },
+                    { title: "Dynamic Flex", desc: "Provides spring-back energy to assist foot clearance during steps." }
+                ],
+                steps: [
+                    { title: "Laser Scan & Mold", desc: "Skeletal geometry is captured. A plaster shell is no longer required." },
+                    { title: "Skeletal Alignment Blueprint", desc: "Force vectors are digitally plotted on CAD tools to direct corrective forces." },
+                    { title: "Thermoplastic Pressing", desc: "Advanced medical-grade polypropylene is vacuum pressed over structural molds." },
+                    { title: "Strap and Pad Assembly", desc: "Comfort linings and medical-grade Velcro straps are stitched in place." }
+                ],
+                faqs: [
+                    { q: "Can custom braces fit inside normal shoes?", a: "Our low-profile carbon AFOs are designed specifically to slide comfortably into standard athletic running shoes." },
+                    { q: "Is the brace warrantied?", a: "All structural brace shells fabricated in our lab carry a one-year fracture warranty." }
+                ]
+            },
+            pediatric: {
+                title: "Pediatric Orthotics",
+                subtitle: "Gentle corrective cranial remolding bands and lightweight scoliosis solutions for children.",
+                overview: "Children require lightweight, breathable devices that accommodate quick growth. We specialize in pediatric cranial remolding orthoses for plagiocephaly, custom infant AFOs for clubfoot correction, and ultra-lightweight scoliosis corrective jackets.",
+                eligibility: "Infants aged 3-18 months requiring cranial correction, and children diagnosed with scoliosis, cerebral palsy, or walking abnormalities.",
+                benefits: [
+                    { title: "Growth Adaptability", desc: "Device patterns allow for regular local resizing as your child grows." },
+                    { title: "Breathable Plastics", desc: "Specially perforated structures prevent heat rashes in active kids." },
+                    { title: "Gentle Pressure", desc: "Exerts subtle steering forces to align soft skeletal tissues naturally." },
+                    { title: "Play-Friendly Designs", desc: "Vibrant custom patterns and decals make the devices visually fun." }
+                ],
+                steps: [
+                    { title: "Gentle Scanning", desc: "A rapid 2-second optical scan measures children without triggering distress." },
+                    { title: "Volumetric Growth Projection", desc: "Engineers program expansion zones in the mold design database." },
+                    { title: "Perforated Fabrication", desc: "The brace is milled and vented with heat-ventilation holes." },
+                    { title: "Weekly Resizing checks", desc: "We shave micro-layers off the inner padding to follow physical growth." }
+                ],
+                faqs: [
+                    { q: "Does cranial remolding hurt the baby?", a: "No. The helmet does not squeeze the head; it simply guides natural brain-growth into the flatter zones of the skull." },
+                    { q: "How long must the helmet be worn?", a: "Generally, cranial bands are worn 23 hours a day for a duration of 3 to 5 months." }
+                ]
+            },
+            sports: {
+                title: "Sports Performance Bracing",
+                subtitle: "High-impact stabilization braces and dynamic running blades built for athletes.",
+                overview: "We engineer customized, impact-resistant braces and athletic running blades. From rigid carbon ligament stabilizers (ACL/MCL) to titanium sports prosthetic feet, our designs enable safe physical performance for recreational and competitive athletes.",
+                eligibility: "Athletes requiring skeletal protection post-reconstruction, or prosthetic users seeking high-performance running blades.",
+                benefits: [
+                    { title: "Extreme Shock Absorption", desc: "Carbon fiber layups absorb vertical shock loads up to 4x bodyweight." },
+                    { title: "Ligament Stabilization", desc: "Dual-axis titanium hinges prevent rotation injury inside knee capsules." },
+                    { title: "Maximum Energy Return", desc: "Carbon blades compression releases spring power to assist sprint gates." },
+                    { title: "Corrosion Proofing", desc: "All metallic parts are anodized to resist sweat and moisture damage." }
+                ],
+                steps: [
+                    { title: "Treadmill Gait Scan", desc: "We track dynamic joint load angles using specialized gait cameras." },
+                    { title: "Carbon Layer Mapping", desc: "Carbon fiber wraps are concentrated at peak strain locations." },
+                    { title: "Titanium Hinge Binding", desc: "Heavy-duty polycentric hinges are pinned directly to carbon shells." },
+                    { title: "Field Test Validation", desc: "The athlete tests sprint flexes in our clinical lab for real-time changes." }
+                ],
+                faqs: [
+                    { q: "Are custom sports braces legal in professional matches?", a: "Yes. They are fabricated without exposed sharp metal edges, matching regulatory requirements for high-contact sports." },
+                    { q: "What materials make the braces light?", a: "We combine multi-directional carbon fibers, Kevlar, and aerospace titanium alloys." }
+                ]
+            },
+            diabetic: {
+                title: "Diabetic Foot Solutions",
+                subtitle: "Plantar pressure-redistributing orthotics and custom depth footwear.",
+                overview: "Diabetic neuropathy can lead to undetected pressure ulcers. We custom-mold total contact foot orthoses and custom extra-depth shoes that redistribute weight away from dangerous high-pressure zones, ensuring safe capillary flow.",
+                eligibility: "Patients diagnosed with Type 1 or Type 2 diabetes suffering from neuropathy, Charcot foot, or past plantar ulcers.",
+                benefits: [
+                    { title: "Ulcer Prevention", desc: "Eliminates high friction friction zones that trigger dermal breakdown." },
+                    { title: "Capillary Flow Protection", desc: "Soft multi-layered materials prevent vascular blood constriction." },
+                    { title: "Charcot Stabilization", desc: "Rigid shoe sole structures stabilize micro-fractures in weak bones." },
+                    { title: "Plantar Offloading", desc: "Shifts body load pressure away from pre-existing wound sites." }
+                ],
+                steps: [
+                    { title: "Plantar Pressure Scan", desc: "Electronic sensors track walking pressure distribution across the sole." },
+                    { title: "CAD Pressure Offloading", desc: "We design pockets on the insole model beneath high-pressure points." },
+                    { title: "Multi-Density Milling", desc: "Insoles are carved from layers of varying density EVA and memory foams." },
+                    { title: "Thermoform Fitment", desc: "Plastazote covers are thermally set to the patient's foot shape." }
+                ],
+                faqs: [
+                    { q: "Can I wear these insoles in normal shoes?", a: "Usually no. Diabetic orthotics require 'extra-depth' shoes to avoid squeezing the top of the toes. We provide certified diabetic depth shoes." },
+                    { q: "How often should I replace diabetic insoles?", a: "Due to compression wear, they should be inspected and replaced every 12 to 18 months." }
+                ]
+            },
+            repairs: {
+                title: "Repairs & Adjustments",
+                subtitle: "Same-day mechanical adjustments, structural shell patches, and alignments.",
+                overview: "Regular wear-and-tear requires maintenance. Our lab provides same-day component replacements, socket alignment alterations, carbon shell reinforcements, and strap upgrades for all types of orthoses and prosthetic devices.",
+                eligibility: "Any individual using an orthotic brace or prosthetic limb requiring physical maintenance.",
+                benefits: [
+                    { title: "Extended Device Life", desc: "Replaces worn joints and straps before shell damage occurs." },
+                    { title: "Gait Optimization", desc: "Re-calibrates walking alignment to correct wear imbalances." },
+                    { title: "Tissue Protection", desc: "Immediate inner socket grinding resolves localized pressure sores." },
+                    { title: "Component Calibration", desc: "Updates firmware and sensor diagnostics on bionic units." }
+                ],
+                steps: [
+                    { title: "Visual & Sensor Assessment", desc: "We check the device for hairline fatigue cracks and mechanical play." },
+                    { title: "Alignment Verification", desc: "Laser checks measure alignment deflection against structural baselines." },
+                    { title: "Lab Modification", desc: "We utilize industrial grinders, patch laminators, and tooling in our lab." },
+                    { title: "Final Validation", desc: "The device is dynamic tested by the patient on force plates." }
+                ],
+                faqs: [
+                    { q: "Do you repair devices built by other clinics?", a: "Yes. We accept repairs for all certified manufacturers, provided structural shells remain safe." },
+                    { q: "How long do basic repairs take?", a: "Strap replacements and socket adjustments are usually completed in-office within 2 to 3 hours." }
+                ]
+            },
+            followup: {
+                title: "Lifelong Follow-Up Support",
+                subtitle: "Continuous skin health monitoring, alignment inspections, and walking training.",
+                overview: "Human bodies change over time, especially residual limbs. We provide a structured follow-up program consisting of physiological checkups, device alignment checks, gait rehabilitation feedback, and device adjustments.",
+                eligibility: "All patients who have received a custom fabricated device from our clinic.",
+                benefits: [
+                    { title: "Skin Integrity Checks", desc: "Regular checkups help prevent friction-induced skin breakdowns." },
+                    { title: "Gait Progression", desc: "We adjust joint dynamics as physical strength recovers." },
+                    { title: "Accidental Damage Cover", desc: "Provides swift diagnostic checkups after bumps or falls." },
+                    { title: "Patient Education", desc: "Includes guidance on residual limb hygiene and device cleaning." }
+                ],
+                steps: [
+                    { title: "Scheduled Intake", desc: "Routine checkups scheduled at 1, 3, 6, and 12-month intervals." },
+                    { title: "Tissue Volume Audit", desc: "We check for limbs volume changes and modify socket pads." },
+                    { title: "Joint Torque Validation", desc: "Mechanical joints are tested for loose bolts or friction wear." },
+                    { title: "Training Reinforcement", desc: "Specialists provide updated walking balance training." }
+                ],
+                faqs: [
+                    { q: "How much do follow-up checks cost?", a: "Routine adjustments and care evaluations are fully covered under our warranty for the first 90 days." },
+                    { q: "How often should I book follow-ups?", a: "We recommend booking an inspection appointment every 6 months to ensure joint safety." }
+                ]
+            }
+        };
+
+        // Get Service Query Parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceKey = urlParams.get('service') || 'prosthetics'; // default
+
+        // Render Service Details
+        const currentService = servicesData[serviceKey] || servicesData.prosthetics;
+
+        document.getElementById('service-title').textContent = currentService.title;
+        document.getElementById('service-subtitle').textContent = currentService.subtitle;
+        document.getElementById('service-breadcrumb').textContent = currentService.title;
+        document.getElementById('service-overview').textContent = currentService.overview;
+        document.getElementById('service-eligibility').textContent = currentService.eligibility;
+
+        // Set sidebar select box
+        const selectBox = document.getElementById('sidebar-service-select');
+        if (selectBox) {
+            selectBox.value = serviceKey;
+        }
+
+        // Render Benefits
+        const benefitsContainer = document.getElementById('service-benefits');
+        benefitsContainer.innerHTML = '';
+        currentService.benefits.forEach((b, idx) => {
+            const icons = ['bi-heart-fill', 'bi-rocket-takeoff-fill', 'bi-shield-check', 'bi-sliders'];
+            const icon = icons[idx % icons.length];
+            benefitsContainer.innerHTML += `
+                <div class="col-md-6">
+                    <div class="p-3 bg-body-tertiary rounded border h-100">
+                        <h6 class="fw-bold mb-2"><i class="bi ${icon} text-primary me-2"></i>${b.title}</h6>
+                        <p class="small text-muted mb-0">${b.desc}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Render Fabrication Steps
+        const stepsContainer = document.getElementById('service-steps');
+        stepsContainer.innerHTML = '';
+        currentService.steps.forEach((s, idx) => {
+            stepsContainer.innerHTML += `
+                <div class="col-sm-6 col-md-3">
+                    <div class="p-3 bg-body rounded border h-100 text-center">
+                        <div class="rounded-circle bg-primary text-white mx-auto d-flex align-items-center justify-content-center fw-bold mb-3" style="width: 40px; height: 40px;">
+                            ${idx + 1}
+                        </div>
+                        <h6 class="fw-bold mb-2">${s.title}</h6>
+                        <p class="small text-muted mb-0">${s.desc}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Render FAQs
+        const faqContainer = document.getElementById('faqAccordion');
+        faqContainer.innerHTML = '';
+        currentService.faqs.forEach((faq, idx) => {
+            const isFirst = idx === 0;
+            faqContainer.innerHTML += `
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button ${isFirst ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${idx}" aria-expanded="${isFirst}" aria-controls="collapse-${idx}">
+                            ${faq.q}
+                        </button>
+                    </h2>
+                    <div id="collapse-${idx}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted small">
+                            ${faq.a}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

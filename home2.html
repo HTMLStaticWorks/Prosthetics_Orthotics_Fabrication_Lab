@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioAlign Lab | Advanced Orthotic & Lab Technology</title>
+  <meta name="description" content="State of the art CAD/CAM orthotic and prosthetic design. Browse our orthotic care, clinical analytics dashboard, and patient outcomes reports.">
+  
+  <!-- Tailwind CSS 3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#5B3FD3',
+              lavender: '#E6E6FA',
+              blue: '#60A5FA',
+              pink: '#FBCFE8',
+              charcoal: '#1A1A1A',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 min-h-screen pt-20 flex flex-col transition-colors duration-300">
+
+  <!-- IDENTICAL NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-gray-200/50 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-1.5 lg:gap-2 xl:gap-3 group shrink-0">
+          <div class="w-8 h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-indigo-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+            <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+          <span class="text-lg lg:text-base xl:text-xl font-bold font-display tracking-tight text-gray-800 dark:text-gray-100 whitespace-nowrap">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-0.5 xl:gap-2 text-xs xl:text-sm shrink-0">
+          <a href="index.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Home 1</a>
+          <a href="home2.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Home 2</a>
+          <a href="about.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">About</a>
+          <a href="services.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Services</a>
+          <a href="cases.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Case Studies</a>
+          <a href="blog.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Blog</a>
+          <a href="contact.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Contact</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs xl:text-sm shrink-0">
+          <a href="login.html" class="px-2 xl:px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Login</a>
+          <a href="signup.html" class="px-2.5 lg:py-2 xl:px-4 xl:py-2.5 bg-brand-purple hover:bg-indigo-700 text-white font-medium rounded-xl transition-all shadow-sm shadow-brand-purple/20 hover:shadow-lg hover:shadow-brand-purple/30 whitespace-nowrap">Sign Up</a>
+          
+          <span class="w-[1px] h-6 bg-gray-255 dark:bg-zinc-800 shrink-0"></span>
+
+          <!-- Theme Toggle -->
+          <button class="theme-toggle p-1.5 xl:p-2 text-gray-500 dark:text-gray-400 hover:text-brand-purple dark:hover:text-brand-pink hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Toggle dark mode">
+            <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+          </button>
+
+          <!-- RTL Toggle -->
+          <button class="rtl-toggle px-1.5 lg:py-0.5 xl:px-2 xl:py-1 text-xs border border-gray-300 dark:border-zinc-700 text-gray-500 dark:text-gray-400 hover:text-brand-purple dark:hover:text-brand-pink hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-lg transition-all font-semibold" aria-label="Toggle language direction">
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+        </div>
+
+        <!-- Mobile Controls & Burger -->
+        <div class="flex lg:hidden items-center gap-2 shrink-0">
+          <button class="theme-toggle p-2 text-gray-500 dark:text-gray-400 hover:text-brand-purple hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Toggle dark mode">
+            <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+          </button>
+
+          <button class="rtl-toggle px-2 py-1 text-xs border border-gray-300 dark:border-zinc-700 text-gray-500 dark:text-gray-400 hover:text-brand-purple hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-lg transition-all font-semibold" aria-label="Toggle language direction">
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+
+          <button id="mobile-menu-burger" class="p-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Open mobile menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-white dark:bg-zinc-950 z-50 shadow-2xl transition-transform duration-300 translate-x-full overflow-y-auto">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-xl font-bold font-display tracking-tight text-gray-800 dark:text-gray-100">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+        <button id="mobile-menu-close" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Close mobile menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mb-8">
+        <a href="index.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Home 1</a>
+        <a href="home2.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Home 2</a>
+        <a href="about.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">About</a>
+        <a href="services.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Services</a>
+        <a href="cases.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Case Studies</a>
+        <a href="blog.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Blog</a>
+        <a href="contact.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Contact</a>
+      </nav>
+
+      <div class="flex flex-col gap-3">
+        <a href="login.html" class="w-full py-3 text-center text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl font-medium transition-colors">Login</a>
+        <a href="signup.html" class="w-full py-3 text-center text-sm bg-brand-purple hover:bg-indigo-700 text-white rounded-xl font-medium transition-all shadow-sm shadow-brand-purple/20">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    <!-- SECTION 1: ALTERNATIVE HERO SECTION -->
+    <section class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-indigo-50/50 via-slate-50 to-white dark:from-zinc-900/40 dark:via-zinc-950 dark:to-zinc-950">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(91,63,211,0.08),transparent_50%)]"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Reversed grid compared to index.html -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left side image -->
+          <div class="lg:col-span-5 relative order-last lg:order-first reveal-scale-in">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="absolute -inset-4 bg-gradient-to-tr from-brand-purple to-indigo-400 rounded-3xl opacity-20 blur-2xl dark:opacity-30"></div>
+              
+              <div class="relative bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl shadow-2xl p-4 overflow-hidden">
+                <img src="assets/images/hero2.png" alt="Carbon fiber ankle foot orthosis brace clinical design" class="w-full rounded-2xl object-cover aspect-[4/3] sm:aspect-square hover:scale-[1.02] transition-transform duration-500">
+              </div>
+
+              <!-- Floating stats card -->
+              <div class="absolute -top-6 -right-6 bg-white/70 dark:bg-zinc-900/80 backdrop-blur-md border border-white/50 dark:border-white/10 p-4 rounded-2xl shadow-xl max-w-[180px] hidden sm:block">
+                <p class="text-2xl font-extrabold text-brand-purple dark:text-brand-pink font-display">99.2%</p>
+                <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1">Intake alignment correctness score</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right side text -->
+          <div class="lg:col-span-7 space-y-8 text-left reveal-hidden">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-150/40 dark:border-indigo-800/30 text-brand-purple dark:text-brand-pink text-xs font-semibold uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-brand-purple dark:bg-brand-pink animate-pulse"></span>
+              Digital Biomaterial Laboratory
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display leading-tight tracking-tight text-slate-900 dark:text-white">
+              Next-Gen <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-purple via-indigo-500 to-pink-500">Orthotic Bracing</span> & CAD/CAM Fabrication
+            </h1>
+            
+            <p class="text-base sm:text-lg text-slate-600 dark:text-zinc-400 max-w-xl leading-relaxed">
+              We leverage sub-millimeter 3D scanning, proprietary CAD modeling, and precision thermoplastic molding to create hyper-aligned spinal and extremity braces.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <a href="services.html" class="px-8 py-4 bg-brand-purple hover:bg-indigo-700 text-white font-semibold rounded-xl text-center shadow-lg shadow-brand-purple/25 hover:shadow-indigo-700/35 transform hover:-translate-y-0.5 transition-all duration-200">
+                Explore Technology
+              </a>
+              <a href="contact.html" class="px-8 py-4 border border-slate-350 dark:border-zinc-700 hover:border-brand-purple dark:hover:border-brand-pink text-slate-700 dark:text-zinc-300 hover:text-brand-purple dark:hover:text-brand-pink font-semibold rounded-xl text-center hover:bg-indigo-50/20 dark:hover:bg-zinc-900/30 transform hover:-translate-y-0.5 transition-all duration-200">
+                Schedule Scan
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ADVANCED LAB TECHNOLOGY -->
+    <section class="py-24 bg-white dark:bg-zinc-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal-hidden">
+          <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/45 text-brand-purple dark:text-brand-pink font-semibold rounded-lg text-xs uppercase tracking-wider">Advanced Tech Suite</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white mt-3 mb-4">
+            Digital Fabrication Infrastructure
+          </h2>
+          <p class="text-slate-600 dark:text-zinc-400">
+            Fusing computer aided engineering with high-grade carbon and polymers to create active-living orthoses.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- CAD/CAM Design -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6 reveal-hidden">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">CAD/CAM Alignment</h3>
+            <p class="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+              We manipulate structure files digitally to optimize offloading areas, ensuring standard physical pressure is distributed safely.
+            </p>
+          </div>
+
+          <!-- 3D Scanning -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6 reveal-hidden" style="transition-delay: 100ms;">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Sub-Millimeter 3D Scanning</h3>
+            <p class="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+              Eliminating messy plaster molds. Optical scanning captures patient limb geometries in seconds with micron-level precision.
+            </p>
+          </div>
+
+          <!-- Precision Manufacturing -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6 reveal-hidden" style="transition-delay: 200ms;">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Additive Fabrication</h3>
+            <p class="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+              Utilizing multiaxial printing and custom composite laminations to achieve variable rigidity profiles tailored to rehabilitation goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CLINICAL ANALYTICS DASHBOARD PREVIEW -->
+    <section class="py-24 bg-slate-50 dark:bg-zinc-900 border-y border-slate-200/50 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left side content -->
+          <div class="lg:col-span-6 space-y-6 text-left reveal-hidden">
+            <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/45 text-brand-purple dark:text-brand-pink font-semibold rounded-lg text-xs uppercase tracking-wider">Clinician Portal</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white">
+              Dynamic Clinical Analytics Preview
+            </h2>
+            <p class="text-slate-650 dark:text-zinc-400 leading-relaxed text-sm sm:text-base">
+              Physicians can securely monitor device fabrication progress, check biomechanical alignment simulations, and download pre/post range-of-motion reports in one secure platform.
+            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <span class="p-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-md mt-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Interactive Progress Mapping</h4>
+                  <p class="text-xs text-slate-500 dark:text-zinc-400">Trace your patient's orthosis from printing to clinical delivery.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="p-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-md mt-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Range-Of-Motion Biomechanics</h4>
+                  <p class="text-xs text-slate-500 dark:text-zinc-400">View real-time sagittal plane gait analysis comparisons.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <a href="login.html" class="inline-flex items-center gap-2 text-sm text-brand-purple dark:text-brand-pink font-semibold hover:gap-3 transition-all">
+                Access Clinician Portal
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right side image showing the generated dashboard preview -->
+          <div class="lg:col-span-6 reveal-scale-in">
+            <div class="relative bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-2xl shadow-xl p-3 overflow-hidden">
+              <img src="assets/images/dashboard.png" alt="Clinical mobility analytics SaaS dashboard showing limb structural design graphs" class="w-full rounded-xl object-cover shadow-sm">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ORTHOTIC CARE PROGRAMS -->
+    <section class="py-24 bg-white dark:bg-zinc-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal-hidden">
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white mb-4">
+            Specialized Orthotic Care Programs
+          </h2>
+          <p class="text-slate-600 dark:text-zinc-400">
+            Precision support bracing customized to facilitate neural retraining, post-surgical recovery, and orthopedic corrections.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between h-full reveal-hidden">
+            <div class="space-y-4">
+              <span class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center font-bold text-sm">SP</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white">Spinal Orthoses</h3>
+              <p class="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
+                Custom scoliosis braces (Boston & Providence styles) and trauma stabilization systems built with digital scanning precision.
+              </p>
+            </div>
+            <a href="services.html" class="text-xs font-semibold text-brand-purple dark:text-brand-pink mt-6 inline-block hover:underline">Learn more &rarr;</a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between h-full reveal-hidden" style="transition-delay: 100ms;">
+            <div class="space-y-4">
+              <span class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center font-bold text-sm">LE</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white">Lower Extremity Braces</h3>
+              <p class="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
+                Ankle-Foot Orthoses (AFOs), Knee-Ankle-Foot Orthoses (KAFOs), and ground-reaction systems tailored for stability and foot drop.
+              </p>
+            </div>
+            <a href="services.html" class="text-xs font-semibold text-brand-purple dark:text-brand-pink mt-6 inline-block hover:underline">Learn more &rarr;</a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between h-full reveal-hidden" style="transition-delay: 200ms;">
+            <div class="space-y-4">
+              <span class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center font-bold text-sm">UE</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white">Upper Extremity Support</h3>
+              <p class="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
+                Functional hand, wrist, and elbow splints designed to support neuromuscular retraining and restrict dynamic post-op movement.
+              </p>
+            </div>
+            <a href="services.html" class="text-xs font-semibold text-brand-purple dark:text-brand-pink mt-6 inline-block hover:underline">Learn more &rarr;</a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card rounded-2xl p-6 flex flex-col justify-between h-full reveal-hidden" style="transition-delay: 300ms;">
+            <div class="space-y-4">
+              <span class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-brand-purple dark:text-brand-pink flex items-center justify-center font-bold text-sm">PD</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white">Pediatric Correction</h3>
+              <p class="text-xs text-slate-650 dark:text-zinc-400 leading-relaxed">
+                Cranial remolding helmets and growth-adaptable clubfoot braces engineered with hyper-soft hypoallergenic interior linings.
+              </p>
+            </div>
+            <a href="services.html" class="text-xs font-semibold text-brand-purple dark:text-brand-pink mt-6 inline-block hover:underline">Learn more &rarr;</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: OUTCOME REPORTS -->
+    <section class="py-24 bg-slate-50 dark:bg-zinc-900 border-t border-slate-200/50 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Heatmap/Metrics Visual Graphic -->
+          <div class="lg:col-span-5 relative order-last lg:order-first reveal-scale-in">
+            <div class="bg-white dark:bg-zinc-950 border border-slate-250 dark:border-zinc-800 rounded-2xl p-6 space-y-6 shadow-xl">
+              <div class="flex items-center justify-between border-b border-slate-100 dark:border-zinc-850 pb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Plantargrade Foot Pressure Heatmap</h4>
+                  <p class="text-xs text-slate-500">Biomechanical Gait Analysis</p>
+                </div>
+                <span class="px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-lg">Aligned</span>
+              </div>
+              
+              <!-- Simulated Heatmap Layout -->
+              <div class="h-44 rounded-xl bg-gradient-to-br from-indigo-500 via-emerald-400 to-yellow-300 dark:from-indigo-900 dark:via-emerald-700 dark:to-yellow-500 flex items-center justify-center text-white text-xs font-semibold font-display shadow-inner relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/10"></div>
+                <span class="relative z-10 px-4 py-2 bg-slate-900/60 backdrop-blur-md rounded-lg">Offloading Peak Pressure: 4.2 N/cm²</span>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                <div class="p-2.5 bg-slate-50 dark:bg-zinc-900 rounded-lg">
+                  <p class="text-slate-450 dark:text-zinc-500">Stride Symmetry</p>
+                  <p class="font-bold text-slate-800 dark:text-zinc-200 mt-1">98.4%</p>
+                </div>
+                <div class="p-2.5 bg-slate-50 dark:bg-zinc-900 rounded-lg">
+                  <p class="text-slate-450 dark:text-zinc-500">Ankle Swing</p>
+                  <p class="font-bold text-slate-800 dark:text-zinc-200 mt-1">+14.2°</p>
+                </div>
+                <div class="p-2.5 bg-slate-50 dark:bg-zinc-900 rounded-lg">
+                  <p class="text-slate-450 dark:text-zinc-500">Load Balance</p>
+                  <p class="font-bold text-slate-800 dark:text-zinc-200 mt-1">50/50</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side text -->
+          <div class="lg:col-span-7 space-y-6 text-left reveal-hidden">
+            <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/45 text-brand-purple dark:text-brand-pink font-semibold rounded-lg text-xs uppercase tracking-wider">Clinical Evidence</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white">
+              Data-Backed Patient Outcome Reports
+            </h2>
+            <p class="text-slate-650 dark:text-zinc-400 leading-relaxed text-sm sm:text-base">
+              Every custom device undergoes dynamic pressure mapping. We measure patient stance symmetry, stride duration, and force distributions to prove alignment correction.
+            </p>
+            <p class="text-slate-650 dark:text-zinc-400 text-sm leading-relaxed">
+              These visual analytics dashboards help physicians track physical rehabilitation progress, providing concrete mobility benchmarks to insurance providers for prompt claims coverage.
+            </p>
+            
+            <div class="pt-4 flex items-center gap-4">
+              <a href="cases.html" class="px-6 py-3 bg-brand-purple hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-md shadow-brand-purple/15">
+                Browse Case Analytics
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: REFERRAL & CONSULTATION CTA -->
+    <section class="py-24 bg-white dark:bg-zinc-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-gradient-to-tr from-brand-purple to-indigo-800 text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl reveal-hidden">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.12),transparent_40%)]"></div>
+          
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-left">
+            <div class="space-y-4 max-w-2xl">
+              <h2 class="text-3xl sm:text-4xl font-extrabold font-display leading-tight">
+                Partner with BioAlign Lab to Restore Patient Mobility
+              </h2>
+              <p class="text-indigo-100 text-sm sm:text-base leading-relaxed">
+                Whether you are an orthopedic physician referring a patient or an individual seeking a custom fit consultation, our clinical engineering team is ready to assist.
+              </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 w-full lg:w-auto">
+              <a href="contact.html" class="px-8 py-4 bg-white text-brand-purple hover:bg-indigo-50 font-bold rounded-xl text-center shadow-lg transition-colors">
+                Book Consultation
+              </a>
+              <a href="contact.html#referral" class="px-8 py-4 bg-indigo-900/50 hover:bg-indigo-900/70 border border-white/30 text-white font-bold rounded-xl text-center transition-colors">
+                Refer a Patient
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- IDENTICAL FOOTER -->
+  <footer class="bg-zinc-900 text-gray-400 border-t border-zinc-800 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="flex flex-col gap-6">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-indigo-400 flex items-center justify-center text-white shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold font-display tracking-tight text-white">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Pioneering clinical mobility solutions. Specializing in advanced CAD/CAM fabrication, custom prosthetics, orthotic braces, and compassionate patient rehabilitation.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+          </a>
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="Twitter/X">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Clinical Solutions</h3>
+        <ul class="flex flex-col gap-3 text-sm">
+          <li><a href="services.html" class="hover:text-white transition-colors">Custom Prosthetic Limbs</a></li>
+          <li><a href="services.html" class="hover:text-white transition-colors">Orthotic Bracing Programs</a></li>
+          <li><a href="services.html" class="hover:text-white transition-colors">Pediatric Care Devices</a></li>
+          <li><a href="services.html" class="hover:text-white transition-colors">Rehabilitation Support</a></li>
+          <li><a href="home2.html" class="hover:text-white transition-colors">3D Scanning & Design</a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Resources & Portal</h3>
+        <ul class="flex flex-col gap-3 text-sm">
+          <li><a href="contact.html#referral" class="hover:text-white transition-colors">Physician Referral Pack</a></li>
+          <li><a href="blog.html" class="hover:text-white transition-colors">Clinical Case Studies</a></li>
+          <li><a href="cases.html" class="hover:text-white transition-colors">Patient Stories & Analytics</a></li>
+          <li><a href="contact.html#faq" class="hover:text-white transition-colors">Frequently Asked Questions</a></li>
+          <li><a href="login.html" class="hover:text-white transition-colors">Patient/Physician Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Get In Touch</h3>
+        <ul class="flex flex-col gap-4 text-sm">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-purple mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span>100 MedTech Boulevard, Suite 300, Innovation District, CA 90210</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-brand-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+18005553247" class="hover:text-white transition-colors">+1 (800) 555-BIOL</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-brand-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:clinical@bioalignlab.com" class="hover:text-white transition-colors">clinical@bioalignlab.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-zinc-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <p>&copy; 2026 BioAlign Lab. All rights reserved. ABC Certified Facility.</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-white transition-colors">Physician Portal Agreement</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

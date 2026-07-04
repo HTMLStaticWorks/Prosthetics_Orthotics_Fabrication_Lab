@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioAlign Lab | Create Account</title>
+  <meta name="description" content="Register an account with BioAlign Lab to track custom orthotic brace fabrication, upload 3D scans, or verify surgeon referrals.">
+  
+  <!-- Tailwind CSS 3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#5B3FD3',
+              lavender: '#E6E6FA',
+              blue: '#60A5FA',
+              pink: '#FBCFE8',
+              charcoal: '#1A1A1A',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 min-h-screen pt-20 flex flex-col transition-colors duration-300">
+
+  <!-- IDENTICAL NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-gray-200/50 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-1.5 lg:gap-2 xl:gap-3 group shrink-0">
+          <div class="w-8 h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-indigo-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+            <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+          <span class="text-lg lg:text-base xl:text-xl font-bold font-display tracking-tight text-gray-800 dark:text-gray-100 whitespace-nowrap">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-0.5 xl:gap-2 text-xs xl:text-sm shrink-0">
+          <a href="index.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Home 1</a>
+          <a href="home2.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Home 2</a>
+          <a href="about.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">About</a>
+          <a href="services.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Services</a>
+          <a href="cases.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Case Studies</a>
+          <a href="blog.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Blog</a>
+          <a href="contact.html" class="nav-link px-1.5 xl:px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Contact</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 text-xs xl:text-sm shrink-0">
+          <a href="login.html" class="px-2 xl:px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-purple dark:hover:text-brand-pink transition-colors font-medium whitespace-nowrap">Login</a>
+          <a href="signup.html" class="px-2.5 lg:py-2 xl:px-4 xl:py-2.5 bg-brand-purple hover:bg-indigo-700 text-white font-medium rounded-xl transition-all shadow-sm shadow-brand-purple/20 hover:shadow-lg hover:shadow-brand-purple/30 whitespace-nowrap">Sign Up</a>
+          
+          <span class="w-[1px] h-6 bg-gray-250 dark:bg-zinc-800 shrink-0"></span>
+
+          <!-- Theme Toggle -->
+          <button class="theme-toggle p-1.5 xl:p-2 text-gray-500 dark:text-gray-400 hover:text-brand-purple dark:hover:text-brand-pink hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Toggle dark mode">
+            <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+          </button>
+
+          <!-- RTL Toggle -->
+          <button class="rtl-toggle px-1.5 lg:py-0.5 xl:px-2 xl:py-1 text-xs border border-gray-300 dark:border-zinc-700 text-gray-500 dark:text-gray-400 hover:text-brand-purple dark:hover:text-brand-pink hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-lg transition-all font-semibold" aria-label="Toggle language direction">
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+        </div>
+
+        <!-- Mobile Controls & Burger -->
+        <div class="flex lg:hidden items-center gap-2 shrink-0">
+          <button class="theme-toggle p-2 text-gray-500 dark:text-gray-400 hover:text-brand-purple hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Toggle dark mode">
+            <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+          </button>
+
+          <button class="rtl-toggle px-2 py-1 text-xs border border-gray-300 dark:border-zinc-700 text-gray-500 dark:text-gray-400 hover:text-brand-purple hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-lg transition-all font-semibold" aria-label="Toggle language direction">
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+
+          <button id="mobile-menu-burger" class="p-2 text-gray-600 dark:text-gray-300 hover:text-brand-purple hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Open mobile menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-white dark:bg-zinc-950 z-50 shadow-2xl transition-transform duration-300 translate-x-full overflow-y-auto">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-xl font-bold font-display tracking-tight text-gray-850 dark:text-gray-100">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+        <button id="mobile-menu-close" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-xl transition-all" aria-label="Close mobile menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mb-8">
+        <a href="index.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Home 1</a>
+        <a href="home2.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Home 2</a>
+        <a href="about.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">About</a>
+        <a href="services.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Services</a>
+        <a href="cases.html" class="nav-link py-2.5 text-base text-gray-650 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Case Studies</a>
+        <a href="blog.html" class="nav-link py-2.5 text-base text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Blog</a>
+        <a href="contact.html" class="nav-link py-2.5 text-base text-gray-655 dark:text-gray-300 border-b border-gray-100 dark:border-zinc-800 hover:text-brand-purple transition-colors font-medium">Contact</a>
+      </nav>
+
+      <div class="flex flex-col gap-3">
+        <a href="login.html" class="w-full py-3 text-center text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl font-medium transition-colors">Login</a>
+        <a href="signup.html" class="w-full py-3 text-center text-sm bg-brand-purple hover:bg-indigo-700 text-white rounded-xl font-medium transition-all shadow-sm shadow-brand-purple/20">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    <!-- HERO SECTION (Full-width hero background image, center aligned, breadcrumbs) -->
+    <section class="relative py-28 lg:py-36 bg-zinc-900 text-white overflow-hidden text-center">
+      <!-- Image Background with Dark Overlay -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-zinc-950/80 dark:bg-zinc-950/85 z-10"></div>
+        <img src="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=1600" alt="Clinical microscope research analysis represent registration portal background" class="w-full h-full object-cover">
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-6 reveal-hidden">
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex justify-center text-xs font-semibold uppercase tracking-wider text-brand-pink/80 mb-2">
+          <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+              <a href="index.html" class="hover:text-white transition-colors">Home</a>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <span class="mx-2 text-zinc-555">/</span>
+                <span class="text-white">Sign Up</span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+
+        <h1 class="text-4xl sm:text-5xl font-extrabold font-display leading-tight tracking-tight">
+          Create Portal Account
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-300 max-w-xl mx-auto leading-relaxed">
+          Sign up to track physical device design, check clinical authorizations, or access intake download sheets.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: REGISTRATION FORM CARD -->
+    <section class="py-24 bg-white dark:bg-zinc-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left: Signup form -->
+          <div class="lg:col-span-5 reveal-scale-in">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl text-left border border-slate-200 dark:border-zinc-800">
+              <a href="index.html" class="inline-flex items-center gap-3 mb-6">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-purple to-indigo-400 flex items-center justify-center text-white">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                  </svg>
+                </div>
+                <span class="text-lg font-bold font-display text-slate-900 dark:text-white">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+              </a>
+
+              <form class="validated-form space-y-4">
+                <div>
+                  <label for="reg-name" class="block text-xs font-bold text-slate-700 dark:text-zinc-400 uppercase tracking-wider mb-2">Full Name *</label>
+                  <input type="text" id="reg-name" required class="w-full px-4 py-3 bg-slate-50 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple dark:focus:ring-brand-pink text-slate-800 dark:text-white">
+                </div>
+
+                <div>
+                  <label for="email" class="block text-xs font-bold text-slate-700 dark:text-zinc-400 uppercase tracking-wider mb-2">Email Address *</label>
+                  <input type="email" id="email" required class="w-full px-4 py-3 bg-slate-50 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple dark:focus:ring-brand-pink text-slate-800 dark:text-white">
+                </div>
+
+                <div>
+                  <label for="reg-role" class="block text-xs font-bold text-slate-700 dark:text-zinc-400 uppercase tracking-wider mb-2">Register As *</label>
+                  <select id="reg-role" required class="w-full px-4 py-3 bg-slate-50 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple dark:focus:ring-brand-pink text-slate-800 dark:text-white">
+                    <option value="">Select Role</option>
+                    <option value="patient">Patient or Family Member</option>
+                    <option value="provider">Healthcare Provider</option>
+                    <option value="clinical">Clinical Partner</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="password" class="block text-xs font-bold text-slate-700 dark:text-zinc-400 uppercase tracking-wider mb-2">Password *</label>
+                  <div class="relative">
+                    <input type="password" id="password" required class="w-full px-4 py-3 bg-slate-50 dark:bg-zinc-900 border border-slate-300 dark:border-zinc-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple dark:focus:ring-brand-pink text-slate-800 dark:text-white">
+                    <button type="button" class="password-toggle-btn absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white" aria-label="Toggle password view">
+                      <svg class="w-5 h-5 eye-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                      <svg class="w-5 h-5 eye-off-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"></path></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <input type="checkbox" id="terms" required class="w-4 h-4 rounded border-slate-300 text-brand-purple focus:ring-brand-purple mt-0.5">
+                  <label for="terms" class="ml-2 text-[10px] text-slate-500 dark:text-zinc-400 cursor-pointer">I agree to the BioAlign HIPAA portal agreements and user terms.</label>
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-brand-purple hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-all shadow-md shadow-brand-purple/20">
+                  Register Secure Account
+                </button>
+
+                <div class="relative py-2 text-center">
+                  <span class="absolute inset-x-0 top-1/2 border-t border-slate-200 dark:border-zinc-800 -translate-y-1/2"></span>
+                  <span class="relative bg-white dark:bg-zinc-900 px-3 text-[10px] text-slate-400 uppercase tracking-widest">Or sign up with</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                  <!-- Google -->
+                  <a href="#" class="p-3 bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl flex items-center justify-center hover:bg-slate-100/50 dark:hover:bg-zinc-800/60 transition-colors" aria-label="Register with Google">
+                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12.24 10.285V13.4h6.887C18.2 15.614 15.645 18 12.24 18c-3.86 0-7-3.14-7-7s3.14-7 7-7c1.86 0 3.55.73 4.8 1.92l2.45-2.45C17.47 1.49 14.99 0 12.24 0 5.58 0 0 5.58 0 12.24s5.58 12.24 12.24 12.24c6.94 0 12.24-4.87 12.24-12.24 0-.83-.08-1.47-.24-1.955H12.24z"/></svg>
+                  </a>
+                  <!-- Facebook -->
+                  <a href="#" class="p-3 bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl flex items-center justify-center hover:bg-slate-100/50 dark:hover:bg-zinc-800/60 transition-colors" aria-label="Register with Facebook">
+                    <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                  </a>
+                  <!-- Apple -->
+                  <a href="#" class="p-3 bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl flex items-center justify-center hover:bg-slate-100/50 dark:hover:bg-zinc-800/60 transition-colors" aria-label="Register with Apple">
+                    <svg class="w-5 h-5 text-slate-800 dark:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.51-.64.73-1.2 1.87-1.05 2.98 1.11.09 2.25-.57 3-1.43z"/></svg>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right: Membership benefits & Patient Resources -->
+          <div class="lg:col-span-7 space-y-8 text-left reveal-hidden">
+            
+            <div class="space-y-4">
+              <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/45 text-brand-purple dark:text-brand-pink font-semibold rounded-lg text-xs uppercase tracking-wider">Join Us</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white leading-tight">
+                Membership Portal Benefits
+              </h2>
+              <p class="text-slate-655 dark:text-zinc-400 text-sm leading-relaxed">
+                By registering, patients and clinical partners gain immediate access to our high-trust workspace dashboard layout.
+              </p>
+            </div>
+
+            <!-- Portal Checklists -->
+            <div class="p-6 bg-slate-50/50 dark:bg-zinc-900/40 border border-slate-200/50 dark:border-white/5 rounded-2xl space-y-4">
+              <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="w-1.5 h-5 bg-brand-purple rounded-full"></span>
+                Membership Checklist
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-zinc-400">
+                <div class="flex items-center gap-2">&bull; Sub-10 day manufacturing alerts</div>
+                <div class="flex items-center gap-2">&bull; Prior authorization template generator</div>
+                <div class="flex items-center gap-2">&bull; Gait velocity heatmap export portals</div>
+                <div class="flex items-center gap-2">&bull; HIPAA compliant clinical chat rooms</div>
+              </div>
+            </div>
+
+            <!-- Patient Resources -->
+            <div class="p-6 bg-slate-50/50 dark:bg-zinc-900/40 border border-slate-200/50 dark:border-white/5 rounded-2xl space-y-4">
+              <h3 class="text-lg font-bold font-display text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="w-1.5 h-5 bg-indigo-400 rounded-full"></span>
+                Immediate Patient Resources
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-zinc-400 font-semibold text-brand-purple dark:text-brand-pink">
+                <a href="blog.html" class="hover:underline">&bull; Pre-Fitting Rehab Guide (PDF)</a>
+                <a href="blog.html" class="hover:underline">&bull; Carbon-Fiber Shell Care (PDF)</a>
+                <a href="cases.html" class="hover:underline">&bull; Gait Symmetry Walkthrough (Video)</a>
+                <a href="contact.html#referral" class="hover:underline">&bull; Intake Insurance Guidelines</a>
+              </div>
+            </div>
+
+            <!-- Support Information -->
+            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-zinc-455">
+              <svg class="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <span>Having registration errors? Reach clinical portal support at support@bioalignlab.com.</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- IDENTICAL FOOTER -->
+  <footer class="bg-zinc-900 text-gray-400 border-t border-zinc-800 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="flex flex-col gap-6">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-indigo-400 flex items-center justify-center text-white shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold font-display tracking-tight text-white">BioAlign<span class="text-brand-purple dark:text-brand-pink font-light">Lab</span></span>
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Pioneering clinical mobility solutions. Specializing in advanced CAD/CAM fabrication, custom prosthetics, orthotic braces, and compassionate patient rehabilitation.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+          </a>
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="Twitter/X">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="p-2.5 bg-zinc-800 hover:bg-brand-purple hover:text-white rounded-xl transition-all" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Clinical Solutions</h3>
+        <ul class="flex flex-col gap-3 text-sm">
+          <li><a href="services.html" class="hover:text-white transition-colors">Custom Prosthetic Limbs</a></li>
+          <li><a href="services.html" class="hover:text-white transition-colors">Orthotic Bracing Programs</a></li>
+          <li><a href="services.html" class="hover:text-white transition-colors">Pediatric Care Devices</a></li>
+          <li><a href="services.html" class="hover:text-white transition-colors">Rehabilitation Support</a></li>
+          <li><a href="home2.html" class="hover:text-white transition-colors">3D Scanning & Design</a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Resources & Portal</h3>
+        <ul class="flex flex-col gap-3 text-sm">
+          <li><a href="contact.html#referral" class="hover:text-white transition-colors">Physician Referral Pack</a></li>
+          <li><a href="blog.html" class="hover:text-white transition-colors">Clinical Case Studies</a></li>
+          <li><a href="cases.html" class="hover:text-white transition-colors">Patient Stories & Analytics</a></li>
+          <li><a href="contact.html#faq" class="hover:text-white transition-colors">Frequently Asked Questions</a></li>
+          <li><a href="login.html" class="hover:text-white transition-colors">Patient/Physician Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Get In Touch</h3>
+        <ul class="flex flex-col gap-4 text-sm">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-purple mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span>100 MedTech Boulevard, Suite 300, Innovation District, CA 90210</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-brand-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+18005553247" class="hover:text-white transition-colors">+1 (800) 555-BIOL</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-brand-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:clinical@bioalignlab.com" class="hover:text-white transition-colors">clinical@bioalignlab.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-zinc-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <p>&copy; 2026 BioAlign Lab. All rights reserved. ABC Certified Facility.</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-white transition-colors">Physician Portal Agreement</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
